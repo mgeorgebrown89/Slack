@@ -16,7 +16,7 @@ function Send-SlackMessage {
         [switch]
         $as_user,
 
-        [pscustomobjectp[]]
+        [pscustomobject[]]
         $attachments,
 
         [pscustomobject[]]
@@ -43,7 +43,7 @@ function Send-SlackMessage {
         [string]
         $thread_ts,
 
-        [swtich]
+        [switch]
         $unfurl_links,
 
         [bool]
@@ -53,5 +53,14 @@ function Send-SlackMessage {
         $username
     )
 
-    Invoke-RestMethod -Method Post -Uri 
+    $Headers = @{
+        Authorization = "Bearer $token"
+    }
+
+    $Body = @{
+        channel = $channel
+        blocks = $blocks
+    }
+
+    Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType "application/json" -Body ($Body | ConvertTo-Json -Depth 100)
 }
