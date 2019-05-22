@@ -1,4 +1,4 @@
-function 0Get-SlackStaticSelectMenuElement {
+function New-SlackStaticSelectMenuElement {
     param(
         [Parameter(Mandatory)]
         [ValidateLength(1,150)]

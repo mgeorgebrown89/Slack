@@ -1,4 +1,4 @@
-function Get-SlackOverflowMenuElement {
+function New-SlackOverflowMenuElement {
     param(
         [Parameter(Mandatory)]
         [ValidateLength(1,255)]

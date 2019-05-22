@@ -1,27 +1,24 @@
-function Get-SlackExternalSelectMenuElement {
+function New-SlackUserSelectMenuElement {
     param(
         [Parameter(Mandatory)]
         [ValidateLength(1,150)]
         [string]
         $placeholder,
-
+    
         [Parameter(Mandatory)]
         [ValidateLength(1,255)]
         [string]
         $action_id,
 
-        [pscustomobject]
-        $initial_option,
-
-        [Int]
-        $min_query_length,
+        [string]
+        $initial_user,
 
         [pscustomobject]
         $confirm
     )
 
-    $SlackExternalSelect = [pscustomobject]@{
-        type = "external_select"
+    $SlackUserSelect = [pscustomobject]@{
+        type = "users_select"
         action_id = $action_id
         placeholder = @{
             type = "plain_text"
@@ -29,5 +26,12 @@ function Get-SlackExternalSelectMenuElement {
         }
     }
 
-    return $SlackExternalSelect
+    if($initial_user){
+        $SlackUserSelect.initial_user = $initial_user
+    }
+    if($confirm){
+        $SlackUserSelect.confirm = $confirm
+    }
+
+    return $SlackUserSelect
 }

@@ -1,4 +1,4 @@
-function Get-SlackDatePickerElement {
+function New-SlackDatePickerElement {
     param(
         [Parameter(Mandatory)]
         [ValidateLength(1,255)]

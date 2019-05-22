@@ -14,11 +14,11 @@ Describe "$module Module Tests" {
             "$here\$module.psd1" | Should -FileContentMatch "$module.psm1"
         }
    
-        It "$module folder has functions" {
+        It "folder has functions" {
             "$here\*\*.ps1" | Should Exist
         }
    
-        It "$module is valid PowerShell code" {
+        It "is valid PowerShell code" {
             $psFile = Get-Content -Path "$here\$module.psm1" -ErrorAction Stop
             $errors = $null
             $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
@@ -34,44 +34,57 @@ Describe "$module Module Tests" {
     foreach ($function in $functions) {
         $functionName = $function.Name -replace ".ps1", ""
         $directory = $function.DirectoryName
-        Context "Test Function $functionName" {
-            It "$functionName.ps1 should exist" {
+        Context "Function $functionName Setup" {
+            It "exists" {
                 "$directory\$functionName.ps1" | Should Exist
             }
-            It "$functionName.ps1 should have help block" {
+            It "has a help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '<#'
                 "$directory\$functionName.ps1" | Should -FileContentMatch '#>'
             }
-        
-            It "$functionName.ps1 should have a SYNOPSIS section in the help block" {
+            It "has a SYNOPSIS section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS'
             }
-            
-            It "$functionName.ps1 should have a DESCRIPTION section in the help block" {
+            It "should have a DESCRIPTION section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.DESCRIPTION'
             }
-        
-            It "$functionName.ps1 should have a EXAMPLE section in the help block" {
+            It "has an EXAMPLE section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.EXAMPLE'
             }
-            
-            It "$functionName.ps1 should be an advanced function" {
+
+            $psFile = Get-Content -Path "$directory\$functionName.ps1" -ErrorAction Stop
+            $parsedPsfile = [System.Management.Automation.PSParser]::Tokenize($psfile,[ref]$null)
+            $func = $parsedPsfile | Where-Object Type -eq keyword | Where-Object Content -eq "function"
+            It "is an advanced function" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch 'function'
                 "$directory\$functionName.ps1" | Should -FileContentMatch 'cmdletbinding'
                 "$directory\$functionName.ps1" | Should -FileContentMatch 'param'
             }
-            
-            It "$functionName.ps1 is valid PowerShell code" {
-                $psFile = Get-Content -Path "$directory\$functionName.ps1" -ErrorAction Stop
+            It "has only one function in script file" {
+                $func | Should -HaveCount 1
+            }
+            It "has matching file and function names" {
+                (($parsedPsfile | Where-Object Start -gt $func.Start)[0]).Content | Should -Match $functionName
+            }
+            It "is valid PowerShell code" {
                 $errors = $null
                 $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
                 $errors.Count | Should Be 0
             }
         }
-        Context "$functionName has tests" {
+        Context "Function $functionName Tests" {
             It "$functionName.Tests.ps1 should exist" {
                 ".\$functionName.Tests.ps1" | Should Exist
             }
         }
     }
 }
+
+
+$file = Get-Content -Path 'C:\Users\mgb11\Repositories\PSlickPSlack\Public\BlockElements\New-SlackButtonElement.ps1'
+
+$x = [System.Management.Automation.PSParser]::Tokenize($file,[ref]$null)
+$f = $x | Where-Object Type -eq keyword | Where-Object Content -eq "function"
+
+$functionName = (($x |Where-Object Start -GT $f.Start)[0]).Content
+$functionName

@@ -1,4 +1,4 @@
-function Get-SlackImageElement {
+function New-SlackImageElement {
     param(
         [string]
         $image_url,
