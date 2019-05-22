@@ -7,7 +7,7 @@ Get-Module PSlickPSlack | Remove-Module -Force
 # Import the module from the local path, not from the users Documents folder
 Import-Module ..\PSlickPSlack.psm1 -Force 
 
-Describe "Get-SlackSectionBlock Unit Tests" -Tags "Unit" {
+Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
     $text = "Lorum au latin words and stuff."
     Context "Text Only Slack Section Block" {
         $block = Get-SlackSectionBlock -text $text
@@ -26,6 +26,9 @@ Describe "Get-SlackSectionBlock Unit Tests" -Tags "Unit" {
             It "has a $property property" {
                 [bool]($block.PSObject.Properties.Name -match $property) | Should Be $true
             }
+        }
+        It "is valid JSON" {
+            $block | ConvertTo-Json -Depth 100
         }
     }
     Context "Text with block_id Slack Section Block" {
@@ -49,6 +52,9 @@ Describe "Get-SlackSectionBlock Unit Tests" -Tags "Unit" {
             It "has a $property property" {
                 [bool]($block.PSObject.Properties.Name -match $property) | Should Be $true
             }
+        }
+        It "is valid JSON" {
+            $block | ConvertTo-Json -Depth 100
         }
     }
     Context "Text with Fields Slack Section Block" {
@@ -76,6 +82,9 @@ Describe "Get-SlackSectionBlock Unit Tests" -Tags "Unit" {
         }
         It "has field count 2" {
             $block.fields | Should -HaveCount $fields.Length
+        }
+        It "is valid JSON" {
+            $block | ConvertTo-Json -Depth 100
         }
     }
     Context "Text with accessory Slack Section Block" {
