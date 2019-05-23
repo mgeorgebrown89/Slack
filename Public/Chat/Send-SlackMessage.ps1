@@ -106,16 +106,3 @@ function Send-SlackMessage {
 
     Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
 }
-
-
-$Blocks = @()
-$b = Get-SlackSectionBlock -text "hello world"
-$s = Get-SlackSectionBlock -text "hello slack"
-$d = Get-SlackDividerBlock
-$Blocks += $b
-$Blocks += $d
-$Blocks += $s
-
-$token = 'xoxb-2614483880-579598548533-kQQKlDwmabjZGnJgd8XPiCLp'
-
-Send-SlackMessage -token $token -channel "viewbot_diagnostics" -blocks $Blocks -icon_emoji ":robot_face:" -username "ViewBot"

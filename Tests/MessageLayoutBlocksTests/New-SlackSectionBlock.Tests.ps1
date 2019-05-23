@@ -5,7 +5,7 @@ $here
 Get-Module PSlickPSlack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-Import-Module ..\PSlickPSlack.psm1 -Force 
+Import-Module .\PSlickPSlack.psm1 -Force 
 
 Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
     $text = "Lorum au latin words and stuff."
@@ -14,7 +14,7 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
         $properties = ("type", "text")
 
         It "has a type of section" {
-            $block.type | Should Be "section"
+            $block.type | Should Be 'section'
         }
         It "has text `"$text`"" {
             $block.text.text | Should Be $text
