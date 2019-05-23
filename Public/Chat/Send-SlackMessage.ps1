@@ -9,7 +9,7 @@ function Send-SlackMessage {
         [string]
         $channel,
 
-        [ValidateLength(1,4000)]
+        [ValidateLength(1, 4000)]
         [string]
         $text,
 
@@ -22,6 +22,7 @@ function Send-SlackMessage {
         [pscustomobject[]]
         $blocks,
 
+        [ValidateScript( { $_.StartsWith(":") -and $_.EndsWith(":") })]
         [string]
         $icon_emoji,
 
@@ -57,10 +58,64 @@ function Send-SlackMessage {
         Authorization = "Bearer $token"
     }
 
-    $Body = @{
+    # Construct the Body based on parameters
+    $Body = [PSCustomObject]@{
         channel = $channel
-        blocks = $blocks
+        text    = "placeholder text"
     }
 
-    Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType "application/json" -Body ($Body | ConvertTo-Json -Depth 100)
+    if ($text) {
+        $Body.text = $text
+    }
+
+    if ($as_user -and !$username) {
+        $Body | Add-Member -NotePropertyName "as_user" -NotePropertyValue $true
+    }
+    elseif ($as_user -and $username) {
+        Write-Error "as_user cannot be set with a username."
+    }
+
+    if ($attachments) {
+        $Body | Add-Member -NotePropertyName "attachments" -NotePropertyValue $attachments
+    }
+
+    if ($blocks) {
+        $Body | Add-Member -NotePropertyName "blocks" -NotePropertyValue $blocks
+    }
+
+    if ($icon_emoji -and !$as_user) {
+        $Body | Add-Member -NotePropertyName "icon_emoji" -NotePropertyValue $icon_emoji
+    }
+    elseif ($icon_emoji -and $as_user) {
+        Write-Error "icon_emoji cannot be used with as_user set to true"
+    }
+
+    if($icon_url -and !$as_user){
+        $Body | Add-Member -NotePropertyName "icon_url" -NotePropertyValue $icon_url
+    }
+    elseif ($icon_url -and $as_user){
+        Write-Error
+    }
+
+    if ($username -and !$as_user) {
+        $Body | Add-Member -NotePropertyName "username" -NotePropertyValue $username
+    }
+    elseif($username -and $as_user) {
+        Write-Error "Username cannot be set with as_user set to true."
+    }
+
+    Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
 }
+
+
+$Blocks = @()
+$b = Get-SlackSectionBlock -text "hello world"
+$s = Get-SlackSectionBlock -text "hello slack"
+$d = Get-SlackDividerBlock
+$Blocks += $b
+$Blocks += $d
+$Blocks += $s
+
+$token = 'xoxb-2614483880-579598548533-kQQKlDwmabjZGnJgd8XPiCLp'
+
+Send-SlackMessage -token $token -channel "viewbot_diagnostics" -blocks $Blocks -icon_emoji ":robot_face:" -username "ViewBot"

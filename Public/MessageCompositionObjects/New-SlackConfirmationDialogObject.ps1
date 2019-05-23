@@ -1,4 +1,4 @@
-function Get-SlackConfirmationDialogObject {
+function New-SlackConfirmationDialogObject {
     param(
         [string]
         $title,

@@ -81,10 +81,10 @@ Describe "$module Module Tests" {
 }
 
 
-$file = Get-Content -Path 'C:\Users\mgb11\Repositories\PSlickPSlack\Public\BlockElements\New-SlackButtonElement.ps1'
+<#$file = Get-Content -Path 'C:\Users\mgb11\Repositories\PSlickPSlack\Public\BlockElements\New-SlackButtonElement.ps1'
 
 $x = [System.Management.Automation.PSParser]::Tokenize($file,[ref]$null)
 $f = $x | Where-Object Type -eq keyword | Where-Object Content -eq "function"
 
 $functionName = (($x |Where-Object Start -GT $f.Start)[0]).Content
-$functionName
+$functionName#>
