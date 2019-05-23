@@ -1,4 +1,4 @@
-function Get-SlackSectionBlock {
+function New-SlackSectionBlock {
     <#
     .SYNOPSIS
         Returns a Slack Section Block PSCustomObject
@@ -13,7 +13,7 @@ function Get-SlackSectionBlock {
     .PARAMETER accessory
         A Slack Block element object
     .LINK
-
+        https://api.slack.com/reference/messaging/blocks#section
     .EXAMPLE
         Get-SlackSectionBlock -text "The Text for this block." -block_id "123ABC"
     #>

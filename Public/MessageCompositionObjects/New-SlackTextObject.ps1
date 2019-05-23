@@ -1,4 +1,4 @@
-function Get-SlackTextObject {
+function New-SlackTextObject {
     param(
         [Parameter(Mandatory)]
         [ValidateSet("plain_text","mrkdwn")]

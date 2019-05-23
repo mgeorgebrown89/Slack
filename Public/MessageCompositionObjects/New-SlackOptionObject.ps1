@@ -1,4 +1,4 @@
-function Get-SlackOptionObject {
+function New-SlackOptionObject {
     param(
         [ValidateLength(1,75)]
         [string]
