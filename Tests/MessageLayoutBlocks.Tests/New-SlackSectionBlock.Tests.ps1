@@ -12,14 +12,14 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
     Context "Text Only Slack Section Block" {
         $block = New-SlackSectionBlock -text $text
         $properties = ("type", "text")
-
+        $propertyCount = $properties.Count
         It "has a type of section" {
             $block.type | Should Be 'section'
         }
         It "has text `"$text`"" {
             $block.text.text | Should Be $text
         }
-        It "has property count 2" {
+        It "has property count $propertyCount" {
             $block.PSObject.Properties.Name | Should -HaveCount $properties.Count
         }
         foreach ($property in $properties) {
@@ -35,7 +35,8 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
         $block_id = "blockABC123"
         $block = New-SlackSectionBlock -text $text -block_id $block_id
         $properties = ("type", "text", "block_id")
-        
+        $propertyCount = $properties.Count
+
         It "has a type of section" {
             $block.type | Should Be "section"
         }
@@ -45,7 +46,7 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
         It "has block_id `"$block_id`"" {
             $block.block_id | Should Be $block_id
         }
-        It "has property count 3" {
+        It "has property count $propertyCount" {
             $block.PSObject.Properties.Name | Should -HaveCount $properties.Count
         }
         foreach ($property in $properties) {
@@ -57,22 +58,26 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
             $block | ConvertTo-Json -Depth 100
         }
     }
+}
+Describe "New-SlackSectionBlock Integration Tests" -Tags "Integration" {
+    $text = "Lorum au latin words and other stuffs."
     Context "Text with Fields Slack Section Block" {
         $fields = @()
         $field1 = New-SlackTextObject -type mrkdwn -text $text
         $fields += $field1
         $field2 = New-SlackTextObject -type plain_text -text $text
         $fields += $field2
+        $fieldCount = $fields.Count
         $block = New-SlackSectionBlock -text $text -fields $fields
         $properties = ("type", "text", "fields")
-        
+        $propertyCount = $properties.Count
         It "has a type of section" {
             $block.type | Should Be "section"
         }
         It "has text `"$text`"" {
             $block.text.text | Should Be $text
         }
-        It "has property count 3" {
+        It "has property count $propertyCount" {
             $block.PSObject.Properties.Name | Should -HaveCount $properties.Count
         }
         foreach ($property in $properties) {
@@ -80,7 +85,7 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
                 [bool]($block.PSObject.Properties.Name -match $property) | Should Be $true
             }
         }
-        It "has field count 2" {
+        It "has field count $fieldCount" {
             $block.fields | Should -HaveCount $fields.Length
         }
         It "is valid JSON" {
@@ -91,14 +96,14 @@ Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
         $accessory = New-SlackButtonElement -text "ButtonText" -action_id "ButtonAction_id"
         $block = New-SlackSectionBlock -text $text -accessory $accessory
         $properties = ("type", "text", "accessory")
-
+        $propertyCount = $properties.Count
         It "has a type of section" {
             $block.type | Should Be "section"
         }
         It "has text `"$text`"" {
             $block.text.text | Should Be $text
         }
-        It "has property count 3" {
+        It "has property count $propertyCount" {
             $block.PSObject.Properties.Name | Should -HaveCount $properties.Count
         }
         foreach ($property in $properties) {
