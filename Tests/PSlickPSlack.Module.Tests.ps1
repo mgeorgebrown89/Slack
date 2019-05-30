@@ -1,7 +1,10 @@
+$module = (($MyInvocation.MyCommand) -split "\.Module")[0]
+$module
+
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-$here = $here -replace "\\Tests",""
+$here = $here -replace "\\Tests","\$module"
 $here
-$module = (($MyInvocation.MyCommand) -split ".Module")[0]
+
 Describe "$module Module Tests" {
 
     Context "Module Setup" {
@@ -14,10 +17,6 @@ Describe "$module Module Tests" {
             "$here\$module.psd1" | Should -FileContentMatch "$module.psm1"
         }
    
-        It "folder has functions" {
-            "$here\*\*.ps1" | Should Exist
-        }
-   
         It "is valid PowerShell code" {
             $psFile = Get-Content -Path "$here\$module.psm1" -ErrorAction Stop
             $errors = $null
@@ -26,7 +25,13 @@ Describe "$module Module Tests" {
         }
     }
     $functions = @()
-    foreach ($file in (Get-ChildItem "..\*.ps1" -Recurse)) {
+    $PSScriptRoot
+    foreach ($file in (Get-ChildItem "$here\Private\*.ps1" -Recurse)) {
+        if (-not $file.Name.Contains(".Tests")) {
+            $functions += $file
+        }
+    }
+    foreach ($file in (Get-ChildItem "$here\Public\*.ps1" -Recurse)) {
         if (-not $file.Name.Contains(".Tests")) {
             $functions += $file
         }
@@ -74,17 +79,8 @@ Describe "$module Module Tests" {
         }
         Context "Function $functionName Tests" {
             It "$functionName.Tests.ps1 should exist" {
-                ".\$functionName.Tests.ps1" | Should Exist
+                ".\Tests\$functionName.Tests.ps1" | Should Exist
             }
         }
     }
 }
-
-
-<#$file = Get-Content -Path 'C:\Users\mgb11\Repositories\PSlickPSlack\Public\BlockElements\New-SlackButtonElement.ps1'
-
-$x = [System.Management.Automation.PSParser]::Tokenize($file,[ref]$null)
-$f = $x | Where-Object Type -eq keyword | Where-Object Content -eq "function"
-
-$functionName = (($x |Where-Object Start -GT $f.Start)[0]).Content
-$functionName#>

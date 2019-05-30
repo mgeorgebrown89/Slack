@@ -930,3 +930,5 @@ foreach ($symbol in $Symbols) {
     }
     $emojis += $Emoji
 }
+
+$Emojis | ConvertTo-Json | Out-File -FilePath .\Media\SlackEmoji.json
