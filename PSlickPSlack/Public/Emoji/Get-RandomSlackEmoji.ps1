@@ -4,7 +4,6 @@ function Get-RandomSlackEmoji {
     #>
     [cmdletbinding()]
     param(
-        [ValidateSet("People", "Nature", "Objects", "Places", "Symbols")]
         [string]
         $tag
     )
@@ -12,4 +11,5 @@ function Get-RandomSlackEmoji {
     return $emoji
 }
 
-Get-RandomSlackEmoji -tag People
+
+Get-RandomSlackEmoji -tag "Shape"

@@ -5137,13 +5137,15 @@
   },
   {
     "Tags": [
-      "Symbol"
+      "Symbol",
+      "Shape"
     ],
     "Name": ":white_small_square:"
   },
   {
     "Tags": [
-      "Symbol"
+      "Symbol",
+      "Shape"
     ],
     "Name": ":black_medium_small_square:"
   },
