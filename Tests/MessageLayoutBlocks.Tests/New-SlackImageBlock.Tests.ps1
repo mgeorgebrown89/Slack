@@ -7,7 +7,7 @@ $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1",""
 
 Describe "$functionName Unit Tests" -Tags "Unit" {
     Context "Slack Image Element unit tests" {
-        It "g" {
+        It "" {
 
         }
     }
