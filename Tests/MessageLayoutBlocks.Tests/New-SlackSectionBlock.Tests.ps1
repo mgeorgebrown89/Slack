@@ -2,7 +2,7 @@
 Get-Module PSlickPSlack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-Import-Module ..\PSlickPSlack\PSlickPSlack.psm1 -Force 
+Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
 
 Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
     $text = "Lorum au latin words and stuff."

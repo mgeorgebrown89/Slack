@@ -7,7 +7,7 @@ function Get-RandomSlackEmoji {
         [string]
         $tag
     )
-    $emoji = (Get-Content -Path .\Media\SlackEmoji.json | ConvertFrom-Json) | Where-Object -Property "Tags" -Contains $tag | Get-Random
+    $emoji = (Get-Content -Path .\PSlickPSlack\Private\Emoji\SlackEmoji.json | ConvertFrom-Json) | Where-Object -Property "Tags" -Contains $tag | Get-Random
     return $emoji
 }
 
