@@ -80,11 +80,11 @@ Describe "$module Module Tests" {
         }
         Context "Function $functionName Tests" {
             It "$functionName.Tests.ps1 should exist" {
-                "*\$functionName.Tests.ps1" | Should Exist
+                "$PSScriptRoot\*\$functionName.Tests.ps1" | Should Exist
             }
             It "Test file removes module and loads it locally" {
-                "*\$functionName.Tests.ps1" | Should -FileContentMatch 'Remove-Module'
-                "*\$functionName.Tests.ps1" | Should -FileContentMatch 'Import-Module'
+                "$PSScriptRoot\*\$functionName.Tests.ps1" | Should -FileContentMatch 'Remove-Module'
+                "$PSScriptRoot\*\$functionName.Tests.ps1" | Should -FileContentMatch 'Import-Module'
             }
         }
     }
