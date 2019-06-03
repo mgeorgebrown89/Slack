@@ -80,7 +80,7 @@ Describe "$module Module Tests" {
         }
         Context "Function $functionName Tests" {
             It "$functionName.Tests.ps1 should exist" {
-                "$PSScriptRoot\*\$functionName.Tests.ps1" | Should Exist
+                [bool]((Test-Path "$PSScriptRoot\$functionName.Tests.ps1") -or (Test-Path "$PSScriptRoot\*\$functionName.Tests.ps1")) | Should Be $true
             }
             It "Test file removes module and loads it locally" {
                 "$PSScriptRoot\*\$functionName.Tests.ps1" | Should -FileContentMatch 'Remove-Module'
