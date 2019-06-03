@@ -4,7 +4,8 @@ function New-EmojiList {
         Creates an initial list of emojis.
     .DESCRIPTION
         This function creates an initial list of Slack Emojis with their basic categories as their first tags.
-        The process of adding tags to existing emojis in the master list is still being considered. 
+        The process of adding tags to existing emojis in the master list is still being considered.
+    .PARAMETER
     .EXAMPLE
         New-EmojiList
     #>
