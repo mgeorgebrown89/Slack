@@ -1,6 +1,6 @@
 environment:
   NuGetApiKey:
-    
+    secure: testdoesthisshowup
 install:
   - cinst pester
 
