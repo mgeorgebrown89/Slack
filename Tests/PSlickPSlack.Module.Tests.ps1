@@ -39,6 +39,9 @@ Describe "$module Module Tests" {
     foreach ($function in $functions) {
         $functionName = $function.Name -replace ".ps1", ""
         $directory = $function.DirectoryName
+        $psFile = Get-Content -Path "$directory\$functionName.ps1" -ErrorAction Stop
+        $parsedPsfile = [System.Management.Automation.PSParser]::Tokenize($psfile,[ref]$null)
+
         Context "Function $functionName Setup" {
             It "exists" {
                 "$directory\$functionName.ps1" | Should Exist
@@ -46,6 +49,7 @@ Describe "$module Module Tests" {
             It "has a help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '<#'
                 "$directory\$functionName.ps1" | Should -FileContentMatch '#>'
+                [bool]($parsedPsfile | Where-Object Type -EQ Comment) | Should -Be $true
             }
             It "has a SYNOPSIS section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS'
@@ -53,12 +57,12 @@ Describe "$module Module Tests" {
             It "should have a DESCRIPTION section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.DESCRIPTION'
             }
+            It "has a PARAMETER section in the help block" {
+                "$directory\$functionName.ps1" | Should -FileContentMatch '.PARAMETER'
+            }
             It "has an EXAMPLE section in the help block" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch '.EXAMPLE'
             }
-
-            $psFile = Get-Content -Path "$directory\$functionName.ps1" -ErrorAction Stop
-            $parsedPsfile = [System.Management.Automation.PSParser]::Tokenize($psfile,[ref]$null)
             $func = $parsedPsfile | Where-Object Type -eq keyword | Where-Object Content -eq "function"
             It "is an advanced function" {
                 "$directory\$functionName.ps1" | Should -FileContentMatch 'function'

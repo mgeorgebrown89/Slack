@@ -3,8 +3,8 @@ Get-Module PSlickPSlack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
 Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
-
-Describe "New-SlackSectionBlock Unit Tests" -Tags "Unit" {
+$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1",""
+Describe "$functionName Unit Tests" -Tags "Unit" {
     $text = "Lorum au latin words and stuff."
     Context "Text Only Slack Section Block" {
         $block = New-SlackSectionBlock -text $text

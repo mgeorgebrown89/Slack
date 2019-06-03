@@ -10,6 +10,3 @@ function Get-RandomSlackEmoji {
     $emoji = (Get-Content -Path .\PSlickPSlack\Private\Emoji\SlackEmoji.json | ConvertFrom-Json) | Where-Object -Property "Tags" -Contains $tag | Get-Random
     return $emoji
 }
-
-
-Get-RandomSlackEmoji -tag "Shape"
