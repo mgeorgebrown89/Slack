@@ -1,4 +1,23 @@
-function Get-SlackImageBlock {
+function New-SlackImageBlock {
+    <#
+    .SYNOPSIS
+        Returns a Slack Image Block.
+    .DESCRIPTION
+        This function returns a Slack Image Block as a PSCustom Object ready to ConvertTo-Json and send to Slack.
+    .PARAMETER image_url
+        The URL of the image to be displayed.
+    .PARAMETER alt_text
+        A plain-text summary of the image. This should not contain any markup.
+    .PARAMETER title
+        An optional title for the image in the form of a plain_text Text Object.
+    .PARAMETER block_id
+        Specifies the block_id of the Slack Block for reference by the Slack APIs.
+    .LINK
+        https://api.slack.com/reference/messaging/blocks#image
+    .EXAMPLE
+        New-SlackImageBlock -image_url "http://placekitten.com/500/500" -alt_text "Meow" -title "Cat"
+    #>
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
         [ValidateLength(1,3000)]

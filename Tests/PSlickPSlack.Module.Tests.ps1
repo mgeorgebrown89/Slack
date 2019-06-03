@@ -25,7 +25,7 @@ Describe "$module Module Tests" {
         }
     }
     $functions = @()
-    $PSScriptRoot
+
     foreach ($file in (Get-ChildItem "$here\Private\*.ps1" -Recurse)) {
         if (-not $file.Name.Contains(".Tests")) {
             $functions += $file
@@ -79,7 +79,11 @@ Describe "$module Module Tests" {
         }
         Context "Function $functionName Tests" {
             It "$functionName.Tests.ps1 should exist" {
-                ".\Tests\$functionName.Tests.ps1" | Should Exist
+                "*\$functionName.Tests.ps1" | Should Exist
+            }
+            It "Test file removes module and loads it locally" {
+                "*\$functionName.Tests.ps1" | Should -FileContentMatch 'Remove-Module'
+                "*\$functionName.Tests.ps1" | Should -FileContentMatch 'Import-Module'
             }
         }
     }
