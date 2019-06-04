@@ -47,7 +47,6 @@ Describe "Slack plain_text Object Acceptance tests" -Tags "local" {
     }
 }
 Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
-    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
     $Body = $plain_textObject | ConvertTo-Json -Depth 100
     It "returns http 200 response" {
         $params = @{
