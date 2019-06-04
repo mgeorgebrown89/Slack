@@ -5,6 +5,7 @@ Get-Module PSlickPSlack | Remove-Module -Force
 Import-Module .\PSlickPSlack\PSlickPSlack.psm1
 $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
+#region plain_text
 $text = "Hello there."
 $plain_textObject = New-SlackTextObject -type plain_text -text $text
 $properties = ("type", "text", "emoji")
@@ -32,23 +33,9 @@ Describe "$functionName plain_text Test Object Unit Tests" -Tags "Unit" {
         $plain_textObject | ConvertTo-Json -Depth 100
     }
 }
-Describe "Slack plain_text Object Acceptance tests" -Tags "local" {
-    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
-    $Body = $plain_textObject | ConvertTo-Json -Depth 100
-    It "returns http 200 response" {
-        $params = @{
-            Method      = "Post"
-            Uri         = $slackContent.slackwebhook
-            Headers     = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-            ContentType = "application/json"
-            Body        = $Body
-        }
-        Invoke-RestMethod @params | Should Be "ok"
-    }
-}
 Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
     $Body = $plain_textObject | ConvertTo-Json -Depth 100
-    It "returns http 200 response" {
+    if ($env:APPVEYOR) {
         $params = @{
             Method      = "Post"
             Uri         = $env:slackwebhook
@@ -56,10 +43,23 @@ Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
             ContentType = "application/json"
             Body        = $Body
         }
+    }
+    else {
+        $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+        $params = @{
+            Method      = "Post"
+            Uri         = $slackContent.slackwebhook
+            Headers     = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+            ContentType = "application/json"
+            Body        = $Body
+        }
+    }
+
+    It "returns http 200 response" {
         Invoke-RestMethod @params | Should Be "ok"
     }
 }
-
+#endregion
 $text = "*Hello* _there_."
 $mrkdwnObject = New-SlackTextObject -type mrkdwn -text $text
 $properties = ("type", "text", "verbatim")
@@ -87,10 +87,18 @@ Describe "$functionName mrdkwn Test Object Unit Tests" -Tags "Unit" {
         $mrkdwnObject | ConvertTo-Json -Depth 100
     }
 }
-Describe "Slack mrkdwn Object Acceptance tests" -Tags "local" {
-    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+Describe "Slack mrkdwn Object Acceptance tests" -Tags "Acceptance" {
     $Body = $mrkdwnObject | ConvertTo-Json -Depth 100
-    It "returns http 200 response" {
+    if($env:APPVEYOR){
+        $params = @{
+            Method      = "Post"
+            Uri         = $env:slackwebhook
+            Headers     = @{Authorization = ("Bearer " + $env:slacktoken) }
+            ContentType = "application/json"
+            Body        = $Body
+        }
+    } else {
+        $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
         $params = @{
             Method      = "Post"
             Uri         = $slackContent.slackwebhook
@@ -98,6 +106,8 @@ Describe "Slack mrkdwn Object Acceptance tests" -Tags "local" {
             ContentType = "application/json"
             Body        = $Body
         }
+    }
+    It "returns http 200 response" {
         Invoke-RestMethod @params | Should Be "ok"
     }
 }
