@@ -32,7 +32,7 @@ Describe "$functionName plain_text Test Object Unit Tests" -Tags "Unit" {
         $plain_textObject | ConvertTo-Json -Depth 100
     }
 }
-Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
+Describe "Slack plain_text Object Acceptance tests" -Tags "local" {
     $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
     $Body = $plain_textObject | ConvertTo-Json -Depth 100
     It "returns http 200 response" {
@@ -40,6 +40,20 @@ Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
             Method      = "Post"
             Uri         = $slackContent.slackwebhook
             Headers     = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+            ContentType = "application/json"
+            Body        = $Body
+        }
+        Invoke-RestMethod @params | Should Be "ok"
+    }
+}
+Describe "Slack plain_text Object Acceptance tests" -Tags "Acceptance" {
+    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+    $Body = $plain_textObject | ConvertTo-Json -Depth 100
+    It "returns http 200 response" {
+        $params = @{
+            Method      = "Post"
+            Uri         = $env:slackwebhook
+            Headers     = @{Authorization = ("Bearer " + $env:slacktoken) }
             ContentType = "application/json"
             Body        = $Body
         }
@@ -74,7 +88,7 @@ Describe "$functionName mrdkwn Test Object Unit Tests" -Tags "Unit" {
         $mrkdwnObject | ConvertTo-Json -Depth 100
     }
 }
-Describe "Slack mrkdwn Object Acceptance tests" -Tags "Acceptance" {
+Describe "Slack mrkdwn Object Acceptance tests" -Tags "local" {
     $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
     $Body = $mrkdwnObject | ConvertTo-Json -Depth 100
     It "returns http 200 response" {
