@@ -4,12 +4,25 @@ Get-Module PSlickPSlack | Remove-Module -Force
 # Import the module from the local path, not from the users Documents folder
 Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
 $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1",""
-Describe "$functionName Unit Tests" -Tags "Unit" {
-    $text = "Lorum au latin words and stuff."
-    Context "Text Only Slack Section Block" {
+
+if ($env:APPVEYOR) {
+    $SlackUri = $env:slackwebhook
+    $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
+}
+else {
+    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+    $SlackUri = $slackContent.slackwebhook
+    $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+}
+
+Describe "$functionName | Unit Tests" -Tags "Unit" {
+    Context "Text Only Slack Section Block | Unit Tests" {
+
+        $text = "This is a Slack Section Block with just text."
         $block = New-SlackSectionBlock -text $text
         $properties = ("type", "text")
         $propertyCount = $properties.Count
+
         It "has a type of section" {
             $block.type | Should Be 'section'
         }
@@ -29,6 +42,8 @@ Describe "$functionName Unit Tests" -Tags "Unit" {
         }
     }
     Context "Text with block_id Slack Section Block" {
+        
+        $text = "This is a Slack Section Block with text and a block_id."
         $block_id = "blockABC123"
         $block = New-SlackSectionBlock -text $text -block_id $block_id
         $properties = ("type", "text", "block_id")
@@ -56,6 +71,31 @@ Describe "$functionName Unit Tests" -Tags "Unit" {
         }
     }
 }
+Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
+    Context "Text only Slack Section Block | Acceptance Tests" {
+
+        $text = "This is a Slack Section Block with just text."
+        $block = @()
+        $block += New-SlackSectionBlock -text $text
+        $Body = @{
+            blocks = $block
+        }
+        $params = @{
+            Method      = "Post"
+            Uri         = $SlackUri
+            Headers     = $SlackHeaders
+            ContentType = "application/json"
+            Body        = $Body | ConvertTo-Json -Depth 100
+        }
+
+        It "returns http 200 response" {
+            $response = Invoke-RestMethod @params 
+            $response | Should Be "ok"
+        }
+    }
+}
+
+
 Describe "New-SlackSectionBlock Integration Tests" -Tags "Integration" {
     $text = "Lorum au latin words and other stuffs."
     Context "Text with Fields Slack Section Block" {
