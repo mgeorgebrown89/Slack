@@ -38,10 +38,7 @@ function New-SlackSectionBlock {
 
     $SlackSectionBlock = [pscustomobject]@{
         type = "section"
-        text = @{
-            type = "mrkdwn"
-            text = $text
-        }
+        text = New-SlackTextObject -type "mrkdwn" -text $text
     }
     if($block_id){
         $SlackSectionBlock | Add-Member -NotePropertyName "block_id" -NotePropertyValue $block_id

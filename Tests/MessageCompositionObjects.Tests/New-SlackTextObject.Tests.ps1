@@ -122,6 +122,7 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
             Invoke-RestMethod @params | Should Be "ok"
         }
     }
+    #This test doesn't seem to work correctly. The text object might need to be part of a Block for this to work properly. 
     Context "plain_text with no emoji Slack Text Object | Acceptance Tests" {
         $text = "Hello there. This is a plain_text with no emoji Text Object for acceptance testing. :smile:"
         $plain_textTextObject = New-SlackTextObject -type plain_text -text $text -emoji $false
@@ -154,6 +155,7 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
             Invoke-RestMethod @params | Should Be "ok"
         }
     }
+    #This one doesn't really work either. 
     Context "mrkdwn verbatim Slack Text Object | Acceptance Tests" {
 
         $text = "*Hello* _there_. This is a mrkdwn verbatim Text Object for ~unit~ acceptance testing. This is a link: https://github.com/mgeorgebrown89/PSlickPSlack"
