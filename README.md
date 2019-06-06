@@ -4,7 +4,7 @@
 
 ---
 
-# Introduction
+## Introduction
 
 PSlickPSlack is a PowerShell Module for composing and sending Slack messages using the new [Slack Blocks](https://api.slack.com/block-kit).
 
