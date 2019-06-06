@@ -110,7 +110,8 @@ Describe "$functionName | Unit Tests" -Tags "Unit" {
 
     Context "Slack Section Block with text and accessory" {
 
-        $accessory = New-SlackButtonElement -text "ButtonText" -action_id "ButtonAction_id"
+        $accessory = New-SlackButtonElement -text "ButtonText" -action_id "actionid_123"
+        $text = "This is a Slack Section Black with text and an accessory."
         $block = New-SlackSectionBlock -text $text -accessory $accessory
         $properties = ("type", "text", "accessory")
         $propertyCount = $properties.Count
@@ -162,7 +163,7 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
 
         $text = "This is a Slack Section Block with text and block_id."
         $blocks = @()
-        $block += New-SlackSectionBlock -text $text -block_id "block123"
+        $blocks += New-SlackSectionBlock -text $text -block_id "block456"
         $Body = @{
             blocks = $blocks
         }
@@ -211,6 +212,7 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
         
         $blocks = @()
         $accessory = New-SlackButtonElement -text "ButtonText" -action_id "ButtonAction_id"
+        $text = "This is a Slack Section Block with an accessory."
         $blocks += New-SlackSectionBlock -text $text -accessory $accessory
         $Body = @{
             blocks = $blocks
@@ -228,7 +230,4 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
             $response | Should Be "ok"
         }
     } 
-}
-
-Describe "New-SlackSectionBlock Integration Tests" -Tags "Integration" {
 }
