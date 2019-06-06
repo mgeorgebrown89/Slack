@@ -16,8 +16,10 @@ begin {
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
 
+    #divider block
     $divider = New-SlackDividerBlock
 
+    #divider with block_id
     $block_id = "dividerblock123"
     $dividerWithBlockId = New-SlackDividerBlock -block_id $block_id
 }

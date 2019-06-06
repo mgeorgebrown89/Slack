@@ -16,7 +16,7 @@ function New-SlackContextBlock {
     [Cmdletbinding()]
     param(
         [Parameter(Mandatory)]
-        [ValidateLength(1,10)]
+        [ValidateCount(1,10)]
         [pscustomobject[]]
         $elements,
 
