@@ -15,7 +15,9 @@ begin {
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
-
+    $slackTestUri = "https://slack.com/api/api.test" 
+    $ContentType = "application/json; charset=utf-8"
+    
     #slack Actions Block
     $elements = @()
     $elements += New-SlackButtonElement -text "ActionBlock" -action_id "Button1" -value "One"
@@ -87,17 +89,11 @@ process {
             $Body = @{
                 blocks = $Blocks
             }
-            $params = @{
-                Method      = "Post"
-                Uri         = $SlackUri
-                Headers     = $SlackHeaders
-                ContentType = "application/json"
-                Body        = $Body | ConvertTo-Json -Depth 100
-            }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod @params 
-                $response | Should Be "ok"
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response.ok | Should Be "true"
+                $response.warning | Should Be $null
             }
         }
 
@@ -108,17 +104,11 @@ process {
             $Body = @{
                 blocks = $Blocks
             }
-            $params = @{
-                Method      = "Post"
-                Uri         = $SlackUri
-                Headers     = $SlackHeaders
-                ContentType = "application/json"
-                Body        = $Body | ConvertTo-Json -Depth 100
-            }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod @params 
-                $response | Should Be "ok"
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response.ok | Should Be "true"
+                $response.warning | Should Be $null
             }
         } 
     }
