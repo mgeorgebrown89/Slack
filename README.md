@@ -1,11 +1,12 @@
-# ![logo][] PSlickPSlack 
-| AppVeyor                                                                                                                                              | PS Gallery                                          | License                              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------ |
-| [![AppVeyor][]][AppVeyorLink] | [![PSGallery][]][PSGalleryLink]
-[![AppVeyorTests][]][AppVeyorTestsLink] | [![PSGalleryDL][]][PSGalleryDLLink] | [![licenselink][License]][license] |
+# <img src="https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" alt="pslickpslack" width="50"/> PSlickPSlack 
+| AppVeyor | PS Gallery | License |
+|---|---|---|
+| [![AppVeyor][]][AppVeyorLink] | [![PSGallery][]][PSGalleryLink] | [![licenselink][License]][license]
+[![AppVeyorTests][]][AppVeyorTestsLink] | [![PSGalleryDL][]][PSGalleryDLLink] |
+
 
 ---
-[logo]: https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png
+
 
 # Introduction
 
