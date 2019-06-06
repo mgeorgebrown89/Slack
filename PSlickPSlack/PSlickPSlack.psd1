@@ -95,16 +95,16 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+         Tags = @('PowerShell', 'Slack', 'API')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+         LicenseUri = 'https://github.com/mgeorgebrown89/PSlickPSlack/blob/master/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+         ProjectUri = 'https://github.com/mgeorgebrown89/PSlickPSlack'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+         IconUri = 'https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
