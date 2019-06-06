@@ -1,7 +1,7 @@
 $module = (($MyInvocation.MyCommand) -split "\.Module")[0]
 
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-$here = $here -replace "\\Tests","\$module"
+$here = $here -replace "\\Tests","\$module" 
 Describe "$module Module Tests" {
 
     Context "Module Setup" {

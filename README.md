@@ -12,6 +12,10 @@ PSlickPSlack is a PowerShell Module for composing and sending Slack messages usi
 
 The main purpose for this module is to help PowerShell users easily and quickly craft Slack messages that look good using their existing PowerShell skills.
 
+## Examplese
+
+## Contributing
+
 [PSGallery]: https://img.shields.io/powershellgallery/v/PSlickPSlack.svg?logo=powershell&label=Powershell+Gallery&style=for-the-badge
 [PSGalleryLink]: https://www.powershellgallery.com/packages/PSlickPSlack
 [PSGalleryDL]: https://img.shields.io/powershellgallery/dt/PSlickPSlack.svg?logo=powershell&label=downloads&style=for-the-badge
