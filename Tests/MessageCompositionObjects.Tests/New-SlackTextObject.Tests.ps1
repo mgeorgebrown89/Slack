@@ -14,6 +14,8 @@ else {
     $SlackUri = $slackContent.slackwebhook
     $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
 }
+$slackTestUri = "https://slack.com/api/api.test" 
+$ContentType = "application/json; charset=utf-8"
 
 Describe "$functionName | Unit Tests" -Tags "Unit" {
     Context "plain_text Slack Text Object | Unit Tests" {
@@ -110,32 +112,28 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
 
         $text = "Hello there. This is a plain_text Text Object for acceptance testing. :smile:"
         $plain_textTextObject = New-SlackTextObject -type plain_text -text $text
-        $Body = $plain_textTextObject | ConvertTo-Json -Depth 100
-        $params = @{
-            Method      = "Post"
-            Uri         = $SlackUri
-            Headers     = $SlackHeaders
-            ContentType = "application/json"
-            Body        = $Body
+        $Body = @{
+            text = $plain_textTextObject 
         }
+
         It "returns http 200 response" {
-            Invoke-RestMethod @params | Should Be "ok"
+            $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+            $response.ok | Should Be "true"
+            $response.warning | Should Be $null
         }
     }
     #This test doesn't seem to work correctly. The text object might need to be part of a Block for this to work properly. 
     Context "plain_text with no emoji Slack Text Object | Acceptance Tests" {
         $text = "Hello there. This is a plain_text with no emoji Text Object for acceptance testing. :smile:"
         $plain_textTextObject = New-SlackTextObject -type plain_text -text $text -emoji $false
-        $Body = $plain_textTextObject | ConvertTo-Json -Depth 100
-        $params = @{
-            Method      = "Post"
-            Uri         = $SlackUri
-            Headers     = $SlackHeaders
-            ContentType = "application/json"
-            Body        = $Body
+        $Body = @{
+            text = $plain_textTextObject 
         }
+
         It "returns http 200 response" {
-            Invoke-RestMethod @params | Should Be "ok"
+            $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+            $response.ok | Should Be "true"
+            $response.warning | Should Be $null
         }
     }
 
@@ -143,16 +141,14 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
 
         $text = "*Hello* _there_. This is a mrkdwn Text Object for ~unit~ acceptance testing. This is a link: https://github.com/mgeorgebrown89/PSlickPSlack"
         $mrkdwnTextObject = New-SlackTextObject -type mrkdwn -text $text
-        $Body = $mrkdwnTextObject | ConvertTo-Json -Depth 100
-        $params = @{
-            Method      = "Post"
-            Uri         = $SlackUri
-            Headers     = $SlackHeaders
-            ContentType = "application/json"
-            Body        = $Body
+        $Body = @{
+            text = $mrkdwnTextObject 
         }
+
         It "returns http 200 response" {
-            Invoke-RestMethod @params | Should Be "ok"
+            $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+            $response.ok | Should Be "true"
+            $response.warning | Should Be $null
         }
     }
     #This one doesn't really work either. 
@@ -160,16 +156,14 @@ Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
 
         $text = "*Hello* _there_. This is a mrkdwn verbatim Text Object for ~unit~ acceptance testing. This is a link: https://github.com/mgeorgebrown89/PSlickPSlack"
         $mrkdwnTextObject = New-SlackTextObject -type mrkdwn -text $text -verbatim $true
-        $Body = $mrkdwnTextObject | ConvertTo-Json -Depth 100
-        $params = @{
-            Method      = "Post"
-            Uri         = $SlackUri
-            Headers     = $SlackHeaders
-            ContentType = "application/json"
-            Body        = $Body
+        $Body = @{
+            text = $mrkdwnTextObject 
         }
+
         It "returns http 200 response" {
-            Invoke-RestMethod @params | Should Be "ok"
+            $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+            $response.ok | Should Be "true"
+            $response.warning | Should Be $null
         }
     }
 }
