@@ -35,7 +35,7 @@ Describe "$functionName | Unit Tests" -Tags "Unit" {
             $imageBlock.alt_text | Should Be $alt_text
         }
         It "has property count $propertyCount" {
-            $block.PSObject.Properties.Name | Should -HaveCount $properties.Count
+            $imageBlock.PSObject.Properties.Name | Should -HaveCount $properties.Count
         }
         foreach ($property in $properties) {
             It "has a $property property" {
