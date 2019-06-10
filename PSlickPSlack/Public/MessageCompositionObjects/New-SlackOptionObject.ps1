@@ -24,7 +24,10 @@ function New-SlackOptionObject {
 
         [ValidateLength(1, 75)]
         [string]
-        $value
+        $value,
+
+        [string]
+        $url
     )
 
     $SlackOption = [pscustomobject]@{
@@ -34,5 +37,10 @@ function New-SlackOptionObject {
         }
         value = $value
     }
+
+    if($url){
+        $SlackOption | Add-Member -NotePropertyName "url" -NotePropertyValue $url
+    }
+
     return $SlackOption
 }
