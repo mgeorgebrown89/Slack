@@ -11,7 +11,8 @@ begin {
         $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
     }
     else {
-        $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
+        $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
@@ -30,10 +31,8 @@ begin {
     #section block with text and fields
     $text2 = "This is a Slack Section Black with text and fields."
     $fields = @()
-    $field1 = New-SlackTextObject -type mrkdwn -text "*Field 1 Title*`nField 1 Text"
-    $fields += $field1
-    $field2 = New-SlackTextObject -type plain_text -text "*Field 2 Title*`nField 2 Text"
-    $fields += $field2
+    $fields += New-SlackTextObject -type mrkdwn -text "*Field 1 Title*`nField 1 Text"
+    $fields += New-SlackTextObject -type plain_text -text "*Field 2 Title*`nField 2 Text"
     $fieldCount = $fields.Count
     $blockWithTextAndFields = New-SlackSectionBlock -text $text2 -fields $fields
 

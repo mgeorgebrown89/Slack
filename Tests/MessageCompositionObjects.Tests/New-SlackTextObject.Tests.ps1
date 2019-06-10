@@ -10,7 +10,8 @@ if ($env:APPVEYOR) {
     $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
 }
 else {
-    $slackContent = Get-Content .\slacktoken.json | ConvertFrom-Json
+    $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
+    $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
     $SlackUri = $slackContent.slackwebhook
     $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
 }
