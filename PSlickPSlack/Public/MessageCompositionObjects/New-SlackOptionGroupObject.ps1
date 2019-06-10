@@ -24,24 +24,10 @@ function New-SlackOptionGroupObject {
         [pscustomobject[]]
         $SlackOptions
     )
-    $o = @()
-    foreach ($o in $SlackOptions) {
-        $option = @{
-            text  = @{
-                type = "plain_text"
-                text = $o.text
-            }
-            value = $o.value
-        }
-        $o += $option
-    }
 
     $SlackOptionGroup = [pscustomobject]@{
-        label   = @{
-            type = "plain_text"
-            text = $label
-        }
-        options = $o
+        label   = New-SlackTextObject -type plain_text -text $label
+        options = $SlackOptions
     }
     return $SlackOptionGroup
 }

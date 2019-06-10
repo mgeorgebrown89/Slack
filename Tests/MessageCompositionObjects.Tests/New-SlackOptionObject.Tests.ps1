@@ -6,19 +6,6 @@ begin {
     Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
-    if ($env:APPVEYOR) {
-        $SlackUri = $env:slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-    }
-    else {
-        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
-        $SlackUri = $slackContent.slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-    }
-    $slackTestUri = "https://slack.com/api/api.test" 
-    $ContentType = "application/json; charset=utf-8"
-
     #Slack Option Object
     $text = "Slack Object 1"
     $value = 1
@@ -89,5 +76,4 @@ process {
             }
         }
     }
-    #Not sure what to do for acceptance testing since these can't be used on their own, but only with an actual Slack Block. Integration testing, I guess.
 }

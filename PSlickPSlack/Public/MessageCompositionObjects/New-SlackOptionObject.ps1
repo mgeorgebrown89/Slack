@@ -31,10 +31,7 @@ function New-SlackOptionObject {
     )
 
     $SlackOption = [pscustomobject]@{
-        text  = @{
-            type = "plain_text"
-            text = $text
-        }
+        text  = New-SlackTextObject -type plain_text -text $text
         value = $value
     }
 
