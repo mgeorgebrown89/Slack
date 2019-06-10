@@ -28,7 +28,7 @@ function New-SlackDatePickerElement {
         [string]
         $placeholder,
 
-        [datetime]
+        [string] #add checks for datetime format. I tried but took too long.
         $initial_date,
 
         [pscustomobject]
@@ -38,14 +38,16 @@ function New-SlackDatePickerElement {
     $SlackDatePicker = [pscustomobject]@{
         type       = "datepicker"
         action_id  = $action_id
-        placholder = $placeholder
     }
 
+    if($placeholder){
+        $SlackDatePicker | Add-Member -NotePropertyName "placeholder" -NotePropertyValue $placeholder
+    }
     if ($initial_date) {
-        $SlackDatePicker.initial_date = $initial_date
+        $SlackDatePicker | Add-Member -NotePropertyName "initial_date" -NotePropertyValue $initial_date
     }
     if ($confirm) {
-        $SlackDatePicker.confirm = $confirm
+        $SlackDatePicker | Add-Member -NotePropertyName "confirm" -NotePropertyValue $confirm
     }
 
     return $SlackDatePicker

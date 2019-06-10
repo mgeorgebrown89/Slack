@@ -48,10 +48,7 @@ function New-SlackExternalSelectMenuElement {
     $SlackExternalSelect = [pscustomobject]@{
         type        = "external_select"
         action_id   = $action_id
-        placeholder = @{
-            type = "plain_text"
-            text = $placeholder
-        }
+        placeholder = New-SlackTextObject plain_text -text $placeholder
     }
 
     return $SlackExternalSelect
