@@ -21,7 +21,7 @@ process {
             $propertyCount = $properties.Count
     
             It "An object is created" {
-                [bool]$optionGroup | Should -Be $true
+                [bool]$confirmationObject | Should -Be $true
             }
             It "has plain_text Text Object as title: `"$title`"" {
                 $confirmationObject.title.type | Should -Be "plain_text"
