@@ -37,27 +37,23 @@ function New-SlackButtonElement {
         $confirm
     )
 
-    $SlackButton = @{
+    $SlackButton = [pscustomobject]@{
         type      = "button"
-        text      = @{
-            type  = "plain_text"
-            text  = $text
-            emoji = $true
-        }
+        text      = New-SlackTextObject -type plain_text -text $text -emoji $true
         action_id = $action_id
     }
 
     if ($url) {
-        $SlackButton.url = $url
+        $SlackButton | Add-Member -NotePropertyName "url" -NotePropertyValue $url
     }
     if ($value) {
-        $SlackButton.value = $value
+        $SlackButton | Add-Member -NotePropertyName "value" -NotePropertyValue $value
     }
     if ($style) {
-        $SlackButton.style = $style
+        $SlackButton | Add-Member -NotePropertyName "style" -NotePropertyValue $style
     }
     if ($confirm) {
-        $SlackButton.confirm = $confirm
+        $SlackButton | Add-Member -NotePropertyName "confirm" -NotePropertyValue $confirm
     }
 
     return $SlackButton
