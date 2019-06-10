@@ -33,22 +33,10 @@ function New-SlackConfirmationDialogObject {
         $denialText
     )
     $SlackConfirmation = [pscustomobject]@{
-        title   = @{
-            type = "plain_text"
-            text = $title
-        }
-        text    = @{
-            type = "mrkdwn"
-            text = $text
-        }
-        confirm = @{
-            type = "plain_text"
-            text = $confirm
-        }
-        deny    = @{
-            type = "plain_text"
-            text = $deny
-        }
+        title   = New-SlackTextObject -type plain_text -text $title
+        text    = New-SlackTextObject -type mrkdwn -text $text
+        confirm = New-SlackTextObject -type plain_text -text $confirmationText
+        deny    = New-SlackTextObject -type plain_text -text $denialText
     }
     return $SlackConfirmation
 }
