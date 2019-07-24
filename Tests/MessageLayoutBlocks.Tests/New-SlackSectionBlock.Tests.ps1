@@ -9,16 +9,15 @@ begin {
     if ($env:APPVEYOR) {
         $SlackUri = $env:slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-        $ContentType = "application/json"
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
         $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-        $ContentType = "application/json; charset=utf-8"
     }
     $slackTestUri = "https://slack.com/api/api.test" 
+    $ContentType = "application/json; charset=utf-8"
     
     #section block
     $text = "This is a Slack Section Block with just text."
@@ -158,7 +157,7 @@ process {
             }
 
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100) -SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
@@ -173,7 +172,7 @@ process {
             }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100) -SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
@@ -188,7 +187,7 @@ process {
             }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100) -SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
@@ -203,7 +202,7 @@ process {
             }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100) -SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
