@@ -1,6 +1,5 @@
 begin {
     $module = (($MyInvocation.MyCommand) -split "\.Module")[0]
-    $module
     $here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
     $ModuleRootPath = "$here\$module"
 
@@ -8,7 +7,7 @@ begin {
     Import-Module $ModuleRootPath
 }
 process {
-    Describe "$module | Module Tests" {
+    Describe "$module | Module MetaData" {
 
         Context "Module Setup" {
             It "has the root module $module.psm1" {
@@ -29,7 +28,7 @@ process {
         }
         $functions = @()
     
-        foreach ($file in (Get-ChildItem "$ModuleRootPath\Private\*.ps1" -Recurse)) {
+        foreach ($file in (Get-ChildItem "$ModuleRootPath\Private\*.ps1" -Recurse -File)) {
             if (-not $file.Name.Contains(".Tests")) {
                 #$functions += $file
             }
@@ -86,7 +85,7 @@ process {
                     $scriptHelp.description.text.Length | Should -BeGreaterOrEqual 25 -Because "your description is too short"
                 }
                 foreach ($param in $ASTParameters) {
-                    It "parameter `"$param`" has a .PARAMTER description" {
+                    It "parameter `"$param`" has a .PARAMETER description" {
                         (Get-Help $functionName -Parameter $param).description | Should -Not -BeNullOrEmpty
                     }
                 }
