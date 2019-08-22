@@ -34,7 +34,7 @@ Task Test -Depends Init {
 
     # Gather test results. Store them in a variable and file
     $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
-
+    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)}
     # In Appveyor?  Upload our tests! #Abstract this into a function?
     If ($ENV:BHBuildSystem -eq 'AppVeyor') {
         (New-Object 'System.Net.WebClient').UploadFile(
@@ -49,7 +49,6 @@ Task Test -Depends Init {
     if ($TestResults.FailedCount -gt 0) {
         Write-Error "Failed '$($TestResults.FailedCount)' tests, build failed" 
     }
-    if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)}
     "`n"
 }
 
