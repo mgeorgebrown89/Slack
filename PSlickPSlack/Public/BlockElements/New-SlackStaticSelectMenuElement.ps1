@@ -11,7 +11,7 @@ function New-SlackStaticSelectMenuElement {
         An identifier for the action triggered when a menu option is selected. 
     .PARAMETER options
         An array of option objects.
-    .PARAMETER options_groups
+    .PARAMETER option_groups
         An array of option group objects.
     .PARAMETER initial_option
         A single option that exactly matches one of the options within options or option_groups. This option will be selected when the menu initially loads.

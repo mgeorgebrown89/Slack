@@ -7,7 +7,7 @@ function New-SlackOptionGroupObject {
         ConvertTo-Json, and send to Slack.
     .PARAMETER label
         Text that defines the label shown above this group of options.
-    .PARAMETER options
+    .PARAMETER slackOptions
         An array of option objects that belong to this specific group.
     .LINK
         https://api.slack.com/reference/messaging/composition-objects#option-group

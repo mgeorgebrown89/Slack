@@ -4,6 +4,20 @@ function New-SlackButtonElement {
     Returns a Slack Button PSCustomObject.
 .DESCRIPTION
     This function returns a Slack Button as a PSCustomObject ready to ConvertTo-Json and be sent to Slack.
+.PARAMETER text
+    The text for the button. Can only be of type: plain_text.
+.PARAMETER action_id
+    An identifier for this action.
+.PARAMETER url
+	A URL to load in the user's browser when the button is clicked.
+.PARAMETER value
+    The value to send along with the interaction payload.
+.PARAMETER style
+	Decorates buttons with alternative visual color schemes.
+.PARAMETER confirm
+    A confirm object that defines an optional confirmation dialog that appears after a date is selected.
+.LINK
+    https://api.slack.com/reference/messaging/block-elements#button
 .EXAMPLE
     Get-SlackButtonElement -text "Yes" -action_id "affirmThis"
 .EXAMPLE

@@ -9,9 +9,9 @@ function New-SlackConfirmationDialogObject {
         Text that defines the dialog's title.
     .PARAMETER text
         Text that defines the explanatory text that appears in the confirm dialog.
-    .PARAMETER confirm
+    .PARAMETER confirmationText
         Text to define the text of the button that confirms the action.
-    .PARAMETER deny
+    .PARAMETER denialText
         Text to define the text of the button that cancels the action.
     .LINK
         https://api.slack.com/reference/messaging/composition-objects#confirm
