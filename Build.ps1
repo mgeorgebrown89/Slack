@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 function Resolve-Module
 {
     [Cmdletbinding()]
