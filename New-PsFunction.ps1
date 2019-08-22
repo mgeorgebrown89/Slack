@@ -23,7 +23,7 @@ function $functionName {
 }
 "@
 
-$functionFile = New-Item -ItemType File -Name "$functionName.ps1" -Value $functionValue
+New-Item -ItemType File -Name "$functionName.ps1" -Value $functionValue
 
 $functionTestsValue = @"
 # If the module is already in memory, remove it
@@ -47,4 +47,4 @@ Describe "`$functionName | Integration Tests" -Tags "Integration" {
 }
 "@
 
-$functionTestsFile = New-Item -ItemType File -Name "$functionName.Tests.ps1" -value $functionTestsValue
+New-Item -ItemType File -Name "$functionName.Tests.ps1" -value $functionTestsValue
