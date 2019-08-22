@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # PSake makes variables declared here available in other scriptblocks
 # Init some things
 Properties {
@@ -29,7 +30,6 @@ Task Init {
 }
 
 Task Test -Depends Init {
-    $ErrorActionPreference = "Stop"
     $lines
     "`n`tSTATUS: Testing with PowerShell $PSVersion"
 
