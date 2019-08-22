@@ -107,7 +107,7 @@ process {
             }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100) -SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
@@ -122,7 +122,7 @@ process {
             }
     
             It "returns http 200 response" {
-                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+                $response = Invoke-RestMethod -Method Post -Uri $slackTestUri -Headers $SlackHeaders -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)-SkipHeaderValidation
                 $response.ok | Should Be "true"
                 $response.warning | Should Be $null
             }
