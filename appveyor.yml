@@ -6,7 +6,9 @@ environment:
     secure: L6QLLlKvTbpMZA2j3EvIApx2d5qvHvSD4q1QfxywsuArM7QtVX3t3oFFOLWs9bZx
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
-image: Visual Studio 2017
+image: 
+  - Visual Studio 2019
+  #- Ubuntu
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
@@ -17,4 +19,4 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-  - pwsh: . .\build.ps1
+  - pwsh: ./Build.ps1
