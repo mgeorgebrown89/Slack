@@ -3,7 +3,7 @@
 #Publish to PowerShell Gallery with this key
 environment:
   NuGetApiKey:
-    secure: L6QLLlKvTbpMZA2j3EvIApx2d5qvHvSD4q1QfxywsuArM7QtVX3t3oFFOLWs9bZx
+    secure: VnC19SX07r63z0TCYTdw2kTG4ApVO5D/s8jtJ6ZumxBmtwieeY8fK9jZZ557z4on
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 image: 
@@ -19,4 +19,4 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-  - pwsh: ./Build.ps1
+  - pwsh: ./Build.ps1 
