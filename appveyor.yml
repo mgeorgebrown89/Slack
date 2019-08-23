@@ -19,4 +19,4 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-  - pwsh: ./Build.ps1
+  - pwsh: ./Build.ps1 
