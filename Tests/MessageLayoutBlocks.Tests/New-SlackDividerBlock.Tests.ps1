@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
@@ -26,7 +26,7 @@ begin {
     $block_id = "dividerblock123"
     $dividerWithBlockId = New-SlackDividerBlock -block_id $block_id
 }
-process{
+process {
     Describe "$functionName | Unit Tests" -Tags "Unit" {
 
         Context "Slack Divider Block | Unit Tests" {
@@ -52,7 +52,7 @@ process{
     
         Context "Slack Divider Block with block_id | Unit Tests" {
     
-            $properties = @("type","block_id")
+            $properties = @("type", "block_id")
             $propertyCount = $properties.Count
     
             It "has a type of divider" {
