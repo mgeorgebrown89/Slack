@@ -39,5 +39,3 @@ function New-PSlickPSlackConfig {
 
     New-Item -Path $root -Name "pslickpslackconfig.json" -ItemType File -Value $value -Force
 }
-
-New-PSlickPSlackConfig -botToken "xoxb-"
