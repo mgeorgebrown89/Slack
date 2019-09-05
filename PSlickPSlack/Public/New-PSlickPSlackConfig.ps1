@@ -11,7 +11,16 @@ function New-PSlickPSlackConfig {
     #>
     [CmdletBinding()]
     param(
-        [string]$test
+        [string]$token
     )
 
+    $value = @"
+{
+    "slacktoken":"$token"
+}
+"@
+
+    New-Item -ItemType File -Path "..\PSlickPSlack" -Name "PSlickPSlackConfig.json" -Value $value -Force
+
+    $env:SLACK_TOKEN = $token
 }
