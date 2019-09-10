@@ -47,13 +47,12 @@ function Send-SlackMessage {
         [string]
         $token,
     
-        [parameter(Mandatory)]
         [string]
         $channel,
 
         [ValidateLength(1, 4000)]
         [string]
-        $text,
+        $text = "no text set",
 
         [switch]
         $as_user,
@@ -96,10 +95,16 @@ function Send-SlackMessage {
         $username
     )
 
-    if(!$token){
-        #$token = Get-Content "."
-    }
+    $root = (Get-Item $PSScriptRoot).Parent.Parent.FullName
+    $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
 
+    if (!$token) {
+        $token = $content.userToken
+    }
+    if (!$channel) {
+        $channel = $content.defaultChannel
+    }
+     
     $Headers = @{
         Authorization = "Bearer $token"
     }
@@ -107,12 +112,10 @@ function Send-SlackMessage {
     # Construct the Body based on parameters
     $Body = [PSCustomObject]@{
         channel = $channel
-        text    = "placeholder text"
+        text    = $text
     }
 
-    if ($text) {
-        $Body.text = $text
-    }
+
 
     if ($as_user -and !$username) {
         $Body | Add-Member -NotePropertyName "as_user" -NotePropertyValue $true
@@ -136,17 +139,17 @@ function Send-SlackMessage {
         Write-Error "icon_emoji cannot be used with as_user set to true"
     }
 
-    if($icon_url -and !$as_user){
+    if ($icon_url -and !$as_user) {
         $Body | Add-Member -NotePropertyName "icon_url" -NotePropertyValue $icon_url
     }
-    elseif ($icon_url -and $as_user){
+    elseif ($icon_url -and $as_user) {
         Write-Error
     }
 
     if ($username -and !$as_user) {
         $Body | Add-Member -NotePropertyName "username" -NotePropertyValue $username
     }
-    elseif($username -and $as_user) {
+    elseif ($username -and $as_user) {
         Write-Error "Username cannot be set with as_user set to true."
     }
 

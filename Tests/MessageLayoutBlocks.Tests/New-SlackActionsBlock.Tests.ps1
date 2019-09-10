@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\slacktoken.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
