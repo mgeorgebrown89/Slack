@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" alt="pslickpslack" width="50"/> PSlickPSlack
 
-[![AppVeyor][]][AppVeyorLink] [![AppVeyorTests][]][AppVeyorTestsLink] [![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
+[![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
 
 ---
 
@@ -22,11 +22,6 @@ Pester Tests should be run on PowerShell Core.
 [PSGalleryLink]: https://www.powershellgallery.com/packages/PSlickPSlack
 [PSGalleryDL]: https://img.shields.io/powershellgallery/dt/PSlickPSlack.svg?logo=powershell&label=downloads&style=for-the-badge
 [PSGalleryDLLink]: https://www.powershellgallery.com/packages/PSlickPSlack
-
-[AppVeyor]: https://img.shields.io/appveyor/ci/mgeorgebrown89/pslickpslack/master.svg?logo=appveyor&label=Current&style=for-the-badge
-[AppVeyorLink]: https://ci.appveyor.com/project/mgeorgebrown89/PSlickPSlack
-[AppVeyorTests]: https://img.shields.io/appveyor/tests/mgeorgebrown89/pslickpslack/master.svg?logo=appveyor&label=tests&style=for-the-badge
-[AppVeyorTestsLink]: https://ci.appveyor.com/project/mgeorgebrown89/pslickpslack/build/tests
 
 [License]: https://img.shields.io/github/license/mgeorgebrown89/pslickpslack.svg?label=License&style=for-the-badge
 [LicenseLink]: https://github.com/mgeorgebrown89/PSlickPSlack/blob/master/LICENSE
