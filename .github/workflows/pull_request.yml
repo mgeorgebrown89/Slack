@@ -24,5 +24,5 @@ jobs:
     - name: Seeing env variables
       run: echo ${github.event} ${github.ref}
     - name: Deploy to PSGallery
-      if: github.event == 'push' && github.ref == 'master'
+      if: github.event_name == 'push' && github.ref == 'master'
       run: echo You would deploy!
