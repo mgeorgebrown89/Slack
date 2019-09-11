@@ -9,5 +9,5 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Pester Module
-      run: .\Install-PesterModule.ps1
+      run: .\.github\workflows\Install-PesterModule.ps1
       shell: pwsh
