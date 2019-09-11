@@ -20,4 +20,7 @@ jobs:
       shell: pwsh
     - name: Deploy to PSGallery
       if: success()
-      run: echo deploy!
+      env:
+        PSGALLERY_TOKEN: ${{secrets.PSGALLERY_TOKEN}}
+      run: .github\workflows\Deploy-PSlickPSlack.ps1
+      shell: pwsh
