@@ -1,14 +1,10 @@
-name: 'Pull Request Validation'
+name: 'Release Validation'
 
-on: 
-  pull_request:
-  push:
-    branches:
-      - master
+on: release
 
 jobs:
   pslickpslack-module:
-    name: PSlickPSlack Module Tests
+    name: PSlickPSlack Module Deployment
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
@@ -21,8 +17,6 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
-#    - name: Seeing env variables
-#      run: echo ${{github.event_name}} ${{github.ref}}
-#    - name: Deploy to PSGallery
-#      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-#      run: echo You would deploy!
+    - name: Deploy to PSGallery
+      if: success()
+      run: echo deploy!
