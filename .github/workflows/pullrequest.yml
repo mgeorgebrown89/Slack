@@ -8,5 +8,5 @@ jobs:
     runs-on: windows-2019
     steps:
     - name: Install Pester Module
-      run: echo ${env:PATH}
+      run: ./Install-PesterModule.ps1
       shell: pwsh
