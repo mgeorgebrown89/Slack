@@ -2,7 +2,7 @@ name: 'Release Validation'
 
 on: 
   release:
-
+    types: [published, prereleased]
 jobs:
   pslickpslack-module:
     name: PSlickPSlack Module Deployment
