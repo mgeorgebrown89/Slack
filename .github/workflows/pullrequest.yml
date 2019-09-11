@@ -13,3 +13,4 @@ jobs:
       shell: pwsh
     - name: Run Pester Tests
       run: .\.github\workflows\Invoke-PesterTests.ps1
+      shell: pwsh
