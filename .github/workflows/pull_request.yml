@@ -21,6 +21,8 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
+    - name: Seeing env variables
+      run: echo ${github.event} ${github.ref}
     - name: Deploy to PSGallery
-      if: github.event == 'push' && github.ref == 'master' && contains('!Deploy',github.sha)
+      if: github.event == 'push' && github.ref == 'master'
       run: echo You would deploy!
