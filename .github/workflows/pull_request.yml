@@ -7,8 +7,8 @@ on:
       - master
 
 jobs:
-  Test:
-    name: Test
+  pslickpslack-module:
+    name: PSlickPSlack PowerShell Module Test and Deploy
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
@@ -21,3 +21,6 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
+    - name: Deploy to PSGallery
+      if: github.event == 'push' && github.ref == 'master' && contains('!Deploy',github.sha)
+      run: echo You would deploy!
