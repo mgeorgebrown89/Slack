@@ -22,6 +22,7 @@ jobs:
       if: success()
       env:
         PSGALLERY_TOKEN: ${{secrets.PSGALLERY_TOKEN}}
+        RELEASE_NOTES: ${{github.event.release.body}}
       run: .github\workflows\Deploy-PSlickPSlack.ps1
       shell: pwsh
   one:
