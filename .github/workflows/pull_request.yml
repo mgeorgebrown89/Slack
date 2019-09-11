@@ -1,0 +1,23 @@
+name: 'Pull Request Validation'
+
+on: 
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  Test:
+    name: Test
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Pester Module
+      run: .\.github\workflows\Install-PesterModule.ps1
+      shell: pwsh
+    - name: Run Pester Tests
+      env:
+        SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+        SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
+      run: .\.github\workflows\Invoke-PesterTests.ps1
+      shell: pwsh

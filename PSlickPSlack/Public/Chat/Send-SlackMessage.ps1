@@ -96,13 +96,20 @@ function Send-SlackMessage {
     )
 
     $root = (Get-Item $PSScriptRoot).Parent.Parent.FullName
-    $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
 
-    if (!$token) {
-        $token = $content.userToken
+    if(!$env:GITHUB_REPOSITORY){
+        if (!$token) {
+            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $token = $content.userToken
+        }
+        if (!$channel) {
+            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $channel = $content.defaultChannel
+        }
     }
-    if (!$channel) {
-        $channel = $content.defaultChannel
+    else {
+        $token = $env:SLACK_TOKEN
+        $channel = $env:SLACK_CHANNEL
     }
      
     $Headers = @{
