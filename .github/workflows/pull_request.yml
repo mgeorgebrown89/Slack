@@ -22,7 +22,7 @@ jobs:
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
     - name: Seeing env variables
-      run: echo ${{github.event}} ${{github.ref}}
+      run: echo ${{github.event_name}} ${{github.ref}} ${{github.event.commit_comment}} ${{commit_comment}}
     - name: Deploy to PSGallery
       if: github.event_name == 'push' && github.ref == 'master'
       run: echo You would deploy!
