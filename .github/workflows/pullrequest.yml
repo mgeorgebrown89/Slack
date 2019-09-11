@@ -1,0 +1,12 @@
+name: 'Pull Request Validation'
+
+on: pull_request
+
+jobs:
+  Test:
+    name: Test
+    runs-on: windows-2019
+    steps:
+    - name: Install Pester Module
+      run: echo ${env:PATH}
+      shell: pwsh
