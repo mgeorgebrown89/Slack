@@ -10,7 +10,7 @@ $modulePath = Split-Path -Parent $moduleFilePath.Path -Verbose
 $nuGetApiKey = $env:PSGALLERY_TOKEN
 $nuGetApiKey = "a"
 try{
-    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Repository PSGallery -Verbose -Debug -ErrorAction Stop 
+    Publish-Module -Name PSlickPSlack -NuGetApiKey $nuGetApiKey -Repository PSGallery -Verbose -Debug -ErrorAction Stop 
     Write-Host "PSlickPSlack Module Published!"
 }
 catch {
