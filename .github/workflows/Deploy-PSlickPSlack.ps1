@@ -1,5 +1,5 @@
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
+
 $releaseNotes = $env:RELEASE_NOTES
 $moduleVersion = ($env:RELEASE_VERSION) -replace "v",""
 Write-Host "ModuleVersion: $moduleVersion"
@@ -18,7 +18,7 @@ Write-Host "Module Path: $modulePath"
 $nuGetApiKey = $env:PSGALLERY_TOKEN
 
 try{
-    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Verbose -Debug -ErrorAction Stop 
+    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Debug -ErrorAction Stop 
     Write-Host "PSlickPSlack Module Published!"
 }
 catch {
