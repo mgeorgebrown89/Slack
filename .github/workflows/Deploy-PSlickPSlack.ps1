@@ -1,4 +1,5 @@
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 $releaseNotes = $env:RELEASE_NOTES
 $moduleVersion = ($env:RELEASE_VERSION) -replace "v",""
 Write-Host "ModuleVersion: $moduleVersion"
