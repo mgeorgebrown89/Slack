@@ -9,7 +9,7 @@ $moduleFilePath = Resolve-Path -Path "*\PSlickPSlack.psm1" -Verbose
 $modulePath = Split-Path -Parent $moduleFilePath.Path -Verbose
 $nuGetApiKey = $env:PSGALLERY_TOKEN
 try{
-    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Repository PSGallery -Verbose -ErrorAction Stop -Force
+    Publish-Module -AllowPrerelease -Path $modulePath -NuGetApiKey $nuGetApiKey -Repository PSGallery -Force -Verbose -ErrorAction Stop 
     Write-Host "PSlickPSlack Module Published!"
 }
 catch {
