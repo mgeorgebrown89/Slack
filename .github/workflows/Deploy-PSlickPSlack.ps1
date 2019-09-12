@@ -1,6 +1,5 @@
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-Install-PackageProvider -Name NuGet -Force
-Install-Module -Name PowerShellGet -Force
+
 $releaseNotes = $env:RELEASE_NOTES
 $moduleVersion = ($env:RELEASE_VERSION) -replace "v",""
 Write-Host "ModuleVersion: $moduleVersion"
@@ -19,7 +18,7 @@ Write-Host "Module Path: $modulePath"
 $nuGetApiKey = $env:PSGALLERY_TOKEN
 
 try{
-    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Verbose -Debug -ErrorAction Stop 
+    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Debug -ErrorAction Stop 
     Write-Host "PSlickPSlack Module Published!"
 }
 catch {
