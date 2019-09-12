@@ -18,7 +18,7 @@ Write-Host "Module Path: $modulePath"
 $nuGetApiKey = $env:PSGALLERY_TOKEN
 
 try{
-    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Debug -ErrorAction Stop 
+    Publish-Module -Path $modulePath -NuGetApiKey $nuGetApiKey -Debug -ErrorAction Stop -Force
     Write-Host "PSlickPSlack Module Published!"
 }
 catch {
