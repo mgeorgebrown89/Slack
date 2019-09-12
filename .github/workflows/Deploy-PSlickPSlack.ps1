@@ -1,6 +1,6 @@
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 $releaseNotes = $env:RELEASE_NOTES
 $moduleVersion = ($env:RELEASE_VERSION) -replace "v",""
-
 Write-Host "ModuleVersion: $moduleVersion"
 $manifestPath = Resolve-Path -Path "*\PSlickPSlack.psd1" -Verbose
 Update-ModuleManifest -ReleaseNotes $releaseNotes -Path $manifestPath -ModuleVersion $moduleVersion -Verbose
