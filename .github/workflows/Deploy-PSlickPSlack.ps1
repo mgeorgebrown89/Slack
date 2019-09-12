@@ -1,4 +1,4 @@
-$Path = (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path))) + "\PSlickPSlack"
+$Path = (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)))
 Write-Host "Path: $Path"
 $releaseNotes = $env:RELEASE_NOTES
 $moduleVersion = ($env:RELEASE_VERSION) -replace "v",""
