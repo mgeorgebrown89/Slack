@@ -4,9 +4,12 @@ on:
   release:
     types: published
 jobs:
-  pslickpslack-module:
-    name: PSlickPSlack Module Deployment
-    runs-on: ubuntu-latest
+  pslickpslack-module-1:
+    name: PSlickPSlack Module Tests
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [windows-2019, macOS-10.14, ubuntu-18.04]
     steps:
     - uses: actions/checkout@v1
     - name: Install Pester Module
@@ -18,8 +21,13 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
+  pslickpslack-module-2:
+    needs: pslickpslack-module-1
+    name: PSlickPSlack Module Deployment
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
     - name: Deploy to PSGallery
-      if: success()
       env:
         PSGALLERY_TOKEN: ${{secrets.PSGALLERY_TOKEN}}
         RELEASE_NOTES: ${{github.event.release.body}}
