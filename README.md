@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" alt="pslickpslack" width="50"/> PSlickPSlack
 
-[![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
+[![GitHubRelease][]][] [![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
 
 ---
 
@@ -14,9 +14,15 @@ The main purpose for this module is to help PowerShell users easily and quickly 
 
 ## Examples
 
+```powershell
+Install-Module -Name PSlickPSlack
+```
+
 ## Contributing
 
 Pester Tests should be run on PowerShell Core.
+
+[GitHubRelease]: https://img.shields.io/github/v/release/mgeorgebrown89/pslickpslack?style=for-the-badge
 
 [PSGallery]: https://img.shields.io/powershellgallery/v/PSlickPSlack.svg?logo=powershell&label=Powershell+Gallery&style=for-the-badge
 [PSGalleryLink]: https://www.powershellgallery.com/packages/PSlickPSlack
