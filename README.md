@@ -12,7 +12,23 @@ PSlickPSlack is a PowerShell Module for composing and sending Slack messages usi
 
 The main purpose for this module is to help PowerShell users easily and quickly craft Slack messages that look good using their existing PowerShell skills.
 
-## Examples
+## Getting Started
+
+To use **PSlickPSlack** you will need access to a Slack Workspace with a Slack Application and either have a **User Token**, a **Bot Token**, or a **Webhook**.
+
+### Create a Slack Workspace
+
+If necessary, [create a Slack Workspace](https://slack.com/create), otherwise, if you already have access to a Slack Workspace, proceed to the next step.
+
+### Create a Slack Application
+
+[Create a Slack Application](https://api.slack.com/apps?new_app=1) in your desired Slack Workspace. From here, there are several options to start sending messages to Slack via PowerShell. 
+
+### Option A: Webhooks
+
+### Option B: OAuth Access Token
+
+### Option C: Bot User OAuth Access Token
 
 ```powershell
 Install-Module -Name PSlickPSlack
