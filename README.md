@@ -22,15 +22,16 @@ Install-Module -Name PSlickPSlack
 
 Pester Tests should be run on PowerShell Core.
 
-[GitHubRelease]: https://img.shields.io/github/v/release/mgeorgebrown89/pslickpslack?style=for-the-badge
+[GitHubRelease]: https://img.shields.io/github/v/release/mgeorgebrown89/pslickpslack?style=for-the-badge&color=36C5F0
 
-[PSGallery]: https://img.shields.io/powershellgallery/v/PSlickPSlack.svg?logo=powershell&label=Powershell+Gallery&style=for-the-badge
+[PSGallery]: https://img.shields.io/powershellgallery/v/PSlickPSlack.svg?logo=powershell&label=Powershell+Gallery&style=for-the-badge&color=2EB67D
 [PSGalleryLink]: https://www.powershellgallery.com/packages/PSlickPSlack
-[PSGalleryDL]: https://img.shields.io/powershellgallery/dt/PSlickPSlack.svg?logo=powershell&label=downloads&style=for-the-badge
+
+[PSGalleryDL]: https://img.shields.io/powershellgallery/dt/PSlickPSlack.svg?logo=powershell&label=downloads&style=for-the-badge&color=ECB22E
 [PSGalleryDLLink]: https://www.powershellgallery.com/packages/PSlickPSlack
 
-[License]: https://img.shields.io/github/license/mgeorgebrown89/pslickpslack.svg?label=License&style=for-the-badge
-[LicenseLink]: https://github.com/mgeorgebrown89/PSlickPSlack/blob/master/LICENSE
-
-[Slack]: https://img.shields.io/badge/Slack-Join-brightgreen.svg?logo=slack&label=Slack&style=for-the-badge
+[Slack]: https://img.shields.io/badge/Slack-Join-brightgreen.svg?logo=slack&label=Slack&style=for-the-badge&color=E01E5A
 [SlackLink]: https://pslickposh.slack.com/
+
+[License]: https://img.shields.io/github/license/mgeorgebrown89/pslickpslack.svg?label=License&style=for-the-badge&color=4A154B
+[LicenseLink]: https://github.com/mgeorgebrown89/PSlickPSlack/blob/master/LICENSE
