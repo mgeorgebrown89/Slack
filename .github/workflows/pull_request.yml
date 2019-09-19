@@ -26,7 +26,7 @@ jobs:
       shell: pwsh
     - uses: actions/upload-artifact@master
       with:
-        name: Pester Tests
+        name: Pester Tests ${{matrix.os}}
         path: ./.github/workflows/PSlickPSlack.Tests.xml
   # one:
   #   runs-on: ubuntu-16.04
