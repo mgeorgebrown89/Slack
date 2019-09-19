@@ -24,7 +24,11 @@ function New-PSlickPSlackConfig {
         $userToken,
 
         [string]
-        $defaultChannel
+        $defaultChannel,
+
+        [string]
+        [ValidateScript({$_ -match "https://hooks.slack.com/services/"})]
+        $defaultWebhook
     )
 
     $root = (Get-Item $PSScriptRoot).Parent.FullName
@@ -34,6 +38,7 @@ function New-PSlickPSlackConfig {
     "botToken":"$botToken",
     "userToken":"$userToken",
     "defaultChannel":"$defaultChannel"
+    "defaultWebhook":"$defaultWebhook"
 }
 "@
 
