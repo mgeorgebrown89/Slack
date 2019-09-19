@@ -32,7 +32,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: Pester Tests ${{matrix.os}}
-        path: ./.github/workflows/PSlickPSlack.Tests.html
+        path: ./.github/workflows/PSlickPSlack.Tests.xml
   # one:
   #   runs-on: ubuntu-16.04
   #   steps:
