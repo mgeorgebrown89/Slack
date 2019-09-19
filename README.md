@@ -10,7 +10,7 @@ PSlickPSlack is a PowerShell Module for composing and sending Slack messages usi
 
 ## Purpose
 
-The main purpose for this module is to help PowerShell users easily and quickly craft Slack messages that look good using their existing PowerShell skills.
+The main purpose for this module is to help PowerShell users easily and quickly craft Slack messages that look good using their existing PowerShell skills. Use this module to output information from your scripts and functions to a Slack Channel. If you really want to, you could enable interactive components (there are plans to make this easier, but for now, you'll have to figure out that set up on your own)!
 
 ## Getting Started
 
@@ -23,20 +23,25 @@ If necessary, [create a Slack Workspace](https://slack.com/create), otherwise, i
 ### Create a Slack Application
 
 <details>
-<summary><a href="https://api.slack.com/apps">Create a Slack Application</a> in your desired Slack Workspace. From here, there are several options to start sending messages to Slack via PowerShell.</summary>
+<summary><a href="https://api.slack.com/apps">Create a Slack Application</a> and install it in your desired Slack Workspace. </summary>
 <br>
 <img src="Media\gifs\createSlackApp1.gif">
 </details>
-
-
+There are several options to start sending messages to Slack via PowerShell.
 
 #### Option A: Webhooks
+
+<details>
+<summary>From the Basic Information page for your Slack App, click <b>Add features and functionality</b>, then <b>Incoming Webhooks</b>. Turn them <b>on</b>, and click <b>Add New Webhook to Workspace</b>. Select a channel to post to, click <b>allow</b>, then copy the webhook to use in your PowerShell code.</summary>
+<br>
+<img src="Media\gifs\createSlackWebhook1.gif">
+</details>
 
 #### Option B: OAuth Access Token
 
 #### Option C: Bot User OAuth Access Token
 
-## Install and Configure the Modulev
+## Install and Configure the Module
 
 ```powershell
 Install-Module -Name PSlickPSlack
