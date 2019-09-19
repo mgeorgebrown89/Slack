@@ -22,13 +22,21 @@ If necessary, [create a Slack Workspace](https://slack.com/create), otherwise, i
 
 ### Create a Slack Application
 
-[Create a Slack Application](https://api.slack.com/apps?new_app=1) in your desired Slack Workspace. From here, there are several options to start sending messages to Slack via PowerShell. 
+<details>
+<summary><a href="https://api.slack.com/apps">Create a Slack Application</a> in your desired Slack Workspace. From here, there are several options to start sending messages to Slack via PowerShell.</summary>
+<br>
+<img src="Media\gifs\createSlackApp1.gif">
+</details>
 
-### Option A: Webhooks
 
-### Option B: OAuth Access Token
 
-### Option C: Bot User OAuth Access Token
+#### Option A: Webhooks
+
+#### Option B: OAuth Access Token
+
+#### Option C: Bot User OAuth Access Token
+
+## Install and Configure the Modulev
 
 ```powershell
 Install-Module -Name PSlickPSlack
