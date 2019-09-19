@@ -25,6 +25,7 @@ jobs:
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
     - name: Publish Pester Test Results
+      if: always()
       run: .\.github\workflows\Publish-PesterTests.ps1
       shell: pwsh
     - uses: actions/upload-artifact@master
