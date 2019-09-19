@@ -24,10 +24,13 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
+    - name: Publish Pester Test Results
+      run: .\.github\workflows\Publish-PesterTests.ps1
+      shell: pwsh
     - uses: actions/upload-artifact@master
       with:
         name: Pester Tests ${{matrix.os}}
-        path: ./.github/workflows/PSlickPSlack.Tests.xml
+        path: ./.github/workflows/PSlickPSlack.Tests.html
   # one:
   #   runs-on: ubuntu-16.04
   #   steps:
