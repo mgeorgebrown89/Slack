@@ -1,6 +1,7 @@
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-$result = Invoke-Pester -OutputFile "$root\PSlickPSlack.Tests.xml" -OutputFormat NUnitXML -PassThru -Show Fails
+$result = Invoke-Pester -OutputFile "$root\PSlickPSlack.Tests.xml" -OutputFormat NUnitXML -PassThru
+$result | ConvertTo-Json -Depth 100 | Out-File -FilePath "$root\PSlickPSlack.Tests.json"
 Write-Host "Root path: $root"
 if ($result.failedCount -ne 0) { 
     $x = $result.failedCount

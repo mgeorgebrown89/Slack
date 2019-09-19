@@ -1,8 +1,5 @@
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$root
 
-$testsFolderPath = Split-Path -Parent (Split-Path -Parent $root)
-$testsFolderPath = $testsFolderPath + "/Tests"
-$testsFolderPath
+$testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-Json
 
-& $testsFolderPath/ReportUnit.exe $root $root
+$testResults
