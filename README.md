@@ -1,5 +1,6 @@
 # <img src="https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" alt="pslickpslack" width="50"/> PSlickPSlack
 
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fmgeorgebrown89%2Fpslickpslack%2Fbadge%3Fref%3Dmaster&style=for-the-badge)](https://actions-badge.atrox.dev/mgeorgebrown89/pslickpslack/goto?ref=master)
 ![GitHubRelease][] [![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
 
 ---
@@ -50,6 +51,9 @@ Install-Module -Name PSlickPSlack
 ## Contributing
 
 Pester Tests should be run on PowerShell Core.
+
+[GitHubActions]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fsync-dotenv%2Fbadge&style=for-the-badge
+[GitHubActionsLink]: https://actions-badge.atrox.dev/atrox/sync-dotenv/goto
 
 [GitHubRelease]: https://img.shields.io/github/v/release/mgeorgebrown89/pslickpslack?style=for-the-badge&color=36C5F0
 

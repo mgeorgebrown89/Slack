@@ -29,7 +29,7 @@ jobs:
       if: always()
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        GITHUB_PR_URI: ${{github.pull_request._links.comments.href}}
+        GITHUB_PR_URI: ${{github.event.pull_request._links.comments.href}}
       run: .\.github\workflows\Publish-PesterTests.ps1
       shell: pwsh
     - uses: actions/upload-artifact@master
