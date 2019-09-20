@@ -5,7 +5,9 @@ $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-J
 $testResults
 
 $Body = @{
-    body = "Comment testing!"
+    body = "Will **markdown** be _formatted_?
+    
+    What about spaces and newlines?"
 }
 $Token = $env:GITHUB_TOKEN
 Write-Host "Token: $Token"
