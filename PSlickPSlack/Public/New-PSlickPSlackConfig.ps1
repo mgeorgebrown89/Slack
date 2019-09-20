@@ -10,6 +10,8 @@ function New-PSlickPSlackConfig {
         A Slack User token
     .PARAMETER defaultChannel
         The name or ID of a default channel to use for output.
+    .PARAMETER defaultWebhook
+        The url of a default webhook to use for output. If this is set, this will take precedence.
     .EXAMPLE
         New-PSlickPSlackConfig -botToken "xxxx-xxxx-xxxx-xxxx"
     #>
@@ -24,7 +26,11 @@ function New-PSlickPSlackConfig {
         $userToken,
 
         [string]
-        $defaultChannel
+        $defaultChannel,
+
+        [string]
+        [ValidateScript({$_ -match "https://hooks.slack.com/services/"})]
+        $defaultWebhook
     )
 
     $root = (Get-Item $PSScriptRoot).Parent.FullName
@@ -34,6 +40,7 @@ function New-PSlickPSlackConfig {
     "botToken":"$botToken",
     "userToken":"$userToken",
     "defaultChannel":"$defaultChannel"
+    "defaultWebhook":"$defaultWebhook"
 }
 "@
 

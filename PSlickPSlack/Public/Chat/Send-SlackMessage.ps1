@@ -9,6 +9,8 @@ function Send-SlackMessage {
         Authentication token bearing required scopes.
     .PARAMETER channel
         Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+    .PARAMETER webhook
+        A url to send the POST to. Should look like "https://hooks.slack.com/service/xxxxx"
     .PARAMETER text	
         Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead. 
     .PARAMETER as_user    	
@@ -49,6 +51,9 @@ function Send-SlackMessage {
     
         [string]
         $channel,
+
+        [string]
+        $webhook,
 
         [ValidateLength(1, 4000)]
         [string]
@@ -97,32 +102,9 @@ function Send-SlackMessage {
 
     $root = (Get-Item $PSScriptRoot).Parent.Parent.FullName
 
-    if(!$env:GITHUB_REPOSITORY){
-        if (!$token) {
-            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
-            $token = $content.userToken
-        }
-        if (!$channel) {
-            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
-            $channel = $content.defaultChannel
-        }
+    $body = [PSCustomObject]@{
+        text = $text
     }
-    else {
-        $token = $env:SLACK_TOKEN
-        $channel = $env:SLACK_CHANNEL
-    }
-     
-    $Headers = @{
-        Authorization = "Bearer $token"
-    }
-
-    # Construct the Body based on parameters
-    $Body = [PSCustomObject]@{
-        channel = $channel
-        text    = $text
-    }
-
-
 
     if ($as_user -and !$username) {
         $Body | Add-Member -NotePropertyName "as_user" -NotePropertyValue $true
@@ -150,7 +132,7 @@ function Send-SlackMessage {
         $Body | Add-Member -NotePropertyName "icon_url" -NotePropertyValue $icon_url
     }
     elseif ($icon_url -and $as_user) {
-        Write-Error
+        Write-Error ""
     }
 
     if ($username -and !$as_user) {
@@ -160,5 +142,28 @@ function Send-SlackMessage {
         Write-Error "Username cannot be set with as_user set to true."
     }
 
-    Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
+    if (!$webhook) {
+        if (!$token) {
+            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $token = $content.userToken
+        }
+        $Headers = @{
+            Authorization = "Bearer $token"
+        }
+
+        if (!$channel) {
+            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $channel = $content.defaultChannel
+        } 
+        $body | Add-Member -NotePropertyName "channel" -NotePropertyValue $channel
+
+        Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
+    }
+    #Webhooks take precedence (for now). 
+    else {
+        Invoke-RestMethod -Method Post -Uri $webhook -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
+    }
+     
+
+
 }
