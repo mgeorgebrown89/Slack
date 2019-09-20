@@ -1,0 +1,26 @@
+name: 'Push Validation'
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  pslickpslack-module:
+    name: PSlickPSlack Module Tests
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [windows-2019, macOS-10.14, ubuntu-18.04]
+      fail-fast: false
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Pester Module
+      run: .\.github\workflows\Install-PesterModule.ps1
+      shell: pwsh
+    - name: Run Pester Tests
+      env:
+        SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+        SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
+      run: .\.github\workflows\Invoke-PesterTests.ps1
+      shell: pwsh
