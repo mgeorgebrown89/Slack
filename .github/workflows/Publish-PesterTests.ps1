@@ -4,4 +4,15 @@ $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-J
 
 $testResults
 
-Invoke-RestMethod -Uri "https://api.github.com/repos/mgeorgebrown89/pslickpslack/pulls" -Method Get
+$Body = @{
+    body = "Comment testing!"
+}
+$Token = $env:GITHUB_TOKEN
+Write-Host "Token: $Token"
+$Uri = $env:GITHUB_PR_URI
+Write-Host "Uri: $Uri"
+$Headers = @{
+    Authorization = "Bearer $Token"
+}
+
+Invoke-RestMethod -Uri $Uri -Method Post -Body ($Body | ConvertTo-Json) -Headers $Headers -ContentType "application/json"
