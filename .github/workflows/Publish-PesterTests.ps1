@@ -4,11 +4,14 @@ $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-J
 
 $testResults
 
+$markdown = @"
+This will eventually contain _test results_. :smile:
+"@
+
 $Body = @{
-    body = "Will **markdown** be _formatted_?
-    
-    What about spaces and newlines?"
+    body = $markdown
 }
+
 $Token = $env:GITHUB_TOKEN
 Write-Host "Token: $Token"
 $Uri = $env:GITHUB_PR_URI
