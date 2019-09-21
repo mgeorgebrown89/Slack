@@ -1,11 +1,14 @@
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-Json
+#$testResults
 
-$testResults
+
 
 $markdown = @"
-This will eventually contain _test results_. :smile:
+# Pester Test Results
+
+
 "@
 
 $Body = @{
@@ -13,9 +16,9 @@ $Body = @{
 }
 
 $Token = $env:GITHUB_TOKEN
-Write-Host "Token: $Token"
+#Write-Host "Token: $Token"
 $Uri = $env:GITHUB_PR_URI
-Write-Host "Uri: $Uri"
+#Write-Host "Uri: $Uri"
 $Headers = @{
     Authorization = "Bearer $Token"
 }
