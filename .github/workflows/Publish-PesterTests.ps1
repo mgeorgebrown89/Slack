@@ -3,13 +3,14 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-Json
 #$testResults
 
+$DescribeGroups = $testResults.TestResult | Group-Object -Property Describe
 
-
-$markdown = @"
-# Pester Test Results
-
-
-"@
+$markdown = @()
+foreach ($tr in $testResults.TestResult){
+    $markdown += '| Passed | Name |'
+    $markdown += '| --- | --- |'
+    $markdown += '|' + $tr.Passed + '|' + $tr.Name + '|'
+}
 
 $Body = @{
     body = $markdown
