@@ -5,11 +5,23 @@ $testResults = Get-Content -Path "$root\PSlickPSlack.Tests.json" | ConvertFrom-J
 
 $DescribeGroups = $testResults.TestResult | Group-Object -Property Describe
 
-$markdown = @()
+$markdown = @'
+Passed | Name
+--- | ---
+
+'@
 foreach ($tr in $testResults.TestResult){
-    $markdown += '| Passed | Name |'
-    $markdown += '| --- | --- |'
-    $markdown += '|' + $tr.Passed + '|' + $tr.Name + '|'
+    if($tr.passed -eq 'True'){
+        $passed = ":heavy_check_mark:"
+    } 
+    elseif ($tr.passed -eq 'False') {
+        $passed = ":X:"
+    }
+    $name = $tr.Name
+    $markdown += @"
+ $passed | $name
+
+"@
 }
 
 $Body = @{
@@ -24,4 +36,4 @@ $Headers = @{
     Authorization = "Bearer $Token"
 }
 
-Invoke-RestMethod -Uri $Uri -Method Post -Body ($Body | ConvertTo-Json) -Headers $Headers -ContentType "application/json"
+Invoke-RestMethod -Uri $Uri -Method Post -Body ($Body | ConvertTo-Json -Depth 100) -Headers $Headers -ContentType "application/json"
