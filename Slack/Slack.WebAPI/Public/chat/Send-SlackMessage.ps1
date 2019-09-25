@@ -47,13 +47,10 @@ function Send-SlackMessage {
     [cmdletbinding()]
     param(
         [string]
-        $token,
+        $Token,
     
         [string]
         $channel,
-
-        [string]
-        $webhook,
 
         [ValidateLength(1, 4000)]
         [string]
@@ -142,28 +139,16 @@ function Send-SlackMessage {
         Write-Error "Username cannot be set with as_user set to true."
     }
 
-    if (!$webhook) {
-        if (!$token) {
-            $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
-            $token = $content.userToken
-        }
-        $Headers = @{
-            Authorization = "Bearer $token"
-        }
-
-        if (!$channel) {
-            $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
-            $channel = $content.defaultChannel
-        } 
-        $body | Add-Member -NotePropertyName "channel" -NotePropertyValue $channel
-
-        Invoke-RestMethod -Method Post -Uri 'https://slack.com/api/chat.postMessage' -Headers $Headers -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
+    if (!$Token) {
+        $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
+        $Token = $content.userToken
     }
-    #Webhooks take precedence (for now). 
-    else {
-        Invoke-RestMethod -Method Post -Uri $webhook -ContentType 'application/json;charset=iso-8859-1' -Body ($Body | ConvertTo-Json -Depth 100)
-    }
-     
 
+    if (!$channel) {
+        $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
+        $channel = $content.defaultChannel
+    } 
+    $body | Add-Member -NotePropertyName "channel" -NotePropertyValue $channel
 
+    Invoke-SlackWebAPI -Token $Token -Method_Family "chat.postMessage" -Body $Body
 }
