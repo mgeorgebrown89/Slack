@@ -1,9 +1,9 @@
 begin {
     # If the module is already in memory, remove it
-    Get-Module PSlickPSlack | Remove-Module -Force
+    Get-Module Slack | Remove-Module -Force
 
     # Import the module from the local path, not from the users Documents folder
-    Import-Module .\PSlickPSlack\PSlickPSlack.psm1
+    Import-Module .\Slack\Slack.psm1
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
     #Slack Button Element
@@ -14,7 +14,7 @@ begin {
     #Slack Button Element with url
     $text1 = "Button w/ url"
     $action_id1 = "Button1"
-    $url = "https://github.com/mgeorgebrown89/PSlickPSlack"
+    $url = "https://github.com/mgeorgebrown89/Slack"
     $SlackButtonElementWithUrl = New-SlackButtonElement -text $text1 -action_id $action_id1 -url $url
 
     #Slack Button Element with value

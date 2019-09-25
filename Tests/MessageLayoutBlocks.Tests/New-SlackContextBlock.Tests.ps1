@@ -1,9 +1,9 @@
 begin {
     # If the module is already in memory, remove it
-    Get-Module PSlickPSlack | Remove-Module -Force
+    Get-Module Slack | Remove-Module -Force
 
     # Import the module from the local path, not from the users Documents folder
-    Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
+    Import-Module .\Slack\Slack.psm1 -Force 
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
     if ($env:APPVEYOR) {
@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
@@ -21,13 +21,13 @@ begin {
 
     #slack context block
     $elements = @()
-    $elements += New-SlackImageElement -image_url "https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" -alt_text "PSlickPSlack Icon"
+    $elements += New-SlackImageElement -image_url "https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png" -alt_text "Slack Icon"
     $elements += New-SlackTextObject -type mrkdwn -text "*This* _is_ a context block."
     $contextBlock = New-SlackContextBlock -elements $elements
 
     #slack context block with block_id
     $elements = @()
-    $elements += New-SlackImageElement -image_url "https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png" -alt_text "PSlickPSlack Icon"
+    $elements += New-SlackImageElement -image_url "https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png" -alt_text "Slack Icon"
     $elements += New-SlackTextObject -type mrkdwn -text "*This* _is_ a context block with a block_id"
     $block_id = "contextblock123"
     $contextBlockWithBlockId = New-SlackContextBlock -elements $elements -block_id $block_id

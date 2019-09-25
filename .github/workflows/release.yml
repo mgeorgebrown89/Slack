@@ -4,8 +4,8 @@ on:
   release:
     types: published
 jobs:
-  pslickpslack-module-1:
-    name: PSlickPSlack Module Tests
+  slack-module-1:
+    name: Slack Module Tests
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
@@ -21,9 +21,9 @@ jobs:
         SLACK_CHANNEL: ${{secrets.SLACK_CHANNEL}}
       run: .\.github\workflows\Invoke-PesterTests.ps1
       shell: pwsh
-  pslickpslack-module-2:
-    needs: pslickpslack-module-1
-    name: PSlickPSlack Module Deployment
+  slack-module-2:
+    needs: slack-module-1
+    name: Slack Module Deployment
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -32,5 +32,5 @@ jobs:
         PSGALLERY_TOKEN: ${{secrets.PSGALLERY_TOKEN}}
         RELEASE_NOTES: ${{github.event.release.body}}
         RELEASE_VERSION: ${{github.event.release.tag_name}}
-      run: .github\workflows\Deploy-PSlickPSlack.ps1
+      run: .github\workflows\Deploy-SlackModule.ps1
       shell: pwsh

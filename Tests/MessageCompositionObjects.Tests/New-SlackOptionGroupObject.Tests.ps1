@@ -1,9 +1,9 @@
 begin {
     # If the module is already in memory, remove it
-    Get-Module PSlickPSlack | Remove-Module -Force
+    Get-Module Slack | Remove-Module -Force
 
     # Import the module from the local path, not from the users Documents folder
-    Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
+    Import-Module .\Slack\Slack.psm1 -Force 
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
     if ($env:APPVEYOR) {
@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
