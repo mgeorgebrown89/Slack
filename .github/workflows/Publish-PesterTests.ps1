@@ -14,8 +14,8 @@ $markdown = @"
 | $total | $passed | $failed | $skipped | $pending | $inconclusive |
 "@
 
-foreach ($tr in $testResults.TestResult){
-    if($tr.passed -eq 'True'){
+foreach ($tr in $testResults.TestResult) {
+    if ($tr.passed -eq 'True') {
         $passed = ":heavy_check_mark:"
     } 
     elseif ($tr.passed -eq 'False') {
@@ -25,6 +25,7 @@ foreach ($tr in $testResults.TestResult){
      $passed | $name
     }
 "@
+    }
 }
 
 $Body = @{
