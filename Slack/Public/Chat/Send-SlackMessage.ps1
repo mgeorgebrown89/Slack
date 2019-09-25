@@ -144,7 +144,7 @@ function Send-SlackMessage {
 
     if (!$webhook) {
         if (!$token) {
-            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
             $token = $content.userToken
         }
         $Headers = @{
@@ -152,7 +152,7 @@ function Send-SlackMessage {
         }
 
         if (!$channel) {
-            $content = Get-Content "$root\pslickpslackconfig.json" | ConvertFrom-Json
+            $content = Get-Content "$root\slackconfig.json" | ConvertFrom-Json
             $channel = $content.defaultChannel
         } 
         $body | Add-Member -NotePropertyName "channel" -NotePropertyValue $channel

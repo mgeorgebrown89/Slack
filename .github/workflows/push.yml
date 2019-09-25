@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  pslickpslack-module:
-    name: PSlickPSlack Module Tests
+  slack-module:
+    name: Slack Module Tests
     runs-on: ${{matrix.os}}
     strategy:
       matrix:

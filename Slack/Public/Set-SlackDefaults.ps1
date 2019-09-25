@@ -1,7 +1,7 @@
-function New-PSlickPSlackConfig {
+function Set-SlackDefaults {
     <#
     .SYNOPSIS
-        Creates a new PSlickPSlack config file
+        Creates a new Slack config file
     .DESCRIPTION
         This function will create a local configuration file that stores user-specific information like their Slack Workspace token or webhook.
     .PARAMETER botToken
@@ -13,7 +13,7 @@ function New-PSlickPSlackConfig {
     .PARAMETER defaultWebhook
         The url of a default webhook to use for output. If this is set, this will take precedence.
     .EXAMPLE
-        New-PSlickPSlackConfig -botToken "xxxx-xxxx-xxxx-xxxx"
+        Set-SlackDefaults -botToken "xxxx-xxxx-xxxx-xxxx"
     #>
     [CmdletBinding()]
     param(
@@ -44,5 +44,5 @@ function New-PSlickPSlackConfig {
 }
 "@
 
-    New-Item -Path $root -Name "pslickpslackconfig.json" -ItemType File -Value $value -Force
+    New-Item -Path $root -Name "SlackDefaults.json" -ItemType File -Value $value -Force
 }

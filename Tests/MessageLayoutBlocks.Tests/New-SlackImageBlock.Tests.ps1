@@ -1,9 +1,9 @@
 begin {
     # If the module is already in memory, remove it
-    Get-Module PSlickPSlack | Remove-Module -Force
+    Get-Module Slack | Remove-Module -Force
 
     # Import the module from the local path, not from the users Documents folder
-    Import-Module .\PSlickPSlack\PSlickPSlack.psm1 -Force 
+    Import-Module .\Slack\Slack.psm1 -Force 
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
     if ($env:APPVEYOR) {
@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
@@ -21,12 +21,12 @@ begin {
 
     #imageblock
     $alt_text = "This is a Slack Image Block"
-    $image_url = "https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png"
+    $image_url = "https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png"
     $imageBlock = New-SlackImageBlock -image_url $image_url -alt_text $alt_text
 
     #image block with Title and block_id
     $alt_text1 = "This is a Slack Image Block with a Title and block_id"
-    $image_url1 = "https://raw.githubusercontent.com/mgeorgebrown89/PSlickPSlack/master/Media/PSlickPSlack_icon.png"
+    $image_url1 = "https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png"
     $title = "This is the title of the Slack Image Block"
     $block_id = "imageblock123"
     $imageBlockWithTitleAndBlockId = New-SlackImageBlock -image_url $image_url1 -alt_text $alt_text1 -title $title -block_id $block_id

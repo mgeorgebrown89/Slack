@@ -1,9 +1,9 @@
 begin {
     # If the module is already in memory, remove it
-    Get-Module PSlickPSlack | Remove-Module -Force
+    Get-Module Slack | Remove-Module -Force
 
     # Import the module from the local path, not from the users Documents folder
-    Import-Module .\PSlickPSlack\PSlickPSlack.psm1
+    Import-Module .\Slack\Slack.psm1
     $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
     if ($env:APPVEYOR) {
@@ -12,7 +12,7 @@ begin {
     }
     else {
         $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\PSlickPSlack\pslickpslackconfig.json | ConvertFrom-Json
+        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
     }
@@ -22,13 +22,13 @@ begin {
     #slack Actions Block
     $elements = @()
     $elements += New-SlackButtonElement -text "ActionBlock" -action_id "Button1" -value "One"
-    $elements += New-SlackButtonElement -text "PSlickPSlack" -action_id "Button2" -url "https://github.com/mgeorgebrown89/PSlickPSlack"
+    $elements += New-SlackButtonElement -text "Slack" -action_id "Button2" -url "https://github.com/mgeorgebrown89/Slack"
     $actionsBlock = New-SlackActionsBlock -elements $elements
     
     #slack Actions Block with block_id
     $elements = @()
     $elements += New-SlackButtonElement -text "ActionBlockWithBlockId" -action_id "Button3" -value "Two"
-    $elements += New-SlackButtonElement -text "PSlickPSlack" -action_id "Button4" -url "https://github.com/mgeorgebrown89/PSlickPSlack"
+    $elements += New-SlackButtonElement -text "Slack" -action_id "Button4" -url "https://github.com/mgeorgebrown89/Slack"
     $block_id = "actionBlock123"
     $actionsBlockWithBlockId = New-SlackActionsBlock -elements $elements -block_id $block_id
 }
