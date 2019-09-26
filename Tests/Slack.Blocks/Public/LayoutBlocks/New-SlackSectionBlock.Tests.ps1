@@ -11,7 +11,7 @@ begin {
         $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
     }
     else {
-        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
+        $root =  Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
         $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
         $SlackUri = $slackContent.slackwebhook
         $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
