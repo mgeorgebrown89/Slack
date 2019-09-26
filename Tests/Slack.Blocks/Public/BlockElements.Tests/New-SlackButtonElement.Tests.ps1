@@ -1,11 +1,12 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
+# Import the module from the local path, not from the users Documents folder
+Import-Module .\Slack
+$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+
+InModuleScope -ModuleName Slack {
     #Slack Button Element
     $text = "Button"
     $action_id = "Button0"
@@ -39,8 +40,7 @@ begin {
     $text5 = "Button w/ Confirm"
     $action_id5 = "Button5"
     $SlackButtonWithConfirm = New-SlackButtonElement -text $text5 -action_id $action_id5 -confirm $confirm
-}
-process {
+
     Describe "$functionName | Unit Tests" -Tags "Unit" {
 
         Context "Slack Button Element | Unit Tests" {
