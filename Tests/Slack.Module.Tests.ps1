@@ -1,11 +1,12 @@
 begin {
     $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
     $module = Get-ChildItem -Path $RepositoryRoot -Filter 'Slack' -Directory
+    New-Variable -Scope global -Name SlackModulePath -Value $module.FullName -Force
     $nestedModules = Get-ChildItem -Path $module.FullName -Filter ($module.Name + ".*") -Directory
     
     #remove loaded module and reload it from local path
     Get-Module $module.Name | Remove-Module -Force
-    Import-Module $module.FullName -Force #-Verbose
+    Import-Module $Global:SlackModulePath -Force 
 }
 process {
     Describe ($module.name + " | Repository Tests") {

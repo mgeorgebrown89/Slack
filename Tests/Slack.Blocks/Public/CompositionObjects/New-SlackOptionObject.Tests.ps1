@@ -1,11 +1,10 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack\Slack.psm1 -Force 
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
-
+# Import the module from the local path, not from the users Documents folder
+Import-Module $Global:SlackModulePath -Force 
+$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+InModuleScope -ModuleName Slack {
     #Slack Option Object
     $text = "Slack Object 1"
     $value = 1
@@ -16,8 +15,7 @@ begin {
     $value1 = 2
     $url = "https://github.com/mgeorgebrown89/Slack"
     $optionObjectWithUrl = New-SlackOptionObject -text $text1 -value $value1 -url $url
-}
-process {
+
     Describe "$functionName | Unit Tests" -Tags "Unit" {
         Context "Slack Option Object | Unit Tests" {
     

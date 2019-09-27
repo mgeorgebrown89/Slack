@@ -3,7 +3,7 @@
 Get-Module Slack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-Import-Module .\Slack\Slack.psm1 -Force 
+Import-Module ($Global:SlackModulePath) -Force
 $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
 InModuleScope -ModuleName Slack {

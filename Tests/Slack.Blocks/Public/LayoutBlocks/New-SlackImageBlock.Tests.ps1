@@ -1,24 +1,20 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack\Slack.psm1 -Force 
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+# Import the module from the local path, not from the users Documents folder
+$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$ModuleRoot = $repoRoot + "\Slack"
+Import-Module $ModuleRoot -Force 
 
-    if ($env:APPVEYOR) {
-        $SlackUri = $env:slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-    }
-    else {
-        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
-        $SlackUri = $slackContent.slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-    }
+$slackContent = Get-Content $ModuleRoot\SlackDefaults.json | ConvertFrom-Json
+$SlackUri = $slackContent.slackwebhook
+$SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+
+
+InModuleScope -ModuleName Slack {
+    $functionName = (($PSCommandPath -split '\\')[-1]) -replace ".Tests.ps1",""
     $slackTestUri = "https://slack.com/api/api.test" 
     $ContentType = "application/json; charset=utf-8"
-
     #imageblock
     $alt_text = "This is a Slack Image Block"
     $image_url = "https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png"
@@ -31,8 +27,6 @@ begin {
     $block_id = "imageblock123"
     $imageBlockWithTitleAndBlockId = New-SlackImageBlock -image_url $image_url1 -alt_text $alt_text1 -title $title -block_id $block_id
 
-}
-process {
     Describe "$functionName | Unit Tests" -Tags "Unit" {
 
         Context "Slack Image Block | Unit tests" {
@@ -62,7 +56,7 @@ process {
             }
         }
     
-        Context "Slack Image Element with Title and block_id | Unit Tests" {
+        Context "Slack Image Block with Title and block_id | Unit Tests" {
     
             $properties = ("type", "image_url", "alt_text", "title", "block_id")
             $propertyCount = $properties.Count
@@ -98,7 +92,7 @@ process {
     
     Describe "$functionName | Acceptance Tests" -Tags "Acceptance" {
     
-        Context "Slack Image Element | Acceptance tests" {
+        Context "Slack Image Block | Acceptance tests" {
     
             $Blocks = @()
             $Blocks += $imageBlock
@@ -113,7 +107,7 @@ process {
             }
         }
     
-        Context "Slack Image Element with a Title and block_id | Acceptance tests" {
+        Context "Slack Image Block with a Title and block_id | Acceptance tests" {
     
             $Blocks = @()
             $Blocks += $imageBlockWithTitleAndBlockId

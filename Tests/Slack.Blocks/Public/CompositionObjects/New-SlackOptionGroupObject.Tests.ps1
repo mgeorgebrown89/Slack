@@ -1,30 +1,30 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack\Slack.psm1 -Force 
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
-    if ($env:APPVEYOR) {
-        $SlackUri = $env:slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-    }
-    else {
-        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
-        $SlackUri = $slackContent.slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-    }
-    $slackTestUri = "https://slack.com/api/api.test" 
-    $ContentType = "application/json; charset=utf-8"
+# Import the module from the local path, not from the users Documents folder
+Import-Module $Global:SlackModulePath -Force 
+$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
+if ($env:APPVEYOR) {
+    $SlackUri = $env:slackwebhook
+    $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
+}
+else {
+    $root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+    $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
+    $SlackUri = $slackContent.slackwebhook
+    $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+}
+$slackTestUri = "https://slack.com/api/api.test" 
+$ContentType = "application/json; charset=utf-8"
+
+InModuleScope -ModuleName Slack {
     #Slack Option Group
     $options = @()
     $label = "Slack Option Group"
     $optionGroup = New-SlackOptionGroupObject -label $label -SlackOptions $options
-}
-process {
+
     Describe "$functionName | Unit Tests" -Tags "Unit" {
         Context "Slack Option Group Object | Unit Tests" {
     

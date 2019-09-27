@@ -1,24 +1,19 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack\Slack.psm1 -Force 
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+# Import the module from the local path, not from the users Documents folder
+$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$ModuleRoot = $repoRoot + "\Slack"
+Import-Module $ModuleRoot -Force 
 
-    if ($env:APPVEYOR) {
-        $SlackUri = $env:slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-    }
-    else {
-        $root =  Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
-        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
-        $SlackUri = $slackContent.slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-    }
+$slackContent = Get-Content $ModuleRoot\SlackDefaults.json | ConvertFrom-Json
+$SlackUri = $slackContent.slackwebhook
+$SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+
+InModuleScope -ModuleName Slack {
+    $functionName = (($PSCommandPath -split '\\')[-1]) -replace ".Tests.ps1",""
     $slackTestUri = "https://slack.com/api/api.test" 
     $ContentType = "application/json; charset=utf-8"
-    
     #section block
     $text = "This is a Slack Section Block with just text."
     $block = New-SlackSectionBlock -text $text
@@ -40,8 +35,7 @@ begin {
     $accessory = New-SlackButtonElement -text "ButtonText" -action_id "actionid_123"
     $text3 = "This is a Slack Section Black with text and an accessory."
     $blockWithTextAndAccessory = New-SlackSectionBlock -text $text3 -accessory $accessory
-}
-process {
+
     Describe "$functionName | Unit Tests" -Tags "Unit" {
 
         Context "Slack Section Block with text | Unit Tests" {

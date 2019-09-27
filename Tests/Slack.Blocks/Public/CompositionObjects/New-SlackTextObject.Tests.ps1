@@ -1,24 +1,20 @@
-begin {
-    # If the module is already in memory, remove it
-    Get-Module Slack | Remove-Module -Force
+# If the module is already in memory, remove it
+Get-Module Slack | Remove-Module -Force
 
-    # Import the module from the local path, not from the users Documents folder
-    Import-Module .\Slack\Slack.psm1 -Force 
-    $functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+# Import the module from the local path, not from the users Documents folder
+Import-Module $Global:SlackModulePath -Force 
+$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
 
-    if ($env:APPVEYOR) {
-        $SlackUri = $env:slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-    }
-    else {
-        $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-        $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
-        $SlackUri = $slackContent.slackwebhook
-        $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-    }
-    $slackTestUri = "https://slack.com/api/api.test" 
-    $ContentType = "application/json; charset=utf-8"
 
+$root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
+$SlackUri = $slackContent.slackwebhook
+$SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
+
+$slackTestUri = "https://slack.com/api/api.test" 
+$ContentType = "application/json; charset=utf-8"
+    
+InModuleScope -ModuleName Slack {
     #Slack plain_text Text Object
     $text = "Hello there. This is a plain_text Text Object for unit testing. :smile:"
     $plain_textTextObject = New-SlackTextObject -type plain_text -text $text
@@ -34,8 +30,7 @@ begin {
     #Slack mrkwn verbatim Text Object
     $text3 = "*Hello* _there_. This is a mrkdwn verbatim Text Object for ~unit~ acceptance testing. This is a link: https://github.com/mgeorgebrown89/Slack"
     $mrkdwnTextObjectVerbatim = New-SlackTextObject -type mrkdwn -text $text3 -verbatim $true
-}
-process {
+
     Describe "$functionName | Unit Tests" -Tags "Unit" {
         Context "plain_text Slack Text Object | Unit Tests" {
     
