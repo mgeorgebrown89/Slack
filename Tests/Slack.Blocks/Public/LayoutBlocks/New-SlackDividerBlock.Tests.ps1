@@ -2,23 +2,18 @@
 Get-Module Slack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-Import-Module $Global:SlackModulePath -Force 
-$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$ModuleRoot = $repoRoot + "\Slack"
+Import-Module $ModuleRoot -Force 
 
-if ($env:APPVEYOR) {
-    $SlackUri = $env:slackwebhook
-    $SlackHeaders = @{Authorization = ("Bearer " + $ev:slacktoken) }
-}
-else {
-    $root = Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))
-    $slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
-    $SlackUri = $slackContent.slackwebhook
-    $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
-}
-$slackTestUri = "https://slack.com/api/api.test" 
-$ContentType = "application/json; charset=utf-8"
+$slackContent = Get-Content $ModuleRoot\SlackDefaults.json | ConvertFrom-Json
+$SlackUri = $slackContent.slackwebhook
+$SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
 
 InModuleScope -ModuleName Slack {
+    $functionName = (($PSCommandPath -split '\\')[-1]) -replace ".Tests.ps1",""
+    $slackTestUri = "https://slack.com/api/api.test" 
+    $ContentType = "application/json; charset=utf-8"
     #divider block
     $divider = New-SlackDividerBlock
 

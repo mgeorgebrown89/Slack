@@ -2,19 +2,18 @@
 Get-Module Slack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-Import-Module $Global:SlackModulePath -Force 
-$functionName = $MyInvocation.MyCommand -replace ".Tests.ps1", ""
+$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$ModuleRoot = $repoRoot + "\Slack"
+Import-Module $ModuleRoot -Force 
 
-
-$root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
-$slackContent = Get-Content $root\Slack\SlackDefaults.json | ConvertFrom-Json
+$slackContent = Get-Content $ModuleRoot\SlackDefaults.json | ConvertFrom-Json
 $SlackUri = $slackContent.slackwebhook
 $SlackHeaders = @{Authorization = ("Bearer " + $slackContent.slacktoken) }
 
-$slackTestUri = "https://slack.com/api/api.test" 
-$ContentType = "application/json; charset=utf-8"
-    
 InModuleScope -ModuleName Slack {
+    $functionName = (($PSCommandPath -split '\\')[-1]) -replace ".Tests.ps1",""
+    $slackTestUri = "https://slack.com/api/api.test" 
+    $ContentType = "application/json; charset=utf-8"
     #Slack plain_text Text Object
     $text = "Hello there. This is a plain_text Text Object for unit testing. :smile:"
     $plain_textTextObject = New-SlackTextObject -type plain_text -text $text
