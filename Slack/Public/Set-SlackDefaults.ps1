@@ -39,10 +39,12 @@ function Set-SlackDefaults {
 {
     "botToken":"$botToken",
     "userToken":"$userToken",
-    "defaultChannel":"$defaultChannel"
+    "defaultChannel":"$defaultChannel",
     "defaultWebhook":"$defaultWebhook"
 }
 "@
 
     New-Item -Path $root -Name "SlackDefaults.json" -ItemType File -Value $value -Force
 }
+
+#Set-SlackDefaults -botToken "xoxb-" -userToken "xoxp-"

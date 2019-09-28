@@ -12,7 +12,7 @@
 RootModule = 'Slack.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.1'
+ModuleVersion = '0.2.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -66,7 +66,11 @@ Description = 'This module helps integrate PowerShell scripts with Slack.'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-# NestedModules = @()
+ NestedModules = @(
+     'Slack.Blocks'
+     'Slack.Emoji'
+     'Slack.WebAPI'
+ )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = '*'
@@ -107,7 +111,7 @@ PrivateData = @{
         IconUri = 'https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png'
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'test'
+        # ReleaseNotes = ''
 
         # Prerelease string of this module
         # Prerelease = ''
