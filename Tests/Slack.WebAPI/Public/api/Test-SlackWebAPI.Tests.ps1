@@ -2,7 +2,8 @@
 Get-Module Slack | Remove-Module -Force
 
 # Import the module from the local path, not from the users Documents folder
-$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path))))
+$repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent ((Split-Path -Parent $MyInvocation.MyCommand.Path)))))
+$repoRoot
 $ModuleRoot = $repoRoot + "\Slack"
 Import-Module $ModuleRoot -Force 
 
