@@ -35,7 +35,7 @@ InModuleScope -ModuleName Slack {
             $propertyCount = $properties.Count
     
             It "has a type of actions" {
-                $actionsBlock.type | Should Be 'actionss'
+                $actionsBlock.type | Should Be 'actions'
             }
             It "has property count $propertyCount" {
                 $actionsBlock.PSObject.Properties.Name | Should -HaveCount $properties.Count
