@@ -1,8 +1,6 @@
 
 $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
 $module = Get-ChildItem -Path $RepositoryRoot -Filter 'Slack' -Directory
-New-Variable -Scope global -Name SlackModulePath -Value $module.FullName -Force
-$nestedModules = Get-ChildItem -Path $module.FullName -Filter ($module.Name + ".*") -Directory
     
 #remove loaded module and reload it from local path
 Get-Module $module.Name | Remove-Module -Force
@@ -30,10 +28,14 @@ Describe ($module.name + " | Repository Tests") {
             "$repositoryRoot/README.md" | Should Exist
         }
     }
-}
-Describe ($module.Name + " | Root Module Tests") {
-    InModuleScope -ModuleName $module.Name {
-        $rootModuleFolder = ("$repositoryRoot\" + $module.Name)
+}    
+InModuleScope -ModuleName $module.Name {
+    $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
+    $module = Get-ChildItem -Path $RepositoryRoot -Filter 'Slack' -Directory
+    $rootModuleFolder = ("$repositoryRoot\" + $module.Name)
+    $nestedModules = Get-ChildItem -Path $module.FullName -Filter ($module.Name + ".*") -Directory
+    Describe ($module.Name + " | Root Module Tests") {
+
         Context "Root Module Setup" {
             It "has the root module folder" {
                 $rootModuleFolder | Should Exist
@@ -126,10 +128,10 @@ Describe ($module.Name + " | Root Module Tests") {
             }
         }
     }
-}
-foreach ($nestedModule in $nestedModules) {
-    Describe ($nestedModule.Name + " | Root Module Tests") {
-        InModuleScope -ModuleName $module.Name {
+
+    foreach ($nestedModule in $nestedModules) {
+        Describe ($nestedModule.Name + " | Nested Module Tests") {
+
             $rootModuleFolder = ("$repositoryRoot\" + $module.Name + "\" + $nestedModule.Name)
             Context "Root Module Setup" {
                 It "has the root module folder" {
