@@ -9,7 +9,7 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule        = 'Slack.psm1'
+    # RootModule        = ''
 
     # Version number of this module.
     ModuleVersion     = '0.3.2'
@@ -67,6 +67,7 @@
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     NestedModules     = @(
+        'Slack.psm1',
         'Slack.Blocks\Slack.Blocks.psm1', 
         'Slack.Emoji\Slack.Emoji.psm1', 
         'Slack.WebAPI\Slack.WebAPI.psm1'
