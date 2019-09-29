@@ -66,7 +66,12 @@
     # FormatsToProcess = @()
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-    # NestedModules     = @()
+    NestedModules     = @(
+        'Slack.psm1',
+        'Slack.Blocks\Slack.Blocks.psm1', 
+        'Slack.Emoji\Slack.Emoji.psm1', 
+        'Slack.WebAPI\Slack.WebAPI.psm1'
+    )
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = '*'
@@ -84,12 +89,7 @@
     # DscResourcesToExport = @()
 
     # List of all modules packaged with this module
-     ModuleList = @(
-         'Slack.psm1',
-        'Slack.Blocks\Slack.Blocks.psm1', 
-        'Slack.Emoji\Slack.Emoji.psm1', 
-        'Slack.WebAPI\Slack.WebAPI.psm1'
-    )
+    # ModuleList = @()
 
     # List of all files packaged with this module
     # FileList = @()
