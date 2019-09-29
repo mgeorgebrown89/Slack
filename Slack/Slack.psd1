@@ -9,7 +9,7 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule        = 'Slack.psm1'
+    # RootModule        = ''
 
     # Version number of this module.
     ModuleVersion     = '0.3.2'
@@ -66,11 +66,7 @@
     # FormatsToProcess = @()
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-    NestedModules     = @(
-        'Slack.Blocks\Slack.Blocks.psm1', 
-        'Slack.Emoji\Slack.Emoji.psm1', 
-        'Slack.WebAPI\Slack.WebAPI.psm1'
-    )
+    # NestedModules     = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = '*'
@@ -88,7 +84,12 @@
     # DscResourcesToExport = @()
 
     # List of all modules packaged with this module
-    # ModuleList = @()
+     ModuleList = @(
+         'Slack.psm1',
+        'Slack.Blocks\Slack.Blocks.psm1', 
+        'Slack.Emoji\Slack.Emoji.psm1', 
+        'Slack.WebAPI\Slack.WebAPI.psm1'
+    )
 
     # List of all files packaged with this module
     # FileList = @()
