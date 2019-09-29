@@ -33,7 +33,7 @@ jobs:
       with:
         name: Pester Tests ${{matrix.os}}
         path: ./.github/workflows/Slack.Tests.xml
-  Context Dump:
+  Context-Dump:
     runs-on: ubuntu-16.04
     steps:
       - name: Dump GitHub context
