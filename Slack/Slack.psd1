@@ -68,7 +68,7 @@
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     NestedModules     = @(
         'Slack.psm1',
-        'Slack.Blocks\Slack.Blocks.psm1', 
+        'Slack.Blocks\Slack.Block-Kit.psm1', 
         'Slack.Emoji\Slack.Emoji.psm1', 
         'Slack.WebAPI\Slack.WebAPI.psm1'
     )
