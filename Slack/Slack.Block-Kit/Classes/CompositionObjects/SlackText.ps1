@@ -40,27 +40,3 @@ class SlackMrkdwnText : SlackText {
         $this.verbatim = $verbatim
     }
 }
-
-class SlackConfirmationDialog {
-
-    [SlackPlainText]
-    $title
-    [SlackText]
-    $text
-    [SlackPlainText]
-    $confirm
-    [SlackPlainText]
-    $deny
-
-    SlackConfirmationDialog ([SlackPlainText]$title, [SlackText]$text, [SlackPlainText]$confirm, [SlackPlainText]$deny) {
-        if ($title.text.Length -le 100) {
-            $this.title = $title
-        }
-        else {
-            Write-Error "Title can only be 100 characters."
-        }
-        $this.text = $text
-        $this.confirm = $confirm
-        $this.deny = $deny
-    }
-}
