@@ -9,10 +9,10 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    # RootModule        = ''
+    # RootModule        = 'Slack.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '0.3.2'
+    ModuleVersion     = '0.3.4'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -24,7 +24,7 @@
     Author            = 'Michael G. Brown'
 
     # Company or vendor of this module
-    CompanyName       = 'unknown'
+    CompanyName       = 'Community'
 
     # Copyright statement for this module
     Copyright         = '(c) Michael G. Brown. All rights reserved.'
@@ -57,7 +57,9 @@
     # RequiredAssemblies = @()
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-    # ScriptsToProcess = @()
+    ScriptsToProcess  = @(
+        'Slack.Block-Kit\Classes\Export-Block-Kit.Classes.ps1'
+    )
 
     # Type files (.ps1xml) to be loaded when importing this module
     # TypesToProcess = @()
@@ -68,7 +70,7 @@
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     NestedModules     = @(
         'Slack.psm1',
-        'Slack.Blocks\Slack.Block-Kit.psm1', 
+        'Slack.Block-Kit\Slack.Block-Kit.psm1', 
         'Slack.Emoji\Slack.Emoji.psm1', 
         'Slack.WebAPI\Slack.WebAPI.psm1'
     )
