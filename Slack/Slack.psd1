@@ -58,7 +58,7 @@
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
     ScriptsToProcess  = @(
-        'Slack.Block-Kit\Classes\Export-Block-Kit.Classes.ps1'
+        'Slack.BlockKit\Classes\Export-BlockKit.Classes.ps1'
     )
 
     # Type files (.ps1xml) to be loaded when importing this module
@@ -70,7 +70,7 @@
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     NestedModules     = @(
         'Slack.psm1',
-        'Slack.Block-Kit\Slack.Block-Kit.psm1', 
+        'Slack.BlockKit\Slack.BlockKit.psm1', 
         'Slack.Emoji\Slack.Emoji.psm1', 
         'Slack.WebAPI\Slack.WebAPI.psm1'
     )
@@ -102,7 +102,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = 'PowerShell', 'Slack', 'API'
+            Tags       = 'PowerShell', 'Slack', 'API', 'Slack Blocks', 'Slack Block-Kit'
 
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/mgeorgebrown89/Slack/blob/master/LICENSE'

@@ -1,5 +1,4 @@
 . "$PSScriptRoot\CompositionObjects\SlackText.ps1"
 . "$PSScriptRoot\CompositionObjects\SlackConfirmationDialog.ps1"
-
-#[SlackText]::new()
-#SlackConfirmationDialog]::new()
+. "$PSScriptRoot\CompositionObjects\SlackOption.ps1"
+. "$PSScriptRoot\CompositionObjects\SlackOptionGroup.ps1"
