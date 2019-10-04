@@ -65,7 +65,7 @@ function Send-SlackMessage {
         [pscustomobject[]]
         $blocks,
 
-        [ValidateScript( { $_.StartsWith(":") -and $_.EndsWith(":") })]
+        [ValidatePattern('^:{1}(.)+(:{1})$')]
         [string]
         $icon_emoji,
 
