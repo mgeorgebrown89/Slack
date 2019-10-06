@@ -1,3 +1,5 @@
+Add-Type -LiteralPath '/Users/Michael/Repositories/Slack/Slack/Slack.BlockKit/Classes/CompositionObjects/Slack.cs'
+
 enum SlackTextType {
     mrkdwn
     plain_text
