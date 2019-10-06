@@ -13,7 +13,7 @@ namespace Slack
 
         public Text(TextType type, string text){
             this.type = type;
-            this.text = text;
+            this.text = text; 
         }
     }
 }
