@@ -1,18 +1,13 @@
-using System.ComponentModel.DataAnnotations;
 namespace Slack
 {
     namespace Composition
     {
-        public class OptionGroup {
+        public class OptionGroup
+        {
             private const int labelTextLength = 75;
             private PlainText _label;
             private const int optionCount = 100;
-            [MaxLengthAttribute(100)]
             private Option[] _options;
-
-            public OptionGroup()
-            {
-            }
 
             public OptionGroup(PlainText label, Option[] options)
             {
@@ -20,7 +15,17 @@ namespace Slack
                 this.options = options;
             }
 
-            public PlainText label { get => _label; set => _label = value; }
+            public PlainText label
+            {
+                get => _label; set
+                {
+                    if (value.text.Length > labelTextLength)
+                    {
+                        throw new System.Exception($"Option text must be less than {labelTextLength} characters.");
+                    }
+                    _label = value;
+                }
+            }
             public Option[] options { get => _options; set => _options = value; }
         }
     }
