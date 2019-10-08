@@ -13,8 +13,8 @@ namespace Slack
             private const int urlLength = 3000;
             private string _value;
             private const int valueLength = 2000;
-            //public string style;
-            //private readonly string[] styleType = { "primary", "danger" };
+            private string _style;
+            private readonly string[] styleTypes = { "primary", "danger" };
             //public ConfirmationDialog confirm;
 
             public Button(PlainText text, string action_id) : base("button")
@@ -32,6 +32,12 @@ namespace Slack
             {
                 this.value = value;
             }
+            public Button(PlainText text, string action_id, string value, string style) : this(text, action_id)
+            {
+                this.value = value;
+                this.style = style;
+            }
+
 
             public PlainText text
             {
@@ -49,7 +55,7 @@ namespace Slack
             {
                 get => _action_id; set
                 {
-                    if(value.Length > action_idLength)
+                    if (value.Length > action_idLength)
                     {
                         throw new System.Exception($"Action_id length must be less than {action_idLength} characters.");
                     }
@@ -61,7 +67,7 @@ namespace Slack
             {
                 get => _url; set
                 {
-                    if(value.Length > urlLength)
+                    if (value.Length > urlLength)
                     {
                         throw new System.Exception($"Action_id length must be less than {urlLength} characters.");
                     }
@@ -73,11 +79,29 @@ namespace Slack
             {
                 get => _value; set
                 {
-                    if(value.Length > valueLength)
+                    if (value.Length > valueLength)
                     {
                         throw new System.Exception($"Action_id length must be less than {valueLength} characters.");
                     }
                     _value = value;
+                }
+            }
+
+            public string style
+            {
+                get => _style; set
+                {
+                    foreach (string t in styleTypes)
+                    {
+                        if (value == t)
+                        {
+                            _style = value;
+                        }
+                    }
+                    if (_style == null)
+                    {
+                        throw new System.Exception($"{value} is not a supported Element type.");
+                    }
                 }
             }
         }
