@@ -38,6 +38,9 @@ $imagee = [Slack.Elements.Image]::new("https://api.slack.com/img/blocks/bkb_temp
 $section1 = [Slack.Layout.Section]::new($text,"blockid13",$imagee)
 $divider = [Slack.Layout.Divider]::new()
 
+$button = [Slack.Elements.Button]::new($text,"actionid123","valuetext")
+$urlButton = [Slack.Elements.Button]::WithUrl($text,"actionid456","google.com")
+
 $Blocks += $section
 $Blocks += $divider
 $Blocks += $section1

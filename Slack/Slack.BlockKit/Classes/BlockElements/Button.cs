@@ -13,9 +13,9 @@ namespace Slack
             private const int urlLength = 3000;
             private string _value;
             private const int valueLength = 2000;
-            public string style;
-            private readonly string[] styleType = { "primary", "danger" };
-            public ConfirmationDialog confirm;
+            //public string style;
+            //private readonly string[] styleType = { "primary", "danger" };
+            //public ConfirmationDialog confirm;
 
             public Button(PlainText text, string action_id) : base("button")
             {
@@ -24,8 +24,9 @@ namespace Slack
             }
             public static Button WithUrl(PlainText text, string action_id, string url)
             {
-                
-                this.url = url;
+                var Button = new Button(text, action_id);
+                Button.url = url;
+                return Button;
             }
             public Button(PlainText text, string action_id, string value) : this(text, action_id)
             {
