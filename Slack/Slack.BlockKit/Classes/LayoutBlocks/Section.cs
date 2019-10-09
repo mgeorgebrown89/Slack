@@ -15,39 +15,15 @@ namespace Slack
             private const int fieldsTextLength = 2000;
             private Element _accessory;
 
-            //Slack Section Block with just text.
             public Section(TextObject text) : base("section")
             {
                 this.text = text;
             }
-            //Slack Section Block with text and a block_id.
-            public Section(TextObject text, string block_id) : base("section")
+            public Section(TextObject text, string block_id) : this(text)
             {
-                this.text = text;
                 this.block_id = block_id;
             }
-            //Slack Section Block with text, block_id, and some fields.
-            public Section(TextObject text, string block_id, TextObject[] fields) : base("section")
-            {
-                this.text = text;
-                this.block_id = block_id;
-                this.fields = fields;
-            }
-            //Slack Section Block with text, block_id, and an accessory Slack Element.
-            public Section(TextObject text, string block_id, Element accessory) : base("section")
-            {
-                this.text = text;
-                this.block_id = block_id;
-                this.accessory = accessory;
-            }
-            //Slack Section Block with everything: text, block_id, fields, accessory.
-            public Section(TextObject text, string block_id, TextObject[] fields, Element accessory) : base("section")
-            {
-                this.text = text;
-                this.block_id = block_id;
-                this.fields = fields;
-                this.accessory = accessory;
-            }
+
             public TextObject text
             {
                 get => _text; set

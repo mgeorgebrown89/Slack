@@ -7,24 +7,20 @@ namespace Slack
         {
             private Option[] _options;
             private const int optionsCount = 100;
-            //private OptionGroup[] option_groups;
+            private OptionGroup[] _option_groups;
             private const int option_groupsCount = 100;
-            private Option _initial_option;
-            private ConfirmationDialog _confirm;
+            public Option initial_option;
+            public ConfirmationDialog confirm;
 
-            public StaticSelect(PlainText placeholder, string action_id, Option[] options) : base(placeholder, action_id)
+            public StaticSelect(PlainText placeholder, string action_id, Option[] options) : base("static_select", placeholder, action_id)
             {
                 this.options = options;
             }
-            public StaticSelect(PlainText placeholder, string action_id, Option[] options, Option initial_option) : this(placeholder, action_id, options)
+            public StaticSelect(PlainText placeholder, string action_id, OptionGroup[] option_groups) : base("static_select", placeholder, action_id)
             {
-                this.initial_option = initial_option;
+                this.option_groups = option_groups;
             }
-            public StaticSelect(PlainText placeholder, string action_id, Option[] options, Option initial_option, ConfirmationDialog confirm) : this(placeholder, action_id, options)
-            {
-                this.initial_option = initial_option;
-                this.confirm = confirm;
-            }
+
             public Option[] options
             {
                 get => _options; set
@@ -36,11 +32,17 @@ namespace Slack
                     _options = value;
                 }
             }
-            //public OptionGroup[] option_groups { get => option_groups; set => option_groups = value; }
-            public Option initial_option { get => _initial_option; set => _initial_option = value; }
-            public ConfirmationDialog confirm { get => _confirm; set => _confirm = value; }
-
-
+            public OptionGroup[] option_groups
+            {
+                get => _option_groups; set
+                {
+                    if (value.Length > option_groupsCount)
+                    {
+                        throw new System.Exception($"There can only be {option_groupsCount} options in a Static Select Menu.");
+                    }
+                    _option_groups = value;
+                }
+            }
         }
     }
 }

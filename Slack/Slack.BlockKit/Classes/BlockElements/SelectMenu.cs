@@ -10,7 +10,7 @@ namespace Slack
             private string _action_id;
             private const int action_idLength = 255;
 
-            public SelectMenu(PlainText placeholder, string action_id) : base("static_select")
+            public SelectMenu(string type, PlainText placeholder, string action_id) : base(type)
             {
                 this.placeholder = placeholder;
                 this.action_id = action_id;

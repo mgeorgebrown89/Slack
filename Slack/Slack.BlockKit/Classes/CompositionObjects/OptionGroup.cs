@@ -26,7 +26,17 @@ namespace Slack
                     _label = value;
                 }
             }
-            public Option[] options { get => _options; set => _options = value; }
+            public Option[] options
+            {
+                get => _options; set
+                {
+                    if(value.Length > optionCount)
+                    {
+                        throw new System.Exception ($"Only {optionCount} options can be in an option group.");
+                    }
+                    _options = value;
+                }
+            }
         }
     }
 }

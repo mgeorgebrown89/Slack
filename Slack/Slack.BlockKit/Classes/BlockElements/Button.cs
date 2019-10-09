@@ -15,29 +15,13 @@ namespace Slack
             private const int valueLength = 2000;
             private string _style;
             private readonly string[] styleTypes = { "primary", "danger" };
-            //public ConfirmationDialog confirm;
+            public ConfirmationDialog confirm;
 
             public Button(PlainText text, string action_id) : base("button")
             {
                 this.text = text;
                 this.action_id = action_id;
             }
-            public static Button WithUrl(PlainText text, string action_id, string url)
-            {
-                var Button = new Button(text, action_id);
-                Button.url = url;
-                return Button;
-            }
-            public Button(PlainText text, string action_id, string value) : this(text, action_id)
-            {
-                this.value = value;
-            }
-            public Button(PlainText text, string action_id, string value, string style) : this(text, action_id)
-            {
-                this.value = value;
-                this.style = style;
-            }
-
 
             public PlainText text
             {

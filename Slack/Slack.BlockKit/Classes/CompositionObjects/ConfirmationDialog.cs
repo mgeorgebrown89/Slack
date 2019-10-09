@@ -32,7 +32,6 @@ namespace Slack
                     {
                         _title = value;
                     }
-
                 }
             }
 

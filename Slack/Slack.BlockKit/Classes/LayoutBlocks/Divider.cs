@@ -7,7 +7,7 @@ namespace Slack
             private string _block_id;
             private const int block_idTextLength = 255;
             public Divider() : base("divider") { }
-            public Divider(string block_id) : base("divider")
+            public Divider(string block_id) : this()
             {
                 this.block_id = block_id;
             }
