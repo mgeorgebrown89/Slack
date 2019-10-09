@@ -45,7 +45,7 @@ $Classes = Get-ChildItem $PSScriptRoot -Recurse -Filter "*.cs"
 foreach ($class in $Classes) {
     $Types += (Get-Content $class.FullName -Raw)
 }
-#Add-Type -TypeDefinition $Types
+Add-Type -TypeDefinition $Types
 
 $Blocks = @()
 $text = [Slack.Composition.PlainText]::new("this is plain text!")
