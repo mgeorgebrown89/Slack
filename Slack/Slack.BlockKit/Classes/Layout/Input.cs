@@ -13,6 +13,12 @@ namespace Slack
             private const int hintTextLength = 2000;
             public bool optional;
 
+            public Input(TextObject label, object element) : base("input")
+            {
+                this.label = label;
+                this.element = element;
+            }
+
             public TextObject label
             {
                 get => _label; set

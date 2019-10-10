@@ -58,7 +58,7 @@ $Blocks += $titleSeciton
 $divider1 = [Slack.Layout.Divider]::new("divider1")
 $Blocks += $divider1
 
-$subTitleText = [Slack.Composition.PlainText]::new("We're testing all the things. :smile:")
+$subTitleText = [Slack.Composition.PlainText]::new("Testing stuff :smile:")
 $subtitleSection = [Slack.Layout.Section]::new($subTitleText, "subTitleSection")
 $subTitleAccessory = [Slack.Elements.Image]::new("https://api.slack.com/img/blocks/bkb_template_images/beagle.png", "a beagle")
 $subtitleSection.accessory = $subTitleAccessory
@@ -87,4 +87,7 @@ $contextElements = @($titleText, $section3Text, $subTitleAccessory)
 $context = [Slack.Layout.Context]::new($contextElements)
 $Blocks += $context
 
-$Blocks | ConvertTo-NoNullsJson -Depth 100
+$modal = [Slack.Payloads.Modal]::new($subTitleText, $Blocks)
+
+
+$modal | ConvertTo-NoNullsJson -Depth 100
