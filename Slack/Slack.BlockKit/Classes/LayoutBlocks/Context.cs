@@ -23,12 +23,15 @@ namespace Slack
                 {
                     foreach (object element in value)
                     {
-                        if ((!(element is Slack.Composition.TextObject)) && (!(element is Slack.Elements.Image)))
+                        if ((element is Slack.Composition.TextObject) || (element is Slack.Elements.Image))
+                        {
+                            _elements = value;
+                        }
+                        else
                         {
                             throw new System.Exception($"Context Block elements can only be Image Elements or Text Objects.");
                         }
                     }
-                    _elements = value;
                 }
             }
             public string block_id
