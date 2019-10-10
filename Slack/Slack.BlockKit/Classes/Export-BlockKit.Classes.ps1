@@ -47,8 +47,8 @@ $Classes = Get-ChildItem $PSScriptRoot -Recurse -Filter "*.cs"
 foreach ($class in $Classes) {
     $Types += (Get-Content $class.FullName -Raw)
 }
-Add-Type -TypeDefinition $Types
-
+Add-Type -TypeDefinition $Types -ErrorAction SilentlyContinue
+<#
 $Blocks = @()
 
 $titleText = [Slack.Composition.MrkdwnText]::new("*Slack PowerShell Module User Testing!*")
@@ -91,3 +91,4 @@ $modal = [Slack.Payloads.Modal]::new($subTitleText, $Blocks)
 
 
 $modal | ConvertTo-NoNullsJson -Depth 100
+#>

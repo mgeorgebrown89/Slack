@@ -1,57 +1,43 @@
-[CmdletBinding()]
-param()
-
 $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
-$repoName = ($repositoryRoot -split "\\")[-1]
-$rootModule = Get-ChildItem -Path $repositoryRoot -Filter $repoName -Directory
-
-#remove loaded module and reload it from local path
-Get-Module $rootModule.Name -Verbose | Remove-Module -Force -Verbose
-Import-Module $rootModule.FullName -Force -Verbose
-
-InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
-    $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
-    $repoName = ($repositoryRoot -split "\\")[-1]
-    $rootModule = Get-ChildItem -Path $repositoryRoot -Filter $repoName -Directory
-    $nestedModules = Get-ChildItem -Path $rootModule.FullName -Filter ($rootModule.Name + ".*") -Directory
+$module = Get-ChildItem -Path $RepositoryRoot -Filter 'Slack' -Directory
     
-    Describe ($rootModule.Name + " | Root Module Tests") {
+#remove loaded module and reload it from local path
+Get-Module $module.Name | Remove-Module -Force
+Import-Module $module.FullName -Force 
+  
+InModuleScope -ModuleName $module.Name {
+    $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
+    $module = Get-ChildItem -Path $RepositoryRoot -Filter 'Slack' -Directory
+    $rootModuleFolder = ("$repositoryRoot\" + $module.Name)
+    $nestedModules = Get-ChildItem -Path $module.FullName -Filter ($module.Name + ".*") -Directory
+    Describe ($module.Name + " | Root Module Tests") {
 
-        Context ($rootModule.Name + "| Root Module Folder Structure") { 
+        Context "Root Module Setup" {
             It "has the root module folder" {
-                $rootModule.FullName | Should Exist
+                $rootModuleFolder | Should Exist
             }
             It "has a Public and a Private folder" {
-                ($rootModule.FullName + "\Public") | Should Exist
-                ($rootModule.FullName + "\Private") | Should Exist
+                ($rootModuleFolder + "\Public") | Should Exist
+                ($rootModuleFolder + "\Private") | Should Exist
             }
             It "has the root module and manifest files" {
-                ($rootModule.FullName + "\" + $rootModule.Name + ".psm1") | Should Exist
-                ($rootModule.FullName + "\" + $rootModule.Name + ".psd1") | Should Exist
-            }
-        }
-        Context ($rootModule.Name + " | Root Module Content") {
-            It ".psd1 file references the correct .psm1 files" {
-                ($rootModule.FullName + "\" + $rootModule.Name + ".psd1") | Should -FileContentMatch ($rootModule.Name + ".psm1")
-                foreach ($nestedModule in $nestedModules) {
-                    ($rootModule.FullName + "\" + $rootModule.Name + ".psd1") | Should -FileContentMatch ($nestedModule.Name + ".psm1")
-                }
-                ($rootModule.FullName + "\" + $rootModule.Name + ".psd1") | Should -FileContentMatch ($rootModule.Name + ".psm1")
+                ($rootModuleFolder + "\" + $module.Name + ".psm1") | Should Exist
+                ($rootModuleFolder + "\" + $module.Name + ".psd1") | Should Exist
             }
             It "is valid PowerShell code" {
-                $psFile = Get-Content -Path ("$repositoryRoot\" + $rootModule.Name + "\" + $rootModule.Name + ".psm1") -ErrorAction Stop
+                $psFile = Get-Content -Path ("$repositoryRoot\" + $module.Name + "\" + $module.Name + ".psm1") -ErrorAction Stop
                 $errors = $null
                 $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
                 $errors.Count | Should Be 0
             }
         }
-        $rootModuleFunctions = @()
-        foreach ($file in (Get-ChildItem ($rootModule.FullName + "\Private\*.ps1") -Recurse -File)) {
+        $functions = @()
+        foreach ($file in ((Get-ChildItem "$rootModuleFolder\Private\*.ps1" -Recurse -File) + (Get-ChildItem "$rootModuleFolder\Public\*.ps1" -Recurse -File))) {
             if (-not $file.Name.Contains(".Tests")) {
-                $rootModuleFunctions += $file
+                $functions += $file
             }
         }
-        foreach ($function in $rootModuleFunctions) {
+        foreach ($function in $functions) {
             $functionName = $function.Name -replace ".ps1", ""
             $directory = $function.DirectoryName
             $psFile = Get-Content -Path $function.FullName -ErrorAction Stop
@@ -90,7 +76,6 @@ InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
                     ($ParsedPsfile | Where-Object Type -EQ Comment)[0].Content | Should -Match '#>$'
                 }
                 It "has a SYNOPSIS section in the help block" {
-                    "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS'
                     $scriptHelp.Synopsis | Should -Not -BeNullOrEmpty
                     $scriptHelp.Synopsis.Length | Should -BeGreaterOrEqual 10 -Because "Your synopsis is too short"
                 }
@@ -107,9 +92,9 @@ InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
                     $scripthelp.examples.example.Count | Should -BeGreaterThan 0
                 }
             }
-            Context "Function $functionName Test File" {
+            Context "Function $functionName Tests" {
                 It "$functionName.Tests.ps1 should exist" {
-                    [bool](Get-ChildItem "$PSScriptRoot" -File -Recurse -Filter "$functionName.Tests.ps1") | Should Be $true
+                    [bool](Test-Path (Split-Path -Parent $PSScriptRoot) ) | Should Be $true
                 }
                 It "Test file removes module and loads it locally" {
                     $testFile = Get-ChildItem "$PSScriptRoot" -File -Recurse | Where-Object Name -EQ "$functionName.Tests.ps1"
@@ -119,41 +104,46 @@ InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
             }
         }
     }
-    ####
-    Describe ($rootModule.Name + " | Nested Module Tests") {
-        foreach ($nestedModule in $nestedModules) {
-            Context ($nestedModule.Name + "| Nested Module Folder Structure") { 
-                It "has the nested module folder" {
-                    $nestedModule.FullName | Should Exist
+
+    foreach ($nestedModule in $nestedModules) {
+        Describe ($nestedModule.Name + " | Nested Module Tests") {
+
+            $rootModuleFolder = ("$repositoryRoot\" + $module.Name + "\" + $nestedModule.Name)
+            Context "Root Module Setup" {
+                It "has the root module folder" {
+                    $rootModuleFolder | Should Exist
                 }
                 It "has a Public and a Private folder" {
-                    ($nestedModule.FullName + "\Public") | Should Exist
-                    ($nestedModule.FullName + "\Private") | Should Exist
+                    ($rootModuleFolder + "\Public") | Should Exist
+                    ($rootModuleFolder + "\Private") | Should Exist
                 }
-                It "has the nested module files" {
-                    ($nestedModule.FullName + "\" + $nestedModule.Name + ".psm1") | Should Exist
+                It "has the root module files" {
+                    ($rootModuleFolder + "\" + $nestedModule.Name + ".psm1") | Should Exist
                 }
-            }
-            Context ($nestedModule.Name + "| Nested Module Content") {
                 It "is valid PowerShell code" {
-                    $psFile = Get-Content -Path ("$repositoryRoot\" + $rootModule.Name + "\" + $nestedModule.Name + "\" + $nestedModule.Name + ".psm1") -ErrorAction Stop
+                    $psFile = Get-Content -Path ("$rootModuleFolder\" + $nestedModule.Name + ".psm1") -ErrorAction Stop
                     $errors = $null
                     $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
                     $errors.Count | Should Be 0
                 }
             }
-            $nestedModuleFunctions = @()
-            foreach ($file in ((Get-ChildItem ($nestedModule.FullName + "\Public\*.ps1") -Recurse -File))) {
+            $functions = @()
+            <#foreach ($file in (Get-ChildItem "$rootModuleFolder\Private\*.ps1" -Recurse -File)) {
+                    if (-not $file.Name.Contains(".Tests")) {
+                        $functions += $file
+                    }
+                }#>
+            foreach ($file in (Get-ChildItem "$rootModuleFolder\Public\*.ps1" -Recurse -File)) {
                 if (-not $file.Name.Contains(".Tests")) {
-                    $nestedModuleFunctions += $file
+                    $functions += $file
                 }
             }
-            foreach ($function in $nestedModuleFunctions) {
+            foreach ($function in $functions) {
                 $functionName = $function.Name -replace ".ps1", ""
                 $directory = $function.DirectoryName
                 $psFile = Get-Content -Path $function.FullName -ErrorAction Stop
                 $parsedPsfile = [System.Management.Automation.PSParser]::Tokenize($psfile, [ref]$null)
-                $scriptHelp = Get-Help $functionName -Full -Verbose -ErrorAction SilentlyContinue
+                $scriptHelp = Get-Help $functionName -Full -Verbose
                 $notes = $scriptHelp.alertSet.alert.text -split '\n'
     
                 $AST = [System.Management.Automation.Language.Parser]::ParseInput((Get-Content function:$functionName), [ref]$null, [ref]$null)
@@ -187,7 +177,6 @@ InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
                         ($ParsedPsfile | Where-Object Type -EQ Comment)[0].Content | Should -Match '#>$'
                     }
                     It "has a SYNOPSIS section in the help block" {
-                        "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS'
                         $scriptHelp.Synopsis | Should -Not -BeNullOrEmpty
                         $scriptHelp.Synopsis.Length | Should -BeGreaterOrEqual 10 -Because "Your synopsis is too short"
                     }
@@ -204,9 +193,11 @@ InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
                         $scripthelp.examples.example.Count | Should -BeGreaterThan 0
                     }
                 }
-                Context "Function $functionName Test File" {
-                    It "$functionName.Tests.ps1 should exist" {
-                        [bool](Get-ChildItem "$PSScriptRoot" -File -Recurse -Filter "$functionName.Tests.ps1") | Should Be $true
+                Context "Function $functionName Tests" {
+                    It "$functionName.Tests.ps1 should exist in a matching path to $functionName.ps1" {
+                        $testPathLocation = ($Function.FullName -split "Slack\\Slack")[1]
+                        $testPath = ($PSScriptRoot + $testPathLocation) -replace ".ps1", ".Tests.ps1"
+                        [bool](Test-Path $testPath) | Should Be $true
                     }
                     It "Test file removes module and loads it locally" {
                         $testFile = Get-ChildItem "$PSScriptRoot" -File -Recurse | Where-Object Name -EQ "$functionName.Tests.ps1"
