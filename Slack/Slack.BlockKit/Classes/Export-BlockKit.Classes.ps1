@@ -50,36 +50,41 @@ foreach ($class in $Classes) {
 Add-Type -TypeDefinition $Types
 
 $Blocks = @()
-$text = [Slack.Composition.PlainText]::new("this is plain text!")
-$section = [Slack.Layout.Section]::new($text, "blockid123")
-$imagee = [Slack.Elements.Image]::new("https://api.slack.com/img/blocks/bkb_template_images/palmtree.png", "plam tree")
-$section1 = [Slack.Layout.Section]::new($text, "blockid13")
-$section1.accessory = $imagee
-$divider = [Slack.Layout.Divider]::new()
 
-$button = [Slack.Elements.Button]::new($text, "actionid123")
-$button.value = "valueText"
-$urlButton = [Slack.Elements.Button]::new($text, "actionid456")
-$urlButton.url = "https://www.google.com/"
-$section2 = [Slack.Layout.Section]::new($text, "blockid15")
-$section2.accessory = $button
-$section3 = [Slack.Layout.Section]::new($text, "blockid156")
-$options = @()
-$option1 = [Slack.Composition.Option]::new($text, "hello")
-$option2 = [Slack.Composition.Option]::new($text, "hel111lo")
-$options += $option1
-$options += $option2
-$optionsGroups = @()
-$optionGroup1 = [Slack.Composition.OptionGroup]::new($text,$options)
-$optionGroup2 = [Slack.Composition.OptionGroup]::new($text,$options)
-$optionsGroups += $optionGroup1
-$optionsGroups += $optionGroup2
-$staticSelect = [Slack.Elements.StaticSelect]::new($text, "action999", $optionsGroups)
-$staticSelect.initial_option = $option1
-$section3.accessory = $staticSelect
+$titleText = [Slack.Composition.MrkdwnText]::new("*Slack PowerShell Module User Testing!*")
+$titleSeciton = [Slack.Layout.Section]::new($titleText, "titleSection")
+$Blocks += $titleSeciton
 
-$Blocks += $section1
-$Blocks += $section2
+$divider1 = [Slack.Layout.Divider]::new("divider1")
+$Blocks += $divider1
+
+$subTitleText = [Slack.Composition.PlainText]::new("We're testing all the things. :smile:")
+$subtitleSection = [Slack.Layout.Section]::new($subTitleText, "subTitleSection")
+$subTitleAccessory = [Slack.Elements.Image]::new("https://api.slack.com/img/blocks/bkb_template_images/beagle.png", "a beagle")
+$subtitleSection.accessory = $subTitleAccessory
+$Blocks += $subtitleSection
+
+$divider2 = [Slack.Layout.Divider]::new("divider2")
+$Blocks += $divider2
+
+$section3Text = [Slack.Composition.PlainText]::new("We're still testing all the things. :+:")
+$section3 = [Slack.Layout.Section]::new($section3Text, "Section3")
+$field1 = [Slack.Composition.PlainText]::new("Title`nContent")
+$field2 = [Slack.Composition.PlainText]::new("Title`nContent")
+$section3Fields = @($field1, $field2, $field1, $field2)
+$section3.fields = $section3Fields
 $Blocks += $section3
+
+$buttonText = [Slack.Composition.PlainText]::new("OK")
+$button = [Slack.Elements.Button]::new($buttonText, "ok")
+$button2 = [Slack.Elements.Button]::new($buttonText, "ok2")
+$button3 = [Slack.Elements.Button]::new($buttonText, "ok3")
+$elements = @($button, $button2, $button3)
+$actions = [Slack.Layout.Actions]::new($elements, "blockid123")
+$Blocks += $actions
+
+$contextElements = @($titleText, $section3Text, $subTitleAccessory)
+$context = [Slack.Layout.Context]::new($contextElements)
+$Blocks += $context
 
 $Blocks | ConvertTo-NoNullsJson -Depth 100

@@ -10,7 +10,6 @@ namespace Slack
             public ConfirmationDialog confirm;
 
             public ExternalSelect(PlainText placeholder, string action_id) : base("external_select", placeholder, action_id) { }
-            
         }
     }
 }

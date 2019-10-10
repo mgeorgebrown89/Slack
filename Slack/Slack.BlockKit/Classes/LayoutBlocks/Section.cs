@@ -51,11 +51,11 @@ namespace Slack
             {
                 get => _fields; set
                 {
-                    if (fields.Length > fieldsCount)
+                    if (value.Length > fieldsCount)
                     {
                         throw new System.Exception($"Section Blocks can only have {fieldsCount} TextObjects.");
                     }
-                    foreach (TextObject field in fields)
+                    foreach (TextObject field in value)
                     {
                         if (field.text.Length > fieldsTextLength)
                         {
