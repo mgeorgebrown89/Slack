@@ -12,7 +12,7 @@
     # RootModule        = 'Slack.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '0.3.4'
+    ModuleVersion     = '0.4.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -102,7 +102,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = 'PowerShell', 'Slack', 'API', 'Slack Blocks', 'Slack Block-Kit'
+            Tags       = 'PowerShell', 'Slack', 'API', 'Blocks', 'Block-Kit'
 
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/mgeorgebrown89/Slack/blob/master/LICENSE'
