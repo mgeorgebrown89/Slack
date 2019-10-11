@@ -11,7 +11,7 @@ Import-Module $rootModule.FullName -Force
 
 InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
     $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
-    $repoName = ($repositoryRoot -split "\\")[-1]
+    $repoName = Split-Path $repositoryRoot -Leaf
     $rootModule = Get-ChildItem -Path $repositoryRoot -Filter $repoName -Directory
     $nestedModules = Get-ChildItem -Path $rootModule.FullName -Filter ($rootModule.Name + ".*") -Directory
     
