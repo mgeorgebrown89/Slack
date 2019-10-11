@@ -1,4 +1,20 @@
 function Send-SlackMessage {
+    <#
+    .SYNOPSIS
+        Sends a message to Slack.
+    .DESCRIPTION
+        This function sends a Slack.Payloads.Message object to a Slack Channel.
+    .PARAMETER Token
+        A Slack User or Bot User Token.
+    .PARAMETER Message
+        A Slack.Payloads.Message object to send to Slack.
+    .LINK
+        https://api.slack.com/methods/chat.postMessage
+    .EXAMPLE
+        Send-SlackMessage -Token $Token -Message $Message
+    .EXAMPLE
+        chat.postMessage -Token $Token -Message $Message
+    #>
     [cmdletbinding()]
     param(
         [string]
