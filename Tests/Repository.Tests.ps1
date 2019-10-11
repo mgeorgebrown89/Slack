@@ -2,10 +2,8 @@
 param()
 
 $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
-Write-Verbose "Repository root: $repositoryRoot"
 
-$repoName = ($repositoryRoot -split "\\")[-1]
-Write-Verbose "Repository name: $repoName"
+$repoName = Split-Path $repositoryRoot -Leaf
 
 Describe ($repoName + " | Repository Tests") {
     Context ($repoName + "| Repository Folder Structure") {
