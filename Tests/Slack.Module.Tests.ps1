@@ -6,7 +6,7 @@ $repoName = ($repositoryRoot -split "\\")[-1]
 $rootModule = Get-ChildItem -Path $repositoryRoot -Filter $repoName -Directory
 
 #remove loaded module and reload it from local path
-Get-Module $rootModule.Name -Verbose | Remove-Module -Force -Verbose
+Get-Module $rootModule.Name -Verbose | Remove-Module -Force
 Import-Module $rootModule.FullName -Force -Verbose
 
 InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
