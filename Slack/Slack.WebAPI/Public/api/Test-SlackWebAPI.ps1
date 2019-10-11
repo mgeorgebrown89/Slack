@@ -24,3 +24,4 @@ function Test-SlackWebAPI {
 
     Invoke-SlackWebAPI -Token $Token -Method_Family "api.test" -Body $Body
 }
+Set-Alias -Name 'api.test' -Value 'Test-SlackWebAPI'

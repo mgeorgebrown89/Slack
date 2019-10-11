@@ -26,5 +26,5 @@ function Invoke-SlackWebAPI {
         Authorization = "Bearer $token"
     }
 
-    Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType -Body ($Body | ConvertTo-Json -Depth 100)
+    Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType -Body ($Body | ConvertTo-NoNullsJson -Depth 100)
 }

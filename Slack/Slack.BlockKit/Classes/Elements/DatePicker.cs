@@ -3,7 +3,6 @@ namespace Slack
     namespace Elements
     {
         using Slack.Composition;
-        using System;
         using System.Text.RegularExpressions;
         public class Datepicker : SelectMenu
         {

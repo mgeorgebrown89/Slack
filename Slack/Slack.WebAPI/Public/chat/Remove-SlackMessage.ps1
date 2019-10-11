@@ -44,5 +44,5 @@ function Remove-SlackMessage {
     }
 
     Invoke-SlackWebAPI -Token $token -Method_Family "chat.delete" -Body $body
-
 }
+Set-Alias -Name 'chat.delete' -Value 'Remove-SlackMessage'
