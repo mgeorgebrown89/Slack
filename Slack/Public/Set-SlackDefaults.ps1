@@ -18,18 +18,18 @@ function Set-SlackDefaults {
     [CmdletBinding()]
     param(
         [string]
-        [ValidateScript({$_ -match "^xoxb-"})]
+        [ValidatePattern("^xoxb-")]
         $botToken,
 
         [string]
-        [ValidateScript({$_ -match "^xoxp-"})]
+        [ValidatePattern("^xoxp-")]
         $userToken,
 
         [string]
         $defaultChannel,
 
         [string]
-        [ValidateScript({$_ -match "https://hooks.slack.com/services/"})]
+        [ValidatePattern("https://hooks.slack.com/services/")]
         $defaultWebhook
     )
 
