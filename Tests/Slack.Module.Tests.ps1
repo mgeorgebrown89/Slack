@@ -2,12 +2,12 @@
 param()
 
 $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
-$repoName = ($repositoryRoot -split "\\")[-1]
+$repoName = Split-Path $repositoryRoot -Leaf
 $rootModule = Get-ChildItem -Path $repositoryRoot -Filter $repoName -Directory
 
 #remove loaded module and reload it from local path
 Get-Module $rootModule.Name -Verbose | Remove-Module -Force
-Import-Module $rootModule.FullName -Force -Verbose
+Import-Module $rootModule.FullName -Force
 
 InModuleScope -ModuleName $rootModule.Name -ScriptBlock {
     $repositoryRoot = Split-Path -Parent ($PSScriptRoot)
