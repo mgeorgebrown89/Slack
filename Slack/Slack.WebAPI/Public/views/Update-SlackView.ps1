@@ -33,8 +33,8 @@ function Update-SlackView {
         [Slack.Payloads.View]
         $view,
 
+        [ValidateLength(0,255)]
         [string]
-        [ValidateLength(255)]
         $external_id,
 
         [string]

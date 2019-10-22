@@ -15,7 +15,7 @@ function Push-SlackView {
     .PARAMETER view
         The view payload. Must be of type [Slack.Payloads.View]
     .LINK
-        https://api.slack.com/methods/views.open
+        https://api.slack.com/methods/views.push
     .EXAMPLE
         Push-SlackView -token $token -tiggerId '12345.98765.abcd2358fdea' -view $view
     .EXAMPLE 
