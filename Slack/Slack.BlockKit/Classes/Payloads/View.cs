@@ -5,7 +5,7 @@ namespace Slack
         public abstract class View
         {
             public string type;
-            private readonly string[] viewTypes = { "modal" };
+            private readonly string[] viewTypes = { "modal", "home" };
 
             public View(string type)
             {
