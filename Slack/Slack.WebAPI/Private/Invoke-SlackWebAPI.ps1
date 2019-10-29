@@ -7,6 +7,7 @@ function Invoke-SlackWebAPI {
         $Token,
 
         [string]
+        [ValidateSet('GET', 'POST')]
         $REST_Method = 'POST',
 
         [string]
@@ -26,5 +27,20 @@ function Invoke-SlackWebAPI {
         Authorization = "Bearer $token"
     }
 
-    Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType -Body ($Body | ConvertTo-NoNullsJson -Depth 100)
+    if ($ContentType -eq 'application/json;charset=iso-8859-1' ) {
+        if ($Body) {
+            Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType -Body ($Body | ConvertTo-NoNullsJson -Depth 100)
+        }
+        else {
+            Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType
+        }
+    }
+    elseif ($ContentType -eq 'application/x-www-form-urlencoded' ) {
+        if ($Body) {
+            Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType -Body $Body
+        }
+        else {
+            Invoke-RestMethod -Method $REST_Method -Uri $Uri -Headers $Headers -ContentType $ContentType
+        }
+    }
 }
