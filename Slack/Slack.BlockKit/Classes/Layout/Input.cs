@@ -34,13 +34,13 @@ namespace Slack
             {
                 get => _element; set
                 {
-                    if ((value is Slack.Composition.PlainText) || (value is Slack.Elements.SelectMenu) || (value is Slack.Elements.Datepicker))
+                    if ((value is Slack.Elements.PlainTextInput) || (value is Slack.Elements.SelectMenu) || (value is Slack.Elements.Datepicker))
                     {
                         _element = value;
                     }
                     else
                     {
-                        throw new System.Exception($"Input element must be either a PlainText object, SelectMenu, or Datepicker.");
+                        throw new System.Exception($"Input element must be either a PlainTextInput object, SelectMenu, or Datepicker.");
                     }
                 }
             }
