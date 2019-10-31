@@ -33,7 +33,7 @@ function Push-SlackView {
         $view
     )
 
-    $Body = @{
+    $Body = [PSCustomObject]@{
         trigger_id = $trigger_id
         view       = $view
     }

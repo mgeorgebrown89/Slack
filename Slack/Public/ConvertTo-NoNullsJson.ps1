@@ -20,7 +20,10 @@ function ConvertTo-NoNullsJson {
         $InputObject,
 
         [int]
-        $Depth = 2
+        $Depth = 2,
+
+        [switch]
+        $AsArray
     )
     begin {
         $list = [System.Collections.Generic.List[System.Object]]::new()
@@ -29,6 +32,11 @@ function ConvertTo-NoNullsJson {
         $list.Add((Remove-NullProperties -InputObject $InputObject))
     }
     end {
-        $list | ConvertTo-Json -Depth $Depth
+        if ($AsArray) {
+            $list | ConvertTo-Json -Depth $Depth -AsArray
+        }
+        else {
+            $list | ConvertTo-Json -Depth $Depth
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Slack
         using Slack.Elements;
         public class Context : Block
         {
-            private object[] _elements;
+            private object[] _elements = new object[10];
             private string _block_id;
             private const int block_idTextLength = 255;
 

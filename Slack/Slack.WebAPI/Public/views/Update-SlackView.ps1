@@ -33,7 +33,7 @@ function Update-SlackView {
         [Slack.Payloads.View]
         $view,
 
-        [ValidateLength(0,255)]
+        [ValidateLength(0, 255)]
         [string]
         $external_id,
 
@@ -44,7 +44,7 @@ function Update-SlackView {
         $view_id
     )
 
-    $Body = @{
+    $Body = [PSCustomObject]@{
         view        = $view
         external_id = $external_id
         hash        = $hash
