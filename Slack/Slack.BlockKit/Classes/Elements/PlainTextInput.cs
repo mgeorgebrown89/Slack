@@ -12,7 +12,7 @@ namespace Slack
             public string initial_value;
             public bool multiline;
             private uint _min_length;
-            private uint _max_length;
+            private uint _max_length = 100;
             private const int inputLengthMax = 3000;
 
             public PlainTextInput(string action_id) : base("plain_text_input")
