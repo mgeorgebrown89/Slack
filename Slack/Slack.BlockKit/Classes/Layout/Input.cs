@@ -10,6 +10,8 @@ namespace Slack
             private const int labelTextLength = 2000;
             private object _element;
             private PlainText _hint;
+            private string _block_id;
+            private const int block_idLength = 255;
             private const int hintTextLength = 2000;
             public bool optional;
 
@@ -42,6 +44,18 @@ namespace Slack
                     {
                         throw new System.Exception($"Input element must be either a PlainTextInput object, SelectMenu, or Datepicker.");
                     }
+                }
+            }
+
+            public string block_id
+            {
+                get => _block_id; set
+                {
+                    if (value.Length > block_idLength)
+                    {
+                        throw new System.Exception($"block_id length must be less than {block_idLength} characters.");
+                    }
+                    _block_id = value;
                 }
             }
             public PlainText hint
