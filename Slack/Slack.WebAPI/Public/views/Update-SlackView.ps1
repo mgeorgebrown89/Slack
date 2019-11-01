@@ -43,12 +43,22 @@ function Update-SlackView {
         [string]
         $view_id
     )
-
-    $Body = [PSCustomObject]@{
-        view        = $view
-        external_id = $external_id
-        hash        = $hash
-        view_id     = $view_id
+    if ($view_id -and !$external_id) {
+        $Body = [PSCustomObject]@{
+            view    = $view
+            hash    = $hash
+            view_id = $view_id
+        }
+    }
+    elseif ($external_id -and !$view_id) {
+        $Body = [PSCustomObject]@{
+            view        = $view
+            external_id = $external_id
+            hash        = $hash
+        }
+    }
+    else {
+        Write-Error "You can't use both view_id and external_id."
     }
     
     Invoke-SlackWebAPI -Token $Token -Method_Family "views.update" -Body $Body
