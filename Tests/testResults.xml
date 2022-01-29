@@ -1,0 +1,1315 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="192" errors="0" failures="162" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2022-01-29" time="12:27:43">
+  <environment clr-version="Unknown" cwd="C:\Users\mgeor\Repositories\Slack\Tests" user="mgeor" nunit-version="2.5.8.0" os-version="10.0.19043" platform="Microsoft Windows 10 Home|C:\Windows|\Device\Harddisk2\Partition3" machine-name="DESKTOP-75POCEK" user-domain="DESKTOP-75POCEK" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Failure" success="False" time="6.8895" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\Users\mgeor\Repositories\Slack\Tests\Repository.Tests.ps1" executed="True" result="Success" success="True" time="0.0853" asserts="0" description="C:\Users\mgeor\Repositories\Slack\Tests\Repository.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Slack | Repository Tests" executed="True" result="Success" success="True" time="0.0388" asserts="0" description="Slack | Repository Tests">
+            <results>
+              <test-suite type="TestFixture" name="Slack | Repository Tests.Slack| Repository Folder Structure" executed="True" result="Success" success="True" time="0.0318" asserts="0" description="Slack | Repository Tests.Slack| Repository Folder Structure">
+                <results>
+                  <test-case description="has the correct folders and folder structure" name="Slack | Repository Tests.Slack| Repository Folder Structure.has the correct folders and folder structure" time="0.0241" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1" executed="True" result="Failure" success="False" time="3.1617" asserts="0" description="C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Slack | Root Module Tests " executed="True" result="Success" success="True" time="0.0712" asserts="0" description="Slack | Root Module Tests ">
+            <results>
+              <test-suite type="TestFixture" name="Slack | Root Module Tests .Slack| Root Module Folder Structure " executed="True" result="Success" success="True" time="0.0323" asserts="0" description="Slack | Root Module Tests .Slack| Root Module Folder Structure ">
+                <results>
+                  <test-case description="has the root module folder" name="Slack | Root Module Tests .Slack| Root Module Folder Structure .has the root module folder" time="0.0128" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has a Public and a Private folder" name="Slack | Root Module Tests .Slack| Root Module Folder Structure .has a Public and a Private folder" time="0.0089" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has the root module and manifest files" name="Slack | Root Module Tests .Slack| Root Module Folder Structure .has the root module and manifest files" time="0.0055" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Root Module Tests .Slack | Root Module Content" executed="True" result="Success" success="True" time="0.0581" asserts="0" description="Slack | Root Module Tests .Slack | Root Module Content">
+                <results>
+                  <test-case description=".psd1 file references the correct .psm1 files" name="Slack | Root Module Tests .Slack | Root Module Content..psd1 file references the correct .psm1 files" time="0.0114" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="is valid PowerShell code" name="Slack | Root Module Tests .Slack | Root Module Content.is valid PowerShell code" time="0.0108" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Slack | Nested Module Tests" executed="True" result="Success" success="True" time="0.1317" asserts="0" description="Slack | Nested Module Tests">
+            <results>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Folder Structure" executed="True" result="Success" success="True" time="0.0326" asserts="0" description="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Folder Structure">
+                <results>
+                  <test-case description="has the nested module folder" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Folder Structure.has the nested module folder" time="0.0099" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has a Public and a Private folder" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Folder Structure.has a Public and a Private folder" time="0.013" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has the nested module files" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Folder Structure.has the nested module files" time="0.0056" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Content" executed="True" result="Success" success="True" time="0.0561" asserts="0" description="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Content">
+                <results>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Slack.BlockKit| Nested Module Content.is valid PowerShell code" time="0.017" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Slack | Nested Module Tests" executed="True" result="Failure" success="False" time="0.363" asserts="0" description="Slack | Nested Module Tests">
+            <results>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Folder Structure" executed="True" result="Success" success="True" time="0.0239" asserts="0" description="Slack | Nested Module Tests.Slack.Emoji| Nested Module Folder Structure">
+                <results>
+                  <test-case description="has the nested module folder" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Folder Structure.has the nested module folder" time="0.0066" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has a Public and a Private folder" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Folder Structure.has a Public and a Private folder" time="0.0095" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has the nested module files" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Folder Structure.has the nested module files" time="0.0039" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Content" executed="True" result="Success" success="True" time="0.0333" asserts="0" description="Slack | Nested Module Tests.Slack.Emoji| Nested Module Content">
+                <results>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Slack.Emoji| Nested Module Content.is valid PowerShell code" time="0.0062" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup" executed="True" result="Failure" success="False" time="0.1168" asserts="0" description="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup.-exists" time="0.0156" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup.is an advanced function" time="0.0433" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup.has only one function in script file" time="0.0055" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup.has matching file and function names" time="0.0072" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Setup.is valid PowerShell code" time="0.0079" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help" executed="True" result="Failure" success="False" time="0.1819" asserts="0" description="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help.has a Comment-Based help block" time="0.0093" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help.has a SYNOPSIS section in the help block" time="0.0211" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help.has a DESCRIPTION section in the help block" time="0.0103" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;tag&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help.parameter &quot;tag&quot; has a .PARAMETER description" time="0.0092" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Help.has at least one EXAMPLE in the help block" time="0.0106" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Test File" executed="True" result="Failure" success="False" time="0.2272" asserts="0" description="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Test File">
+                <results>
+                  <test-case description="Get-RandomSlackEmoji.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Test File.Get-RandomSlackEmoji.Tests.ps1 should -exist" time="0.0225" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Get-RandomSlackEmoji Test File.Test file removes module and loads it locally" time="0.0193" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Slack | Nested Module Tests" executed="True" result="Failure" success="False" time="2.5271" asserts="0" description="Slack | Nested Module Tests">
+            <results>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Folder Structure" executed="True" result="Success" success="True" time="0.0248" asserts="0" description="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Folder Structure">
+                <results>
+                  <test-case description="has the nested module folder" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Folder Structure.has the nested module folder" time="0.0099" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has a Public and a Private folder" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Folder Structure.has a Public and a Private folder" time="0.0065" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has the nested module files" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Folder Structure.has the nested module files" time="0.0036" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Content" executed="True" result="Success" success="True" time="0.0341" asserts="0" description="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Content">
+                <results>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Slack.WebAPI| Nested Module Content.is valid PowerShell code" time="0.0057" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup" executed="True" result="Failure" success="False" time="0.2261" asserts="0" description="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup.-exists" time="0.0142" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup.is an advanced function" time="0.0139" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup.has only one function in script file" time="0.1333" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup.has matching file and function names" time="0.0068" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Setup.is valid PowerShell code" time="0.01" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help" executed="True" result="Failure" success="False" time="0.3122" asserts="0" description="Slack | Nested Module Tests.Function Test-SlackWebAPI Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.has a Comment-Based help block" time="0.0278" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.has a SYNOPSIS section in the help block" time="0.0115" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.has a DESCRIPTION section in the help block" time="0.0088" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0095" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Body&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.parameter &quot;Body&quot; has a .PARAMETER description" time="0.0072" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Help.has at least one EXAMPLE in the help block" time="0.0127" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Test File" executed="True" result="Failure" success="False" time="0.3486" asserts="0" description="Slack | Nested Module Tests.Function Test-SlackWebAPI Test File">
+                <results>
+                  <test-case description="Test-SlackWebAPI.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Test File.Test-SlackWebAPI.Tests.ps1 should -exist" time="0.0142" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Test-SlackWebAPI Test File.Test file removes module and loads it locally" time="0.0188" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup" executed="True" result="Failure" success="False" time="0.3998" asserts="0" description="Slack | Nested Module Tests.Function Remove-SlackMessage Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup.-exists" time="0.0114" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup.is an advanced function" time="0.0104" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup.has only one function in script file" time="0.0066" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup.has matching file and function names" time="0.0075" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Remove-SlackMessage Setup.is valid PowerShell code" time="0.0108" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help" executed="True" result="Failure" success="False" time="0.4741" asserts="0" description="Slack | Nested Module Tests.Function Remove-SlackMessage Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.has a Comment-Based help block" time="0.008" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.has a SYNOPSIS section in the help block" time="0.0108" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.has a DESCRIPTION section in the help block" time="0.0104" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0065" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;ChannelId&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.parameter &quot;ChannelId&quot; has a .PARAMETER description" time="0.0063" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Timestamp&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.parameter &quot;Timestamp&quot; has a .PARAMETER description" time="0.0107" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;as_user&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.parameter &quot;as_user&quot; has a .PARAMETER description" time="0.0065" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Remove-SlackMessage Help.has at least one EXAMPLE in the help block" time="0.0103" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Remove-SlackMessage Test File" executed="True" result="Failure" success="False" time="0.5119" asserts="0" description="Slack | Nested Module Tests.Function Remove-SlackMessage Test File">
+                <results>
+                  <test-case description="Remove-SlackMessage.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Remove-SlackMessage Test File.Remove-SlackMessage.Tests.ps1 should -exist" time="0.0146" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Remove-SlackMessage Test File.Test file removes module and loads it locally" time="0.0184" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup" executed="True" result="Failure" success="False" time="0.5589" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup.-exists" time="0.0088" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup.is an advanced function" time="0.0155" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup.has only one function in script file" time="0.0037" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup.has matching file and function names" time="0.0056" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Setup.is valid PowerShell code" time="0.0062" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help" executed="True" result="Failure" success="False" time="0.6313" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMeMessage Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.has a Comment-Based help block" time="0.0072" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.has a SYNOPSIS section in the help block" time="0.0143" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.has a DESCRIPTION section in the help block" time="0.0114" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0065" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Channel&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.parameter &quot;Channel&quot; has a .PARAMETER description" time="0.0105" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Text&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.parameter &quot;Text&quot; has a .PARAMETER description" time="0.0067" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Help.has at least one EXAMPLE in the help block" time="0.0122" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Test File" executed="True" result="Failure" success="False" time="0.6728" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMeMessage Test File">
+                <results>
+                  <test-case description="Send-SlackMeMessage.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Test File.Send-SlackMeMessage.Tests.ps1 should -exist" time="0.0186" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Send-SlackMeMessage Test File.Test file removes module and loads it locally" time="0.0196" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup" executed="True" result="Failure" success="False" time="0.7191" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMessage Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup.-exists" time="0.0084" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup.is an advanced function" time="0.0144" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup.has only one function in script file" time="0.0034" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup.has matching file and function names" time="0.0069" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Send-SlackMessage Setup.is valid PowerShell code" time="0.0081" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMessage Help" executed="True" result="Failure" success="False" time="0.7812" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMessage Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.has a Comment-Based help block" time="0.0103" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.has a SYNOPSIS section in the help block" time="0.0115" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.has a DESCRIPTION section in the help block" time="0.0117" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.007" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Message&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.parameter &quot;Message&quot; has a .PARAMETER description" time="0.0063" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Send-SlackMessage Help.has at least one EXAMPLE in the help block" time="0.0112" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Send-SlackMessage Test File" executed="True" result="Failure" success="False" time="0.8222" asserts="0" description="Slack | Nested Module Tests.Function Send-SlackMessage Test File">
+                <results>
+                  <test-case description="Send-SlackMessage.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Send-SlackMessage Test File.Send-SlackMessage.Tests.ps1 should -exist" time="0.018" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Send-SlackMessage Test File.Test file removes module and loads it locally" time="0.0196" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup" executed="True" result="Failure" success="False" time="0.8699" asserts="0" description="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup.-exists" time="0.0086" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup.is an advanced function" time="0.0118" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup.has only one function in script file" time="0.0074" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup.has matching file and function names" time="0.0061" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Setup.is valid PowerShell code" time="0.0065" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help" executed="True" result="Failure" success="False" time="0.9413" asserts="0" description="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.has a Comment-Based help block" time="0.0083" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.has a SYNOPSIS section in the help block" time="0.0149" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.has a DESCRIPTION section in the help block" time="0.0074" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.parameter &quot;token&quot; has a .PARAMETER description" time="0.0071" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;batch_presence_aware&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.parameter &quot;batch_presence_aware&quot; has a .PARAMETER description" time="0.0076" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;presence_sub&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.parameter &quot;presence_sub&quot; has a .PARAMETER description" time="0.0092" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Help.has at least one EXAMPLE in the help block" time="0.013" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Test File" executed="True" result="Failure" success="False" time="0.9756" asserts="0" description="Slack | Nested Module Tests.Function Connect-SlackRtmSession Test File">
+                <results>
+                  <test-case description="Connect-SlackRtmSession.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Test File.Connect-SlackRtmSession.Tests.ps1 should -exist" time="0.0126" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Connect-SlackRtmSession Test File.Test file removes module and loads it locally" time="0.0185" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup" executed="True" result="Failure" success="False" time="1.021" asserts="0" description="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup.-exists" time="0.0084" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup.is an advanced function" time="0.015" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup.has only one function in script file" time="0.0035" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup.has matching file and function names" time="0.0064" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Setup.is valid PowerShell code" time="0.0074" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help" executed="True" result="Failure" success="False" time="1.1329" asserts="0" description="Slack | Nested Module Tests.Function Start-SlackRtmSession Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.has a Comment-Based help block" time="0.0119" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.has a SYNOPSIS section in the help block" time="0.0132" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.has a DESCRIPTION section in the help block" time="0.0071" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;token&quot; has a .PARAMETER description" time="0.0071" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;batch_presence_aware&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;batch_presence_aware&quot; has a .PARAMETER description" time="0.0094" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;include_locale&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;include_locale&quot; has a .PARAMETER description" time="0.0067" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;mpim_aware&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;mpim_aware&quot; has a .PARAMETER description" time="0.0097" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;no_latest&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;no_latest&quot; has a .PARAMETER description" time="0.0064" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;no_unreads&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;no_unreads&quot; has a .PARAMETER description" time="0.0064" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;presence_sub&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;presence_sub&quot; has a .PARAMETER description" time="0.0085" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;simple_latest&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.parameter &quot;simple_latest&quot; has a .PARAMETER description" time="0.0077" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Help.has at least one EXAMPLE in the help block" time="0.0127" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Test File" executed="True" result="Failure" success="False" time="1.1726" asserts="0" description="Slack | Nested Module Tests.Function Start-SlackRtmSession Test File">
+                <results>
+                  <test-case description="Start-SlackRtmSession.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Test File.Start-SlackRtmSession.Tests.ps1 should -exist" time="0.0192" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Start-SlackRtmSession Test File.Test file removes module and loads it locally" time="0.0169" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup" executed="True" result="Failure" success="False" time="1.2211" asserts="0" description="Slack | Nested Module Tests.Function Get-SlackUsers Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup.-exists" time="0.0089" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup.is an advanced function" time="0.0146" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup.has only one function in script file" time="0.0033" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup.has matching file and function names" time="0.0079" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Get-SlackUsers Setup.is valid PowerShell code" time="0.0066" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-SlackUsers Help" executed="True" result="Failure" success="False" time="1.2997" asserts="0" description="Slack | Nested Module Tests.Function Get-SlackUsers Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.has a Comment-Based help block" time="0.0124" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.has a SYNOPSIS section in the help block" time="0.0143" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.has a DESCRIPTION section in the help block" time="0.0078" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0091" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;cursor&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.parameter &quot;cursor&quot; has a .PARAMETER description" time="0.007" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;include_locale&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.parameter &quot;include_locale&quot; has a .PARAMETER description" time="0.0064" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;limit&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.parameter &quot;limit&quot; has a .PARAMETER description" time="0.0059" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Get-SlackUsers Help.has at least one EXAMPLE in the help block" time="0.0111" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Get-SlackUsers Test File" executed="True" result="Failure" success="False" time="1.3365" asserts="0" description="Slack | Nested Module Tests.Function Get-SlackUsers Test File">
+                <results>
+                  <test-case description="Get-SlackUsers.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Get-SlackUsers Test File.Get-SlackUsers.Tests.ps1 should -exist" time="0.0163" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Get-SlackUsers Test File.Test file removes module and loads it locally" time="0.0169" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Open-SlackView Setup" executed="True" result="Failure" success="False" time="1.3891" asserts="0" description="Slack | Nested Module Tests.Function Open-SlackView Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Open-SlackView Setup.-exists" time="0.0085" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Open-SlackView Setup.is an advanced function" time="0.0186" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Open-SlackView Setup.has only one function in script file" time="0.004" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Open-SlackView Setup.has matching file and function names" time="0.0073" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Open-SlackView Setup.is valid PowerShell code" time="0.0063" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Open-SlackView Help" executed="True" result="Failure" success="False" time="1.4579" asserts="0" description="Slack | Nested Module Tests.Function Open-SlackView Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Open-SlackView Help.has a Comment-Based help block" time="0.0115" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Open-SlackView Help.has a SYNOPSIS section in the help block" time="0.0113" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Open-SlackView Help.has a DESCRIPTION section in the help block" time="0.0091" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Open-SlackView Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0095" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;trigger_id&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Open-SlackView Help.parameter &quot;trigger_id&quot; has a .PARAMETER description" time="0.007" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;view&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Open-SlackView Help.parameter &quot;view&quot; has a .PARAMETER description" time="0.0093" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Open-SlackView Help.has at least one EXAMPLE in the help block" time="0.0065" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Open-SlackView Test File" executed="True" result="Failure" success="False" time="1.4969" asserts="0" description="Slack | Nested Module Tests.Function Open-SlackView Test File">
+                <results>
+                  <test-case description="Open-SlackView.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Open-SlackView Test File.Open-SlackView.Tests.ps1 should -exist" time="0.0184" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Open-SlackView Test File.Test file removes module and loads it locally" time="0.0166" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Publish-SlackView Setup" executed="True" result="Failure" success="False" time="1.5433" asserts="0" description="Slack | Nested Module Tests.Function Publish-SlackView Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Publish-SlackView Setup.-exists" time="0.0122" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Publish-SlackView Setup.is an advanced function" time="0.0117" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Publish-SlackView Setup.has only one function in script file" time="0.006" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Publish-SlackView Setup.has matching file and function names" time="0.0052" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Publish-SlackView Setup.is valid PowerShell code" time="0.0068" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Publish-SlackView Help" executed="True" result="Failure" success="False" time="1.6233" asserts="0" description="Slack | Nested Module Tests.Function Publish-SlackView Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Publish-SlackView Help.has a Comment-Based help block" time="0.0106" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Publish-SlackView Help.has a SYNOPSIS section in the help block" time="0.012" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Publish-SlackView Help.has a DESCRIPTION section in the help block" time="0.0106" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Publish-SlackView Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0059" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;user_id&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Publish-SlackView Help.parameter &quot;user_id&quot; has a .PARAMETER description" time="0.0103" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;view&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Publish-SlackView Help.parameter &quot;view&quot; has a .PARAMETER description" time="0.0077" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;hash&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Publish-SlackView Help.parameter &quot;hash&quot; has a .PARAMETER description" time="0.0101" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Publish-SlackView Help.has at least one EXAMPLE in the help block" time="0.008" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Publish-SlackView Test File" executed="True" result="Failure" success="False" time="1.6627" asserts="0" description="Slack | Nested Module Tests.Function Publish-SlackView Test File">
+                <results>
+                  <test-case description="Publish-SlackView.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Publish-SlackView Test File.Publish-SlackView.Tests.ps1 should -exist" time="0.0185" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Publish-SlackView Test File.Test file removes module and loads it locally" time="0.0174" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Push-SlackView Setup" executed="True" result="Failure" success="False" time="1.7687" asserts="0" description="Slack | Nested Module Tests.Function Push-SlackView Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Push-SlackView Setup.-exists" time="0.0128" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Push-SlackView Setup.is an advanced function" time="0.0126" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Push-SlackView Setup.has only one function in script file" time="0.0038" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Push-SlackView Setup.has matching file and function names" time="0.0092" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Push-SlackView Setup.is valid PowerShell code" time="0.062" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Push-SlackView Help" executed="True" result="Failure" success="False" time="1.9118" asserts="0" description="Slack | Nested Module Tests.Function Push-SlackView Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Push-SlackView Help.has a Comment-Based help block" time="0.0686" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Push-SlackView Help.has a SYNOPSIS section in the help block" time="0.0102" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Push-SlackView Help.has a DESCRIPTION section in the help block" time="0.0127" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Push-SlackView Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0069" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;trigger_id&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Push-SlackView Help.parameter &quot;trigger_id&quot; has a .PARAMETER description" time="0.0058" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;view&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Push-SlackView Help.parameter &quot;view&quot; has a .PARAMETER description" time="0.0093" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Push-SlackView Help.has at least one EXAMPLE in the help block" time="0.0093" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Push-SlackView Test File" executed="True" result="Failure" success="False" time="1.9543" asserts="0" description="Slack | Nested Module Tests.Function Push-SlackView Test File">
+                <results>
+                  <test-case description="Push-SlackView.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Push-SlackView Test File.Push-SlackView.Tests.ps1 should -exist" time="0.0166" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Push-SlackView Test File.Test file removes module and loads it locally" time="0.0224" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Update-SlackView Setup" executed="True" result="Failure" success="False" time="2.0315" asserts="0" description="Slack | Nested Module Tests.Function Update-SlackView Setup">
+                <results>
+                  <test-case description="-exists" name="Slack | Nested Module Tests.Function Update-SlackView Setup.-exists" time="0.0095" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected path '\.ps1' to exist, but it did not exist.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -Exist, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:168</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is an advanced function" name="Slack | Nested Module Tests.Function Update-SlackView Setup.is an advanced function" time="0.0158" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 'function' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch 'function', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:172</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has only one function in script file" name="Slack | Nested Module Tests.Function Update-SlackView Setup.has only one function in script file" time="0.0033" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has matching file and function names" name="Slack | Nested Module Tests.Function Update-SlackView Setup.has matching file and function names" time="0.0334" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:180</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="is valid PowerShell code" name="Slack | Nested Module Tests.Function Update-SlackView Setup.is valid PowerShell code" time="0.0111" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>PSArgumentNullException: Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value.
+MethodInvocationException: Exception calling "Tokenize" with "2" argument(s): "Cannot process argument because the value of argument "script" is null. Change the value of argument "script" to a non-null value."</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:184</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Update-SlackView Help" executed="True" result="Failure" success="False" time="2.1175" asserts="0" description="Slack | Nested Module Tests.Function Update-SlackView Help">
+                <results>
+                  <test-case description="has a Comment-Based help block" name="Slack | Nested Module Tests.Function Update-SlackView Help.has a Comment-Based help block" time="0.0113" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Cannot index into a null array.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:190</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a SYNOPSIS section in the help block" name="Slack | Nested Module Tests.Function Update-SlackView Help.has a SYNOPSIS section in the help block" time="0.0105" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected '.SYNOPSIS' to be found in file '\.ps1', but it was not found.</message>
+                      <stack-trace>at "$directory\$functionName.ps1" | Should -FileContentMatch '.SYNOPSIS', C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:194</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has a DESCRIPTION section in the help block" name="Slack | Nested Module Tests.Function Update-SlackView Help.has a DESCRIPTION section in the help block" time="0.0117" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected a value, but got $null or empty.</message>
+                      <stack-trace>at $scriptHelp.description | Should -Not -BeNullOrEmpty, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:199</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;Token&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Update-SlackView Help.parameter &quot;Token&quot; has a .PARAMETER description" time="0.0066" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;view&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Update-SlackView Help.parameter &quot;view&quot; has a .PARAMETER description" time="0.0072" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;external_id&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Update-SlackView Help.parameter &quot;external_id&quot; has a .PARAMETER description" time="0.0095" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;hash&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Update-SlackView Help.parameter &quot;hash&quot; has a .PARAMETER description" time="0.006" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="parameter &quot;view_id&quot; has a .PARAMETER description" name="Slack | Nested Module Tests.Function Update-SlackView Help.parameter &quot;view_id&quot; has a .PARAMETER description" time="0.0099" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Parameter' because it is null.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:204</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="has at least one EXAMPLE in the help block" name="Slack | Nested Module Tests.Function Update-SlackView Help.has at least one EXAMPLE in the help block" time="0.0081" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected the actual value to be greater than 0, but got 0.</message>
+                      <stack-trace>at $scripthelp.examples.example.Count | Should -BeGreaterThan 0, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208
+at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:208</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Slack | Nested Module Tests.Function Update-SlackView Test File" executed="True" result="Failure" success="False" time="2.1597" asserts="0" description="Slack | Nested Module Tests.Function Update-SlackView Test File">
+                <results>
+                  <test-case description="Update-SlackView.Tests.ps1 should -exist" name="Slack | Nested Module Tests.Function Update-SlackView Test File.Update-SlackView.Tests.ps1 should -exist" time="0.0148" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+RuntimeException: Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4
+ParameterBindingException: Cannot retrieve the dynamic parameters for the cmdlet. Legacy Should syntax (without dashes) is not supported in Pester 5. Please refer to migration guide at: https://pester.dev/docs/migrations/v3-to-v4</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1:213</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Test file removes module and loads it locally" name="Slack | Nested Module Tests.Function Update-SlackView Test File.Test file removes module and loads it locally" time="0.019" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>ParameterBindingValidationException: Cannot bind argument to parameter 'Path' because it is null.</message>
+                      <stack-trace />
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

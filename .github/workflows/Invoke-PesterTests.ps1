@@ -1,9 +1,11 @@
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+# $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-$result = Invoke-Pester -OutputFile "$root\Slack.Tests.xml" -OutputFormat NUnitXML -PassThru
-$result | ConvertTo-Json -Depth 100 | Out-File -FilePath "$root\Slack.Tests.json"
+$pesterConfiguration = [PesterConfiguration]$pesterConfiguration
 
-if ($result.failedCount -ne 0) { 
-    $x = $result.failedCount
-    Write-Error "Pester returned $x errors. Build aborted."
-}
+$result = Invoke-Pester -CI -PassThru -Output Detailed
+$result #| ConvertTo-Json -Depth 100 | Out-File -FilePath "$root\Slack.Tests.json"
+
+# if ($result.failedCount -ne 0) { 
+#     $x = $result.failedCount
+#     Write-Error "Pester returned $x errors. Build aborted."
+# }

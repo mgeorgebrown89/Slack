@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2022-01-29" time="12:02:56">
+  <environment clr-version="Unknown" cwd="C:\Users\mgeor\Repositories\Slack" user="mgeor" nunit-version="2.5.8.0" os-version="10.0.19043" platform="Microsoft Windows 10 Home|C:\Windows|\Device\Harddisk2\Partition3" machine-name="DESKTOP-75POCEK" user-domain="DESKTOP-75POCEK" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="4.2976" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\Users\mgeor\Repositories\Slack\Tests\Repository.Tests.ps1" executed="True" result="Success" success="True" time="0.1216" asserts="0" description="C:\Users\mgeor\Repositories\Slack\Tests\Repository.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name=" | Repository Tests" executed="True" result="Success" success="True" time="0.0571" asserts="0" description=" | Repository Tests">
+            <results>
+              <test-suite type="TestFixture" name=" | Repository Tests.| Repository Folder Structure" executed="True" result="Success" success="True" time="0.0493" asserts="0" description=" | Repository Tests.| Repository Folder Structure">
+                <results>
+                  <test-case description="has the correct folders and folder structure" name=" | Repository Tests.| Repository Folder Structure.has the correct folders and folder structure" time="0.0427" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1" executed="True" result="Success" success="True" time="0.4785" asserts="0" description="C:\Users\mgeor\Repositories\Slack\Tests\Slack.Module.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name=" | Root Module Tests " executed="True" result="Success" success="True" time="0.3476" asserts="0" description=" | Root Module Tests ">
+            <results>
+              <test-suite type="TestFixture" name=" | Root Module Tests .| Root Module Folder Structure " executed="True" result="Success" success="True" time="0.0414" asserts="0" description=" | Root Module Tests .| Root Module Folder Structure ">
+                <results>
+                  <test-case description="has the root module folder" name=" | Root Module Tests .| Root Module Folder Structure .has the root module folder" time="0.0134" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has a Public and a Private folder" name=" | Root Module Tests .| Root Module Folder Structure .has a Public and a Private folder" time="0.0107" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="has the root module and manifest files" name=" | Root Module Tests .| Root Module Folder Structure .has the root module and manifest files" time="0.0087" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name=" | Root Module Tests . | Root Module Content" executed="True" result="Success" success="True" time="0.0825" asserts="0" description=" | Root Module Tests . | Root Module Content">
+                <results>
+                  <test-case description=".psd1 file references the correct .psm1 files" name=" | Root Module Tests . | Root Module Content..psd1 file references the correct .psm1 files" time="0.0242" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="is valid PowerShell code" name=" | Root Module Tests . | Root Module Content.is valid PowerShell code" time="0.0096" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
