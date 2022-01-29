@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/mgeorgebrown89/Slack/master/Media/Slack_Module_icon.png" alt="Slack Module" width="50"/> Slack, A PowerShell Module
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fmgeorgebrown89%2Fslack%2Fbadge%3Fref%3Dmaster&style=for-the-badge)](https://actions-badge.atrox.dev/mgeorgebrown89/slack/goto?ref=master)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fmgeorgebrown89%2Fslack%2Fbadge%3Fref%3Dmain&style=for-the-badge)](https://actions-badge.atrox.dev/mgeorgebrown89/slack/goto?ref=master)
 ![GitHubRelease][] [![PSGallery][]][PSGalleryLink] [![PSGalleryDL][]][PSGalleryDLLink] [![Slack][]][SlackLink] [![License][]][LicenseLink]
 
 ---
